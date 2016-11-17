@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import DropdownMenuItem from './DropdownMenuItem';
+import { RootCloseWrapper } from 'bee-overlay';
 // import createChainedFunction from './utils/createChainedFunction';
 
 const propTypes = {
-    pullRight: React.PropTypes.bool,
-    dropup: React.PropTypes.bool,
-    onClose: React.PropTypes.func,
-    onSelect: React.PropTypes.func,
-    type: React.PropTypes.oneOf(['primary', 'accent', 'danger', 'info', 'success', 'warning', '']),
-    open: React.PropTypes.bool
+    pullRight: PropTypes.bool,
+    dropup: PropTypes.bool,
+    onClose: PropTypes.func,
+    onSelect: PropTypes.func,
+    type: PropTypes.oneOf(['primary', 'accent', 'danger', 'info', 'success', 'warning', '']),
+    open: PropTypes.bool,
+    labelledBy: PropTypes.oneOfType([
+      PropTypes.string, PropTypes.number,
+    ]),
+    rootCloseEvent: PropTypes.oneOf(['click', 'mousedown'])
 };
 
 const defaultProps = {
@@ -38,22 +43,61 @@ class DorpdownMenu extends React.Component {
           this.handleSelect = this.handleSelect.bind(this);
     }
 
-    // getFocusableMenuItems() {
-    //     let menuNode = ReactDOM.findDOMNode(this);
-    //     if (menuNode === undefined) {
-    //         return [];
-    //     }
-    //     return Array.from(menuNode.querySelectorAll('[role="menu-item"]'));
-    // }
-    // getItemsAndActiveIndex() {
-    //     let items = this.getFocusableMenuItems();
-    //     let activeItemIndex = items.indexOf(document.activeElement);
-    //
-    //     return {
-    //         items,
-    //         activeItemIndex
-    //     };
-    // }
+    handleKeyDown(event) {
+      switch (event.keyCode) {
+        case keycode.codes.down:
+          this.focusNext();
+          event.preventDefault();
+          break;
+        case keycode.codes.up:
+          this.focusPrevious();
+          event.preventDefault();
+          break;
+        case keycode.codes.esc:
+        case keycode.codes.tab:
+          this.props.onClose(event);
+          break;
+        default:
+      }
+    }
+
+    getFocusableMenuItems() {
+        let menuNode = ReactDOM.findDOMNode(this);
+        if (menuNode === undefined) {
+            return [];
+        }
+        return Array.from(menuNode.querySelectorAll('[role="menu-item"]'));
+    }
+    getItemsAndActiveIndex() {
+        let items = this.getFocusableMenuItems();
+        let activeItemIndex = items.indexOf(document.activeElement);
+
+        return {
+            items,
+            activeItemIndex
+        };
+    }
+
+    focusNext() {
+      const { items, activeIndex } = this.getItemsAndActiveIndex();
+      if (items.length === 0) {
+        return;
+      }
+
+      const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
+      items[nextIndex].focus();
+    }
+
+    focusPrevious() {
+      const { items, activeIndex } = this.getItemsAndActiveIndex();
+      if (items.length === 0) {
+        return;
+      }
+
+      const prevIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
+      items[prevIndex].focus();
+    }
+
     handleSelect(event){
         let { onClose, onSelect } = this.props;
         onSelect && onSelect();
@@ -61,7 +105,7 @@ class DorpdownMenu extends React.Component {
     }
     render(){
 
-        let { pullRight, children, className, clsPrefix, activeKey, dropup, open, type, ...props} = this.props;
+        let { pullRight, children, className, clsPrefix, activeKey, dropup, open, rootCloseEvent, onClose, labelledBy, type, ...props} = this.props;
 
         const items = React.Children.map(children,(item, index) => {
             let childProps = {
@@ -92,13 +136,20 @@ class DorpdownMenu extends React.Component {
         }
 
         return (
+            <RootCloseWrapper
+              disabled={!open}
+              onRootClose={onClose}
+              event={rootCloseEvent}
+            >
             <ul
                 {...props}
                 className = {classNames(className, classes)}
-                role = "menu"
+                role = "menu",
+                aria-labelledby={labelledBy}
             >
                 {items}
             </ul>
+            </RootCloseWrapper>
         );
 
 
