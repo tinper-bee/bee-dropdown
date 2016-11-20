@@ -1,62 +1,56 @@
-import React, { PropTypes, Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
-import Button from 'bee-button';
-import SafeAnchor from 'bee-safe-anchor';
-
+import  Button from 'bee-button';
 
 const propTypes = {
-  noCaret: PropTypes.bool,
-  open: PropTypes.bool,
-  title: PropTypes.string,
-  useAnchor: PropTypes.bool,
+    noCaret: React.PropTypes.bool,
+    title: React.PropTypes.string,
+    useAnchor: React.PropTypes.bool,
+    dropup: React.PropTypes.bool
 };
 
 const defaultProps = {
-  open: false,
-  useAnchor: false,
-  role: 'toggle',
-  clsPrefix: ''
-};
-
-class DropdownToggle extends Component {
-  render() {
-    const {
-      noCaret,
-      open,
-      useAnchor,
-      clsPrefix,
-      className,
-      children,
-      ...props
-    } = this.props;
-
-    delete props.bsRole;
-
-    const Component = useAnchor ? SafeAnchor : Button;
-    const useCaret = !noCaret;
-
-    // This intentionally forwards bsSize and bsStyle (if set) to the
-    // underlying component, to allow it to render size and style variants.
-
-    // FIXME: Should this really fall back to `title` as children?
-
-    return (
-      <Component
-        {...props}
-        role="button"
-        className={classNames(className)}
-        aria-haspopup
-        aria-expanded={open}
-      >
-        {children || props.title}
-        {useCaret && ' '}
-        {useCaret && <span className="caret" />}
-      </Component>
-    );
-  }
+    noCaret: false,
+    useAnchor: false,
+    dropup: false
 }
 
-DropdownToggle.propTypes = propTypes;
-DropdownToggle.defaultProps = defaultProps;
+const CARET = <i className="uf uf-anglearrowdown"></i>;
 
-export default DropdownToggle;
+const CARETUP = <i className="uf uf-chevronarrowup"></i>;
+
+class DorpdownToggle extends React.Component {
+    constructor (props) {
+        super(props);
+    }
+
+    render() {
+        let { dropup } = this.props;
+        let caret = this.props.noCaret ? null : (dropup ? CARETUP : CARET);
+        let Component =  this.props.useAnchor ? 'a' : Button;
+
+        let classes = {
+            ['dropdown-toggle'] : true
+        };
+        console.log()
+        return (
+            <Component
+                {...this.props}
+                className = {classNames(classes, this.props.className)}
+                htmlType = "button"
+                role = "toggle"
+            >
+                { this.props.title || this.props.children }
+                {caret}
+            </Component>
+        );
+    }
+
+};
+
+DorpdownToggle.propTypes = propTypes;
+
+DorpdownToggle.defaultProps = defaultProps;
+
+
+export default DorpdownToggle;
