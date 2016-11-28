@@ -6,7 +6,7 @@ const SHAPES = ['primary', 'accent','success', 'warning', 'danger', 'info'];
 
 function renderButtonGroup(shape,index){
     return (
-        <Dropdown type={shape}  title={shape} key={index}>
+        <Dropdown colors={shape}  title={shape} key={index}>
             <Dropdown.Item eventKey="A" >Default Item</Dropdown.Item>
             <Dropdown.Item eventKey="B" active>Active Item</Dropdown.Item>
             <Dropdown.Item eventKey="C" disabled>Disabled Item</Dropdown.Item>
@@ -45,14 +45,14 @@ class Demo extends Component {
       <Dropdown.Item href="http://www.baidu.com">下拉4</Dropdown.Item>
       </Dropdown>
       <h3>上拉</h3>
-      <Dropdown title="default" dropup type="primary">
+      <Dropdown title="default" dropup colors="primary">
       <Dropdown.Item disabled>下拉一</Dropdown.Item>
       <Dropdown.Item>下拉2</Dropdown.Item>
       <Dropdown.Item>下拉3</Dropdown.Item>
       <Dropdown.Item>下拉4</Dropdown.Item>
       </Dropdown>
       <h3>上拉</h3>
-      <Dropdown title="default" type="primary">
+      <Dropdown title="default" colors="primary">
       <Dropdown.Item disabled>下拉一</Dropdown.Item>
       <Dropdown.Item>下拉2</Dropdown.Item>
       <Dropdown.Item>下拉3</Dropdown.Item>
