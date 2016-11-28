@@ -10,7 +10,7 @@ const propTypes = {
     dropup: PropTypes.bool,
     onClose: PropTypes.func,
     onSelect: PropTypes.func,
-    type: PropTypes.oneOf(['primary', 'accent', 'danger', 'info', 'success', 'warning', '']),
+    colors: PropTypes.oneOf(['primary', 'accent', 'danger', 'info', 'success', 'warning']),
     open: PropTypes.bool,
     labelledBy: PropTypes.oneOfType([
       PropTypes.string, PropTypes.number,
@@ -21,7 +21,6 @@ const propTypes = {
 const defaultProps = {
     clsPrefix: 'u-menu',
     pullRight: false,
-    type: '',
     dropup: false,
     open: false
 };
@@ -105,7 +104,20 @@ class DorpdownMenu extends React.Component {
     }
     render(){
 
-        let { pullRight, children, className, clsPrefix, activeKey, dropup, open, rootCloseEvent, onClose, labelledBy, type, ...props} = this.props;
+        let {
+            pullRight,
+            children,
+            className,
+            clsPrefix,
+            activeKey,
+            dropup,
+            open,
+            rootCloseEvent,
+            onClose,
+            labelledBy,
+            colors,
+            ...props
+            } = this.props;
 
         const items = React.Children.map(children,(item, index) => {
             let childProps = {
@@ -131,8 +143,8 @@ class DorpdownMenu extends React.Component {
             "show": open
         };
 
-        if(color[type]){
-              classes[`${clsPrefix}-${color[type]}`] = true;
+        if(color[colors]){
+              classes[`${clsPrefix}-${color[colors]}`] = true;
         }
 
         return (

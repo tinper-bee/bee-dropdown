@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 
 import { RootCloseWrapper } from 'bee-overlay';
@@ -9,23 +9,23 @@ import DropdownMenuItem from './DropdownMenuItem';
 const DIV = 'div';
 
 const propTypes = {
-  active: React.PropTypes.bool,
-  disabled: React.PropTypes.bool,
-  trigger: React.PropTypes.string,
+  active: PropTypes.bool,
+  disabled: PropTypes.bool,
+  trigger: PropTypes.string,
   // block: React.PropTypes.bool,
-  dropup: React.PropTypes.bool,
-  role: React.PropTypes.string,
-  onClose: React.PropTypes.func,
-  onOpen: React.PropTypes.func,
-  onToggle: React.PropTypes.func,
-  onSelect: React.PropTypes.func,
+  dropup: PropTypes.bool,
+  role: PropTypes.string,
+  onClose: PropTypes.func,
+  onOpen: PropTypes.func,
+  onToggle: PropTypes.func,
+  onSelect: PropTypes.func,
   /*
    * If 'select' is true , title will be updated after the 'onSelect' trigger .
    */
-  select: React.PropTypes.bool,
-  activeKey: React.PropTypes.any,
-  bothEnds: React.PropTypes.bool,
-  menuStyle: React.PropTypes.object
+  select: PropTypes.bool,
+  activeKey: PropTypes.any,
+  bothEnds: PropTypes.bool,
+  menuStyle: PropTypes.object
 };
 
 const defaultProps = {
@@ -156,8 +156,8 @@ class Dropdown extends React.Component {
                 onSelect={this.handleSelect}
                 activeKey={this.state.activeKey}
                 open={this.state.open}
+                colors = {this.props.colors}
                 dropup={dropup}
-                type={this.props.type}
                 style={menuStyle}
                 ref='menu'
                 onMouseLeave = {this.handleMouseLeave}
@@ -167,7 +167,6 @@ class Dropdown extends React.Component {
         );
 
         if (this.state.open) {
-            console.log(RootCloseWrapper);
             Menu = (
                 <RootCloseWrapper onRootClose={this.toggle}>
                     {Menu}

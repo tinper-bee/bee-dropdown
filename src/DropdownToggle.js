@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import  Button from 'bee-button';
 
 const propTypes = {
-    noCaret: React.PropTypes.bool,
-    title: React.PropTypes.string,
-    useAnchor: React.PropTypes.bool,
-    dropup: React.PropTypes.bool
+    noCaret: PropTypes .bool,
+    title: PropTypes.string,
+    useAnchor: PropTypes.bool,
+    dropup: PropTypes.bool
 };
 
 const defaultProps = {
@@ -15,11 +15,11 @@ const defaultProps = {
     dropup: false
 }
 
-const CARET = <i className="uf uf-anglearrowdown"></i>;
+const CARET = <i className="uf uf-chevronarrowdown"></i>;
 
 const CARETUP = <i className="uf uf-chevronarrowup"></i>;
 
-class DorpdownToggle extends React.Component {
+class DorpdownToggle extends Component {
     constructor (props) {
         super(props);
     }

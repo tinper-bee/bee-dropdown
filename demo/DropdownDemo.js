@@ -29,6 +29,14 @@ class Demo extends Component {
       <Dropdown.Item>下拉3</Dropdown.Item>
       <Dropdown.Item>下拉4</Dropdown.Item>
       </Dropdown>
+      <h3>hover显示</h3>
+      <Dropdown title="default" trigger="hover">
+      <Dropdown.Item disabled>下拉一</Dropdown.Item>
+      <Dropdown.Item>下拉2</Dropdown.Item>
+      <Dropdown.Item>下拉3</Dropdown.Item>
+      <Dropdown.Item breakLine>下拉3</Dropdown.Item>
+      <Dropdown.Item>下拉4</Dropdown.Item>
+      </Dropdown>
       <h3>不可用下拉</h3>
       <Dropdown title="default" disabled>
       <Dropdown.Item>下拉一</Dropdown.Item>
@@ -42,7 +50,7 @@ class Demo extends Component {
       <Dropdown.Item eventKey="B" active>下拉2</Dropdown.Item>
       <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
       <Dropdown.Item eventKey="D">下拉4</Dropdown.Item>
-      <Dropdown.Item href="http://www.baidu.com">下拉4</Dropdown.Item>
+      <Dropdown.Item href="https://www.tinper.org">下拉4</Dropdown.Item>
       </Dropdown>
       <h3>上拉</h3>
       <Dropdown title="default" dropup colors="primary">
@@ -59,14 +67,7 @@ class Demo extends Component {
       <Dropdown.Item breakLine>下拉3</Dropdown.Item>
       <Dropdown.Item>下拉4</Dropdown.Item>
       </Dropdown>
-      <h3>hover显示</h3>
-      <Dropdown title="default" trigger="hover">
-      <Dropdown.Item disabled>下拉一</Dropdown.Item>
-      <Dropdown.Item>下拉2</Dropdown.Item>
-      <Dropdown.Item>下拉3</Dropdown.Item>
-      <Dropdown.Item breakLine>下拉3</Dropdown.Item>
-      <Dropdown.Item>下拉4</Dropdown.Item>
-      </Dropdown>
+
       </div>
     )
   }
