@@ -157,10 +157,7 @@ class DorpdownMenu extends React.Component {
                 {items}
             </ul>
         );
-
-
     }
-
 };
 
 DorpdownMenu.propTypes = propTypes;
