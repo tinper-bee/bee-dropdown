@@ -72,18 +72,18 @@ var DropdownMenuItem = function (_React$Component) {
     DropdownMenuItem.prototype.render = function render() {
         var _props = this.props;
         var children = _props.children;
-        var breakLine = _props.breakLine;
+        var divider = _props.divider;
         var onSelect = _props.onSelect;
         var onKeyDown = _props.onKeyDown;
         var Component = _props.componentClass;
 
-        var props = _objectWithoutProperties(_props, ['children', 'breakLine', 'onSelect', 'onKeyDown', 'componentClass']);
+        var props = _objectWithoutProperties(_props, ['children', 'divider', 'onSelect', 'onKeyDown', 'componentClass']);
 
         var classes = (0, _classnames2["default"])({
             active: this.props.active,
             disabled: this.props.disabled
         }, '' + clsPrefix);
-        if (breakLine) {
+        if (divider) {
             return _react2["default"].createElement('li', { role: 'breakLine', className: 'u-menu-item-break' });
         }
 

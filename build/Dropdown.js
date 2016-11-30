@@ -43,23 +43,23 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var DIV = 'div';
 
 var propTypes = {
-    active: _react2["default"].PropTypes.bool,
-    disabled: _react2["default"].PropTypes.bool,
-    trigger: _react2["default"].PropTypes.string,
+    active: _react.PropTypes.bool,
+    disabled: _react.PropTypes.bool,
+    trigger: _react.PropTypes.string,
     // block: React.PropTypes.bool,
-    dropup: _react2["default"].PropTypes.bool,
-    role: _react2["default"].PropTypes.string,
-    onClose: _react2["default"].PropTypes.func,
-    onOpen: _react2["default"].PropTypes.func,
-    onToggle: _react2["default"].PropTypes.func,
-    onSelect: _react2["default"].PropTypes.func,
+    dropup: _react.PropTypes.bool,
+    role: _react.PropTypes.string,
+    onClose: _react.PropTypes.func,
+    onOpen: _react.PropTypes.func,
+    onToggle: _react.PropTypes.func,
+    onSelect: _react.PropTypes.func,
     /*
      * If 'select' is true , title will be updated after the 'onSelect' trigger .
      */
-    select: _react2["default"].PropTypes.bool,
-    activeKey: _react2["default"].PropTypes.any,
-    bothEnds: _react2["default"].PropTypes.bool,
-    menuStyle: _react2["default"].PropTypes.object
+    select: _react.PropTypes.bool,
+    activeKey: _react.PropTypes.any,
+    bothEnds: _react.PropTypes.bool,
+    menuStyle: _react.PropTypes.object
 };
 
 var defaultProps = {
@@ -204,8 +204,8 @@ var Dropdown = function (_React$Component) {
                 onSelect: this.handleSelect,
                 activeKey: this.state.activeKey,
                 open: this.state.open,
+                colors: this.props.colors,
                 dropup: dropup,
-                type: this.props.type,
                 style: menuStyle,
                 ref: 'menu',
                 onMouseLeave: this.handleMouseLeave
@@ -214,7 +214,6 @@ var Dropdown = function (_React$Component) {
         );
 
         if (this.state.open) {
-            console.log(_beeOverlay.RootCloseWrapper);
             Menu = _react2["default"].createElement(
                 _beeOverlay.RootCloseWrapper,
                 { onRootClose: this.toggle },

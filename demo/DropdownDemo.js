@@ -1,4 +1,4 @@
-import { Dropdown } from '../src';
+import  Dropdown from '../src';
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 
@@ -23,11 +23,11 @@ class Demo extends Component {
       <h3>不同颜色下拉</h3>
       {SHAPES.map(renderButtonGroup)}
       <h3>下拉</h3>
-      <Dropdown title="default">
-      <Dropdown.Item>下拉一</Dropdown.Item>
-      <Dropdown.Item>下拉2</Dropdown.Item>
-      <Dropdown.Item>下拉3</Dropdown.Item>
-      <Dropdown.Item>下拉4</Dropdown.Item>
+      <Dropdown title="default" activeKey="B">
+      <Dropdown.Item eventKey="A">下拉一</Dropdown.Item>
+      <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
+      <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
+      <Dropdown.Item eventKey="D">下拉4</Dropdown.Item>
       </Dropdown>
       <h3>hover显示</h3>
       <Dropdown title="default" trigger="hover">

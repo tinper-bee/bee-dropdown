@@ -31,10 +31,10 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
 var propTypes = {
-    noCaret: _react2["default"].PropTypes.bool,
-    title: _react2["default"].PropTypes.string,
-    useAnchor: _react2["default"].PropTypes.bool,
-    dropup: _react2["default"].PropTypes.bool
+    noCaret: _react.PropTypes.bool,
+    title: _react.PropTypes.string,
+    useAnchor: _react.PropTypes.bool,
+    dropup: _react.PropTypes.bool
 };
 
 var defaultProps = {
@@ -43,17 +43,17 @@ var defaultProps = {
     dropup: false
 };
 
-var CARET = _react2["default"].createElement('i', { className: 'uf uf-anglearrowdown' });
+var CARET = _react2["default"].createElement('i', { className: 'uf uf-chevronarrowdown' });
 
 var CARETUP = _react2["default"].createElement('i', { className: 'uf uf-chevronarrowup' });
 
-var DorpdownToggle = function (_React$Component) {
-    _inherits(DorpdownToggle, _React$Component);
+var DorpdownToggle = function (_Component) {
+    _inherits(DorpdownToggle, _Component);
 
     function DorpdownToggle(props) {
         _classCallCheck(this, DorpdownToggle);
 
-        return _possibleConstructorReturn(this, _React$Component.call(this, props));
+        return _possibleConstructorReturn(this, _Component.call(this, props));
     }
 
     DorpdownToggle.prototype.render = function render() {
@@ -77,7 +77,7 @@ var DorpdownToggle = function (_React$Component) {
     };
 
     return DorpdownToggle;
-}(_react2["default"].Component);
+}(_react.Component);
 
 ;
 

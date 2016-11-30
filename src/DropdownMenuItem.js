@@ -40,7 +40,7 @@ class DropdownMenuItem extends React.Component {
 
         let {
             children,
-            breakLine,
+            divider,
             onSelect,
             onKeyDown,
             componentClass: Component,
@@ -51,7 +51,7 @@ class DropdownMenuItem extends React.Component {
             active : this.props.active ,
             disabled : this.props.disabled
         }, `${clsPrefix}`);
-        if(breakLine){
+        if(divider){
             return <li role="breakLine" className="u-menu-item-break"></li>;
         }
 

@@ -41,7 +41,7 @@ var propTypes = {
     dropup: _react.PropTypes.bool,
     onClose: _react.PropTypes.func,
     onSelect: _react.PropTypes.func,
-    type: _react.PropTypes.oneOf(['primary', 'accent', 'danger', 'info', 'success', 'warning', '']),
+    colors: _react.PropTypes.oneOf(['primary', 'accent', 'danger', 'info', 'success', 'warning']),
     open: _react.PropTypes.bool,
     labelledBy: _react.PropTypes.oneOfType([_react.PropTypes.string, _react.PropTypes.number]),
     rootCloseEvent: _react.PropTypes.oneOf(['click', 'mousedown'])
@@ -50,7 +50,6 @@ var propTypes = {
 var defaultProps = {
     clsPrefix: 'u-menu',
     pullRight: false,
-    type: '',
     dropup: false,
     open: false
 };
@@ -164,9 +163,9 @@ var DorpdownMenu = function (_React$Component) {
         var rootCloseEvent = _props2.rootCloseEvent;
         var onClose = _props2.onClose;
         var labelledBy = _props2.labelledBy;
-        var type = _props2.type;
+        var colors = _props2.colors;
 
-        var props = _objectWithoutProperties(_props2, ['pullRight', 'children', 'className', 'clsPrefix', 'activeKey', 'dropup', 'open', 'rootCloseEvent', 'onClose', 'labelledBy', 'type']);
+        var props = _objectWithoutProperties(_props2, ['pullRight', 'children', 'className', 'clsPrefix', 'activeKey', 'dropup', 'open', 'rootCloseEvent', 'onClose', 'labelledBy', 'colors']);
 
         var items = _react2["default"].Children.map(children, function (item, index) {
             var childProps = {
@@ -184,8 +183,8 @@ var DorpdownMenu = function (_React$Component) {
 
         var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, "dropup", dropup), _defineProperty(_classes, "show", open), _classes);
 
-        if (color[type]) {
-            classes[clsPrefix + '-' + color[type]] = true;
+        if (color[colors]) {
+            classes[clsPrefix + '-' + color[colors]] = true;
         }
 
         return _react2["default"].createElement(
