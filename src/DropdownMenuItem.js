@@ -5,7 +5,7 @@ import classNames from 'classnames';
 
 const propTypes = {
     href: React.PropTypes.string,
-    breakLine: React.PropTypes.bool,
+    divider: React.PropTypes.bool,
     active: React.PropTypes.bool,
     disabled: React.PropTypes.bool,
     onSelect: React.PropTypes.func,
@@ -17,10 +17,10 @@ const defaultProps = {
     componentClass: 'a',
     active: false,
     disabled: false,
-    breakLine: false
+    divider: false,
+    clsPrefix: 'u-menu-item',
 };
 
-const clsPrefix = 'u-menu-item';
 
 class DropdownMenuItem extends React.Component {
     constructor (props) {
@@ -43,6 +43,7 @@ class DropdownMenuItem extends React.Component {
             divider,
             onSelect,
             onKeyDown,
+            clsPrefix,
             componentClass: Component,
             ...props
         } = this.props;
@@ -52,7 +53,7 @@ class DropdownMenuItem extends React.Component {
             disabled : this.props.disabled
         }, `${clsPrefix}`);
         if(divider){
-            return <li role="breakLine" className="u-menu-item-break"></li>;
+            return <li role="divider" className="u-menu-item-break"></li>;
         }
 
         return (

@@ -1,19 +1,20 @@
 import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 
-import { RootCloseWrapper } from 'bee-overlay';
+import RootCloseWrapper from 'bee-overlay/build/RootCloseWrapper';
 import DropdownToggle from './DropdownToggle';
 import DropdownMenu from './DropdownMenu';
 import DropdownMenuItem from './DropdownMenuItem';
+import Fade from 'bee-transition/build/Fade';
 
 const DIV = 'div';
 
 const propTypes = {
-  active: PropTypes.bool,
   disabled: PropTypes.bool,
   trigger: PropTypes.string,
   // block: React.PropTypes.bool,
   dropup: PropTypes.bool,
+  transition: PropTypes.bool,
   role: PropTypes.string,
   onClose: PropTypes.func,
   onOpen: PropTypes.func,
@@ -24,15 +25,15 @@ const propTypes = {
    */
   select: PropTypes.bool,
   activeKey: PropTypes.any,
-  bothEnds: PropTypes.bool,
   menuStyle: PropTypes.object
 };
 
 const defaultProps = {
   componentClass: DIV,
-  active: false,
   disabled: false,
-  trigger: 'click'
+  trigger: 'click',
+  clsPrefix: 'u-dropdown',
+  transition: true
   // block: false
 };
 
@@ -132,7 +133,8 @@ class Dropdown extends React.Component {
             activeKey,
             dropup,
             disabled,
-            bothEnds,
+            transition,
+            clsPrefix,
             menuStyle,
             componentClass: Component,
             ...props
@@ -166,6 +168,17 @@ class Dropdown extends React.Component {
             </DropdownMenu>
         );
 
+        if(transition){
+            Menu = (<Fade
+              in={this.state.open}
+              transitionAppear
+            >
+              { Menu }
+            </Fade>);
+        }
+
+
+
         if (this.state.open) {
             Menu = (
                 <RootCloseWrapper onRootClose={this.toggle}>
@@ -174,8 +187,7 @@ class Dropdown extends React.Component {
             );
         }
         const classes = classNames({
-            'dropdown': true,
-            'both-ends': bothEnds
+            [`${clsPrefix}`]: true
         }, className);
         Component = Component ? Component : DIV;
         return (

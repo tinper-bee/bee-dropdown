@@ -2,11 +2,11 @@ import  Dropdown from '../src';
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom';
 
-const SHAPES = ['primary', 'accent','success', 'warning', 'danger', 'info'];
+const COLORS = ['primary', 'accent','success', 'warning', 'danger', 'info'];
 
-function renderButtonGroup(shape,index){
+function renderButtonGroup(color,index){
     return (
-        <Dropdown colors={shape}  title={shape} key={index}>
+        <Dropdown colors={color}  title={color} key={index} transition>
             <Dropdown.Item eventKey="A" >Default Item</Dropdown.Item>
             <Dropdown.Item eventKey="B" active>Active Item</Dropdown.Item>
             <Dropdown.Item eventKey="C" disabled>Disabled Item</Dropdown.Item>
@@ -21,50 +21,41 @@ class Demo extends Component {
     return(
       <div>
       <h3>不同颜色下拉</h3>
-      {SHAPES.map(renderButtonGroup)}
+      {COLORS.map(renderButtonGroup)}
       <h3>下拉</h3>
-      <Dropdown title="default" activeKey="B">
+      <Dropdown title="默认下拉" activeKey="B">
       <Dropdown.Item eventKey="A">下拉一</Dropdown.Item>
       <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
       <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
       <Dropdown.Item eventKey="D">下拉4</Dropdown.Item>
+      <Dropdown.Item divider>分割线</Dropdown.Item>
+      <Dropdown.Item eventKey="A" disabled>不可点击</Dropdown.Item>
+      <Dropdown.Item eventKey="B">活跃的</Dropdown.Item>
+      <Dropdown.Item href="https://www.tinper.org">锚点</Dropdown.Item>
+      </Dropdown>
+      <h3>模拟选择器</h3>
+      <Dropdown title="选择" select transition>
+      <Dropdown.Item disabled>下拉一</Dropdown.Item>
+      <Dropdown.Item>下拉2</Dropdown.Item>
+      <Dropdown.Item>下拉3</Dropdown.Item>
+      <Dropdown.Item divider>下拉3</Dropdown.Item>
+      <Dropdown.Item>下拉4</Dropdown.Item>
       </Dropdown>
       <h3>hover显示</h3>
       <Dropdown title="default" trigger="hover">
       <Dropdown.Item disabled>下拉一</Dropdown.Item>
       <Dropdown.Item>下拉2</Dropdown.Item>
       <Dropdown.Item>下拉3</Dropdown.Item>
-      <Dropdown.Item breakLine>下拉3</Dropdown.Item>
+      <Dropdown.Item divider>下拉3</Dropdown.Item>
       <Dropdown.Item>下拉4</Dropdown.Item>
       </Dropdown>
-      <h3>不可用下拉</h3>
-      <Dropdown title="default" disabled>
-      <Dropdown.Item>下拉一</Dropdown.Item>
-      <Dropdown.Item>下拉2</Dropdown.Item>
-      <Dropdown.Item>下拉3</Dropdown.Item>
-      <Dropdown.Item>下拉4</Dropdown.Item>
-      </Dropdown>
-      <h3>带不可点击下拉</h3>
-      <Dropdown title="default">
-      <Dropdown.Item eventKey="A" disabled>下拉一</Dropdown.Item>
-      <Dropdown.Item eventKey="B" active>下拉2</Dropdown.Item>
-      <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
-      <Dropdown.Item eventKey="D">下拉4</Dropdown.Item>
-      <Dropdown.Item href="https://www.tinper.org">下拉4</Dropdown.Item>
-      </Dropdown>
+
       <h3>上拉</h3>
       <Dropdown title="default" dropup colors="primary">
       <Dropdown.Item disabled>下拉一</Dropdown.Item>
       <Dropdown.Item>下拉2</Dropdown.Item>
       <Dropdown.Item>下拉3</Dropdown.Item>
-      <Dropdown.Item>下拉4</Dropdown.Item>
-      </Dropdown>
-      <h3>上拉</h3>
-      <Dropdown title="default" colors="primary">
-      <Dropdown.Item disabled>下拉一</Dropdown.Item>
-      <Dropdown.Item>下拉2</Dropdown.Item>
-      <Dropdown.Item>下拉3</Dropdown.Item>
-      <Dropdown.Item breakLine>下拉3</Dropdown.Item>
+      <Dropdown.Item divider>下拉3</Dropdown.Item>
       <Dropdown.Item>下拉4</Dropdown.Item>
       </Dropdown>
 

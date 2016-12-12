@@ -3,6 +3,8 @@ import { findDOMNode } from 'react-dom';
 import classNames from 'classnames';
 import DropdownMenuItem from './DropdownMenuItem';
 
+import createChainedFunction from 'tinper-bee-core/lib/createChainedFunction';
+
 // import createChainedFunction from './utils/createChainedFunction';
 
 const propTypes = {
@@ -98,8 +100,7 @@ class DorpdownMenu extends React.Component {
     }
 
     handleSelect(event){
-        let { onClose, onSelect } = this.props;
-        onSelect && onSelect();
+        let { onClose } = this.props;
         onClose && onClose();
     }
     render(){
@@ -123,14 +124,18 @@ class DorpdownMenu extends React.Component {
             let childProps = {
                 key : index,
                 ref : 'menu_item_' + index,
-                onSelect: this.handleSelect
+                onSelect: createChainedFunction(this.handleSelect, this.props.onSelect)
             };
 
             if(activeKey){
                childProps.active = (activeKey === item.props.eventKey);
             }
 
-            return React.cloneElement(item, childProps, item.props.children);
+            if (React.isValidElement(item)) {
+               return React.cloneElement(item, childProps, item.props.children);
+           }
+
+           return item;
         });
 
 

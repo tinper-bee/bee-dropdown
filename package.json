@@ -1,6 +1,6 @@
 {
   "name": "bee-dropdown",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "dropdown ui component for react",
   "keywords": [
     "react",
@@ -33,19 +33,21 @@
   },
   "dependencies": {
     "bee-button": "0.1.0",
-    "bee-overlay": "latest",
+    "bee-overlay": "0.0.19",
     "bee-safe-anchor": "latest",
+    "bee-transition": "0.0.1",
     "classnames": "^2.2.5",
     "keycode": "^2.1.7",
     "tinper-bee-core": "latest"
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "console-polyfill": "~0.2.1",
     "enzyme": "^2.4.1",
+    "es5-shim": "~4.1.10",
     "react": "~0.14.0",
     "react-addons-test-utils": "15.3.2",
     "react-dom": "~0.14.0",
-    "console-polyfill": "~0.2.1",
-    "es5-shim": "~4.1.10"
+    "webpage": "^0.3.0"
   }
 }
