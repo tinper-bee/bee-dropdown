@@ -80,7 +80,8 @@ class Dropdown extends React.Component {
       }
       this.toggle(true);
     }
-    handleMouseLeave() {
+    handleMouseLeave(event) {
+
       if (this.props.disabled || !(this.props.trigger == "hover")) {
           return;
       }
@@ -105,7 +106,7 @@ class Dropdown extends React.Component {
         let title;
         if (select) {
             React.Children.map(children, (item, index) => {
-                if (activeKey === item.props.eventKey) {
+                if (activeKey === item.props.eventKey && typeof item.props.eventKey !== "undefined") {
                     title = item.props.children;
                 } else if (item.props.active) {
                     title = item.props.children;
@@ -132,7 +133,6 @@ class Dropdown extends React.Component {
             className,
             activeKey,
             dropup,
-            disabled,
             transition,
             clsPrefix,
             menuStyle,

@@ -26,6 +26,7 @@
     "dev": "bee-tools run start",
     "build": "bee-tools run build",
     "lint": "bee-tools run lint",
+    "coveralls": "bee-tools run coverage",
     "test": "bee-tools run test",
     "chrome": "bee-tools run chrome",
     "browsers": "bee-tools run browsers",
@@ -48,6 +49,7 @@
     "react": "~0.14.0",
     "react-addons-test-utils": "15.3.2",
     "react-dom": "~0.14.0",
+    "sinon": "^1.17.6",
     "webpage": "^0.3.0"
   }
 }

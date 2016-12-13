@@ -35,19 +35,19 @@ class Demo extends Component {
       </Dropdown>
       <h3>模拟选择器</h3>
       <Dropdown title="选择" select transition>
-      <Dropdown.Item disabled>下拉一</Dropdown.Item>
-      <Dropdown.Item>下拉2</Dropdown.Item>
-      <Dropdown.Item>下拉3</Dropdown.Item>
-      <Dropdown.Item divider>下拉3</Dropdown.Item>
-      <Dropdown.Item>下拉4</Dropdown.Item>
+      <Dropdown.Item disabled eventKey="A">下拉一</Dropdown.Item>
+      <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
+      <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
+      <Dropdown.Item divider eventKey="D">下拉3</Dropdown.Item>
+      <Dropdown.Item eventKey="E">下拉4</Dropdown.Item>
       </Dropdown>
       <h3>hover显示</h3>
       <Dropdown title="default" trigger="hover">
-      <Dropdown.Item disabled>下拉一</Dropdown.Item>
-      <Dropdown.Item>下拉2</Dropdown.Item>
-      <Dropdown.Item>下拉3</Dropdown.Item>
-      <Dropdown.Item divider>下拉3</Dropdown.Item>
-      <Dropdown.Item>下拉4</Dropdown.Item>
+      <Dropdown.Item disabled eventKey="A">下拉一</Dropdown.Item>
+      <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
+      <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
+      <Dropdown.Item divider eventKey="D">下拉3</Dropdown.Item>
+      <Dropdown.Item eventKey="E">下拉4</Dropdown.Item>
       </Dropdown>
 
       <h3>上拉</h3>
@@ -58,7 +58,14 @@ class Demo extends Component {
       <Dropdown.Item divider>下拉3</Dropdown.Item>
       <Dropdown.Item>下拉4</Dropdown.Item>
       </Dropdown>
-
+      <h3>不可点击下拉</h3>
+      <Dropdown title="default" disabled colors="danger">
+      <Dropdown.Item disabled>下拉一</Dropdown.Item>
+      <Dropdown.Item>下拉2</Dropdown.Item>
+      <Dropdown.Item>下拉3</Dropdown.Item>
+      <Dropdown.Item divider>下拉3</Dropdown.Item>
+      <Dropdown.Item>下拉4</Dropdown.Item>
+      </Dropdown>
       </div>
     )
   }
