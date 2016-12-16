@@ -30,7 +30,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var propTypes = {
     href: _react2["default"].PropTypes.string,
-    breakLine: _react2["default"].PropTypes.bool,
+    divider: _react2["default"].PropTypes.bool,
     active: _react2["default"].PropTypes.bool,
     disabled: _react2["default"].PropTypes.bool,
     onSelect: _react2["default"].PropTypes.func,
@@ -42,10 +42,9 @@ var defaultProps = {
     componentClass: 'a',
     active: false,
     disabled: false,
-    breakLine: false
+    divider: false,
+    clsPrefix: 'u-menu-item'
 };
-
-var clsPrefix = 'u-menu-item';
 
 var DropdownMenuItem = function (_React$Component) {
     _inherits(DropdownMenuItem, _React$Component);
@@ -70,21 +69,21 @@ var DropdownMenuItem = function (_React$Component) {
     };
 
     DropdownMenuItem.prototype.render = function render() {
-        var _props = this.props;
-        var children = _props.children;
-        var divider = _props.divider;
-        var onSelect = _props.onSelect;
-        var onKeyDown = _props.onKeyDown;
-        var Component = _props.componentClass;
-
-        var props = _objectWithoutProperties(_props, ['children', 'divider', 'onSelect', 'onKeyDown', 'componentClass']);
+        var _props = this.props,
+            children = _props.children,
+            divider = _props.divider,
+            onSelect = _props.onSelect,
+            onKeyDown = _props.onKeyDown,
+            clsPrefix = _props.clsPrefix,
+            Component = _props.componentClass,
+            props = _objectWithoutProperties(_props, ['children', 'divider', 'onSelect', 'onKeyDown', 'clsPrefix', 'componentClass']);
 
         var classes = (0, _classnames2["default"])({
             active: this.props.active,
             disabled: this.props.disabled
         }, '' + clsPrefix);
         if (divider) {
-            return _react2["default"].createElement('li', { role: 'breakLine', className: 'u-menu-item-break' });
+            return _react2["default"].createElement('li', { role: 'divider', className: 'u-menu-item-break' });
         }
 
         return _react2["default"].createElement(

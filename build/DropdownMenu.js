@@ -20,6 +20,10 @@ var _DropdownMenuItem = require('./DropdownMenuItem');
 
 var _DropdownMenuItem2 = _interopRequireDefault(_DropdownMenuItem);
 
+var _createChainedFunction = require('tinper-bee-core/lib/createChainedFunction');
+
+var _createChainedFunction2 = _interopRequireDefault(_createChainedFunction);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -112,10 +116,9 @@ var DorpdownMenu = function (_React$Component) {
     };
 
     DorpdownMenu.prototype.focusNext = function focusNext() {
-        var _getItemsAndActiveInd = this.getItemsAndActiveIndex();
-
-        var items = _getItemsAndActiveInd.items;
-        var activeIndex = _getItemsAndActiveInd.activeIndex;
+        var _getItemsAndActiveInd = this.getItemsAndActiveIndex(),
+            items = _getItemsAndActiveInd.items,
+            activeIndex = _getItemsAndActiveInd.activeIndex;
 
         if (items.length === 0) {
             return;
@@ -126,10 +129,9 @@ var DorpdownMenu = function (_React$Component) {
     };
 
     DorpdownMenu.prototype.focusPrevious = function focusPrevious() {
-        var _getItemsAndActiveInd2 = this.getItemsAndActiveIndex();
-
-        var items = _getItemsAndActiveInd2.items;
-        var activeIndex = _getItemsAndActiveInd2.activeIndex;
+        var _getItemsAndActiveInd2 = this.getItemsAndActiveIndex(),
+            items = _getItemsAndActiveInd2.items,
+            activeIndex = _getItemsAndActiveInd2.activeIndex;
 
         if (items.length === 0) {
             return;
@@ -140,11 +142,8 @@ var DorpdownMenu = function (_React$Component) {
     };
 
     DorpdownMenu.prototype.handleSelect = function handleSelect(event) {
-        var _props = this.props;
-        var onClose = _props.onClose;
-        var onSelect = _props.onSelect;
+        var onClose = this.props.onClose;
 
-        onSelect && onSelect();
         onClose && onClose();
     };
 
@@ -152,33 +151,36 @@ var DorpdownMenu = function (_React$Component) {
         var _this2 = this,
             _classes;
 
-        var _props2 = this.props;
-        var pullRight = _props2.pullRight;
-        var children = _props2.children;
-        var className = _props2.className;
-        var clsPrefix = _props2.clsPrefix;
-        var activeKey = _props2.activeKey;
-        var dropup = _props2.dropup;
-        var open = _props2.open;
-        var rootCloseEvent = _props2.rootCloseEvent;
-        var onClose = _props2.onClose;
-        var labelledBy = _props2.labelledBy;
-        var colors = _props2.colors;
-
-        var props = _objectWithoutProperties(_props2, ['pullRight', 'children', 'className', 'clsPrefix', 'activeKey', 'dropup', 'open', 'rootCloseEvent', 'onClose', 'labelledBy', 'colors']);
+        var _props = this.props,
+            pullRight = _props.pullRight,
+            children = _props.children,
+            className = _props.className,
+            clsPrefix = _props.clsPrefix,
+            activeKey = _props.activeKey,
+            dropup = _props.dropup,
+            open = _props.open,
+            rootCloseEvent = _props.rootCloseEvent,
+            onClose = _props.onClose,
+            labelledBy = _props.labelledBy,
+            colors = _props.colors,
+            props = _objectWithoutProperties(_props, ['pullRight', 'children', 'className', 'clsPrefix', 'activeKey', 'dropup', 'open', 'rootCloseEvent', 'onClose', 'labelledBy', 'colors']);
 
         var items = _react2["default"].Children.map(children, function (item, index) {
             var childProps = {
                 key: index,
                 ref: 'menu_item_' + index,
-                onSelect: _this2.handleSelect
+                onSelect: (0, _createChainedFunction2["default"])(_this2.handleSelect, _this2.props.onSelect)
             };
 
             if (activeKey) {
                 childProps.active = activeKey === item.props.eventKey;
             }
 
-            return _react2["default"].cloneElement(item, childProps, item.props.children);
+            if (_react2["default"].isValidElement(item)) {
+                return _react2["default"].cloneElement(item, childProps, item.props.children);
+            }
+
+            return item;
         });
 
         var classes = (_classes = {}, _defineProperty(_classes, '' + clsPrefix, true), _defineProperty(_classes, "dropup", dropup), _defineProperty(_classes, "show", open), _classes);

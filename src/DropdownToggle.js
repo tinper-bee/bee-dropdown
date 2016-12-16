@@ -12,7 +12,8 @@ const propTypes = {
 const defaultProps = {
     noCaret: false,
     useAnchor: false,
-    dropup: false
+    dropup: false,
+    componentClass: Button
 }
 
 const CARET = <i className="uf uf-chevronarrowdown"></i>;
@@ -25,9 +26,9 @@ class DorpdownToggle extends Component {
     }
 
     render() {
-        let { dropup } = this.props;
+        let { dropup, componentClass: Component  } = this.props;
         let caret = this.props.noCaret ? null : (dropup ? CARETUP : CARET);
-        let Component =  this.props.useAnchor ? 'a' : Button;
+        Component =  this.props.useAnchor ? 'a' : Component;
 
         let classes = {
             ['dropdown-toggle'] : true

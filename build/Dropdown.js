@@ -14,7 +14,9 @@ var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-var _beeOverlay = require('bee-overlay');
+var _RootCloseWrapper = require('bee-overlay/build/RootCloseWrapper');
+
+var _RootCloseWrapper2 = _interopRequireDefault(_RootCloseWrapper);
 
 var _DropdownToggle = require('./DropdownToggle');
 
@@ -28,9 +30,15 @@ var _DropdownMenuItem = require('./DropdownMenuItem');
 
 var _DropdownMenuItem2 = _interopRequireDefault(_DropdownMenuItem);
 
+var _Fade = require('bee-transition/build/Fade');
+
+var _Fade2 = _interopRequireDefault(_Fade);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
 
@@ -43,11 +51,11 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var DIV = 'div';
 
 var propTypes = {
-    active: _react.PropTypes.bool,
     disabled: _react.PropTypes.bool,
     trigger: _react.PropTypes.string,
     // block: React.PropTypes.bool,
     dropup: _react.PropTypes.bool,
+    transition: _react.PropTypes.bool,
     role: _react.PropTypes.string,
     onClose: _react.PropTypes.func,
     onOpen: _react.PropTypes.func,
@@ -58,15 +66,15 @@ var propTypes = {
      */
     select: _react.PropTypes.bool,
     activeKey: _react.PropTypes.any,
-    bothEnds: _react.PropTypes.bool,
     menuStyle: _react.PropTypes.object
 };
 
 var defaultProps = {
     componentClass: DIV,
-    active: false,
     disabled: false,
-    trigger: 'click'
+    trigger: 'click',
+    clsPrefix: 'u-dropdown',
+    transition: true
     // block: false
 };
 
@@ -121,7 +129,8 @@ var Dropdown = function (_React$Component) {
         this.toggle(true);
     };
 
-    Dropdown.prototype.handleMouseLeave = function handleMouseLeave() {
+    Dropdown.prototype.handleMouseLeave = function handleMouseLeave(event) {
+
         if (this.props.disabled || !(this.props.trigger == "hover")) {
             return;
         }
@@ -139,11 +148,10 @@ var Dropdown = function (_React$Component) {
     };
 
     Dropdown.prototype.update = function update(props) {
-        var _ref = props || this.props;
-
-        var children = _ref.children;
-        var select = _ref.select;
-        var activeKey = _ref.activeKey;
+        var _ref = props || this.props,
+            children = _ref.children,
+            select = _ref.select,
+            activeKey = _ref.activeKey;
 
         var state = {
             activeKey: activeKey
@@ -152,7 +160,7 @@ var Dropdown = function (_React$Component) {
         var title = void 0;
         if (select) {
             _react2["default"].Children.map(children, function (item, index) {
-                if (activeKey === item.props.eventKey) {
+                if (activeKey === item.props.eventKey && typeof item.props.eventKey !== "undefined") {
                     title = item.props.children;
                 } else if (item.props.active) {
                     title = item.props.children;
@@ -173,19 +181,18 @@ var Dropdown = function (_React$Component) {
     };
 
     Dropdown.prototype.render = function render() {
-        var _props = this.props;
-        var items = _props.items;
-        var title = _props.title;
-        var children = _props.children;
-        var className = _props.className;
-        var activeKey = _props.activeKey;
-        var dropup = _props.dropup;
-        var disabled = _props.disabled;
-        var bothEnds = _props.bothEnds;
-        var menuStyle = _props.menuStyle;
-        var Component = _props.componentClass;
-
-        var props = _objectWithoutProperties(_props, ['items', 'title', 'children', 'className', 'activeKey', 'dropup', 'disabled', 'bothEnds', 'menuStyle', 'componentClass']);
+        var _props = this.props,
+            items = _props.items,
+            title = _props.title,
+            children = _props.children,
+            className = _props.className,
+            activeKey = _props.activeKey,
+            dropup = _props.dropup,
+            transition = _props.transition,
+            clsPrefix = _props.clsPrefix,
+            menuStyle = _props.menuStyle,
+            Component = _props.componentClass,
+            props = _objectWithoutProperties(_props, ['items', 'title', 'children', 'className', 'activeKey', 'dropup', 'transition', 'clsPrefix', 'menuStyle', 'componentClass']);
 
         var Toggle = _react2["default"].createElement(
             _DropdownToggle2["default"],
@@ -213,17 +220,25 @@ var Dropdown = function (_React$Component) {
             children
         );
 
+        if (transition) {
+            Menu = _react2["default"].createElement(
+                _Fade2["default"],
+                {
+                    'in': this.state.open,
+                    transitionAppear: true
+                },
+                Menu
+            );
+        }
+
         if (this.state.open) {
             Menu = _react2["default"].createElement(
-                _beeOverlay.RootCloseWrapper,
+                _RootCloseWrapper2["default"],
                 { onRootClose: this.toggle },
                 Menu
             );
         }
-        var classes = (0, _classnames2["default"])({
-            'dropdown': true,
-            'both-ends': bothEnds
-        }, className);
+        var classes = (0, _classnames2["default"])(_defineProperty({}, '' + clsPrefix, true), className);
         Component = Component ? Component : DIV;
         return _react2["default"].createElement(
             Component,

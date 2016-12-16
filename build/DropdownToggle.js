@@ -40,7 +40,8 @@ var propTypes = {
 var defaultProps = {
     noCaret: false,
     useAnchor: false,
-    dropup: false
+    dropup: false,
+    componentClass: _beeButton2["default"]
 };
 
 var CARET = _react2["default"].createElement('i', { className: 'uf uf-chevronarrowdown' });
@@ -57,10 +58,12 @@ var DorpdownToggle = function (_Component) {
     }
 
     DorpdownToggle.prototype.render = function render() {
-        var dropup = this.props.dropup;
+        var _props = this.props,
+            dropup = _props.dropup,
+            Component = _props.componentClass;
 
         var caret = this.props.noCaret ? null : dropup ? CARETUP : CARET;
-        var Component = this.props.useAnchor ? 'a' : _beeButton2["default"];
+        Component = this.props.useAnchor ? 'a' : Component;
 
         var classes = _defineProperty({}, 'dropdown-toggle', true);
         console.log();
