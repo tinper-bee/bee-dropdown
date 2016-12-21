@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "bee-button": "^0.1.6",
-    "bee-overlay": "0.0.19",
+    "bee-overlay": "^0.1.0",
     "bee-safe-anchor": "latest",
     "bee-transition": "0.0.1",
     "classnames": "^2.2.5",
@@ -42,6 +42,9 @@
     "tinper-bee-core": "latest"
   },
   "devDependencies": {
+    "bee-layout": "latest",
+    "bee-menus": "0.0.4",
+    "bee-panel": "latest",
     "chai": "^3.5.0",
     "console-polyfill": "~0.2.1",
     "enzyme": "^2.4.1",
@@ -50,8 +53,6 @@
     "react-addons-test-utils": "15.3.2",
     "react-dom": "~0.14.0",
     "sinon": "^1.17.6",
-    "webpage": "^0.3.0",
-    "bee-layout": "latest",
-    "bee-panel": "latest"
+    "webpage": "^0.3.0"
   }
 }

@@ -3,9 +3,9 @@ import { Con, Row, Col } from 'bee-layout';
 import { Panel } from 'bee-panel';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Button from '../src';
+import Button from 'bee-button';
 import Dropdown from '../src';
-
+import Menu, { Item as MenuItem, Divider } from 'bee-menus';
 
 const CARET = <i className="uf uf-chevronarrowdown"></i>;
 

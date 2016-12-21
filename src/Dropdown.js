@@ -1,34 +1,21 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import OverlayTrigger from 'bee-overlay/build/OverlayTrigger';
-import placements from './placements';
+import Trigger from 'bee-overlay/build/trigger';
+import placements from './placement';
 
-/*
- var MenuItem = Menu.Item;
 
- var menu = <Menu><MenuItem>1</MenuItem></Menu>;
-
- <DropDown trigger="click" animationName="" overlay={<>} onSelect={}>
- <button>open</button>
- </DropDown>
-*/
 
 const propTypes = {
   minOverlayWidthMatchTrigger: PropTypes.bool,
   onVisibleChange: PropTypes.func,
   clsPrefix: PropTypes.string,
   children: PropTypes.any,
-  //动画名称
   transitionName: PropTypes.string,
-
   overlayClassName: PropTypes.string,
   animation: PropTypes.any,
-  //对齐方式
   align: PropTypes.object,
   overlayStyle: PropTypes.object,
-  //弹出位置
   placement: PropTypes.string,
-  //弹出内容
   trigger: PropTypes.array,
   showAction: PropTypes.array,
   hideAction: PropTypes.array,
@@ -46,19 +33,30 @@ const defaultProps = {
     defaultVisible: false,
     onVisibleChange() {
     },
-    placement: 'bottom'
+    placement: 'bottomLeft',
+};
+
+const jadgeState = function (props) {
+    if ('visible' in props) {
+      return {
+        visible: props.visible,
+      };
+    }
+    return {
+      visible: props.defaultVisible,
+    };
 }
 
 class Dropdown extends React.Component {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
-            visible: this.props.visible || this.props.defaultVisible,
+            visible:jadgeState(this.props)
         };
         this.onClick = this.onClick.bind(this);
         this.onVisibleChange = this.onVisibleChange.bind(this);
-        this.getPopupDomNode = this.getPopupDomNode.bind(this);
         this.getMenuElement = this.getMenuElement.bind(this);
+        this.getPopupDomNode = this.getPopupDomNode.bind(this);
         this.afterVisibleChange = this.afterVisibleChange.bind(this);
 
     }
@@ -96,9 +94,11 @@ class Dropdown extends React.Component {
   }
 
   getMenuElement() {
-    const props = this.props;
-    return React.cloneElement(props.overlay, {
-      clsPrefix: `${props.clsPrefix}-menu`,
+    const { overlay, clsPrefix } = this.props;
+    console.log(overlay);
+
+    return React.cloneElement(overlay, {
+      clsPrefix: `${clsPrefix}-menu`,
       onClick: this.onClick,
     });
   }
@@ -123,15 +123,40 @@ class Dropdown extends React.Component {
       children,
       transitionName,
       animation,
-      placement,
+      align, placement,
+      getPopupContainer,
+      showAction,
+      hideAction,
+      overlayClassName,
+      overlayStyle,
       trigger,
       ...props,
     } = this.props;
-    return (<OverlayTrigger
+    console.log(this.state.visible)
+    return (<Trigger
       {...props}
-      placement={placement}
-    >{children}</OverlayTrigger>);
+      clsPrefix={clsPrefix}
+      ref="trigger"
+      popupClassName={overlayClassName}
+      popupStyle={overlayStyle}
+      builtinPlacements={placements}
+      action={trigger}
+      showAction={showAction}
+      hideAction={hideAction}
+      popupPlacement={placement}
+      popupAlign={align}
+      popupTransitionName={transitionName}
+      popupAnimation={animation}
+      popupVisible={this.state.visible}
+      afterPopupVisibleChange={this.afterVisibleChange}
+      popup={this.getMenuElement()}
+      onPopupVisibleChange={this.onVisibleChange}
+      getPopupContainer={getPopupContainer}
+    >{children}</Trigger>);
   }
 };
+
+Dropdown.propTypes = propTypes;
+Dropdown.defaultProps = defaultProps;
 
 export default Dropdown;

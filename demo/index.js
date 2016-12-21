@@ -3,9 +3,9 @@ import { Con, Row, Col } from 'bee-layout';
 import { Panel } from 'bee-panel';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Button from '../src';
+import Button from 'bee-button';
 import Dropdown from '../src';
-
+import Menu, { Item as MenuItem, Divider } from 'bee-menus';
 
 const CARET = <i className="uf uf-chevronarrowdown"></i>;
 
@@ -20,131 +20,74 @@ const CARETUP = <i className="uf uf-chevronarrowup"></i>;
  */
 
 class Demo1 extends Component {
-    render () {
-        return (
-            <div className="demoPadding">
-            <Dropdown title="下拉菜单">
-            <Dropdown.Item disabled eventKey="A">下拉一</Dropdown.Item>
-            <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
-            <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
-            <Dropdown.Item divider eventKey="D">下拉3</Dropdown.Item>
-            <Dropdown.Item eventKey="E">下拉4</Dropdown.Item>
-            </Dropdown>
-            <Dropdown title="上拉菜单" dropup>
-            <Dropdown.Item disabled eventKey="A">下拉一</Dropdown.Item>
-            <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
-            <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
-            <Dropdown.Item divider eventKey="D">下拉3</Dropdown.Item>
-            <Dropdown.Item eventKey="E">下拉4</Dropdown.Item>
-            </Dropdown>
-            <Dropdown title="不可点击的下拉菜单" disabled colors="danger">
-            <Dropdown.Item disabled>下拉一</Dropdown.Item>
-            <Dropdown.Item>下拉2</Dropdown.Item>
-            <Dropdown.Item>下拉3</Dropdown.Item>
-            <Dropdown.Item divider>下拉3</Dropdown.Item>
-            <Dropdown.Item>下拉4</Dropdown.Item>
-            </Dropdown>
-            <Button colors='primary'></Button>
-    
-            </div>
-        )
-    }
-}
-/**
- *
- * @title 不同颜色的下拉
- * @description 通过`colors`属性控制按钮颜色
- *
- */
- const COLORS = ['primary', 'accent','success', 'warning', 'danger', 'info'];
+    constructor(props) {
+        super(props);
+        this.state = {
+            visible: false
+        };
+        this.onVisibleChange = this.onVisibleChange.bind(this);
+        this.saveSelected = this.saveSelected.bind(this);
+        this.confirm = this.confirm.bind(this);
 
- function renderButtonGroup(color,index){
-     return (
-         <Dropdown colors={color}  title={color} key={index}>
-             <Dropdown.Item eventKey="A" >Default Item</Dropdown.Item>
-             <Dropdown.Item eventKey="B" active>Active Item</Dropdown.Item>
-             <Dropdown.Item eventKey="C" disabled>Disabled Item</Dropdown.Item>
-             <Dropdown.Item divider></Dropdown.Item>
-             <Dropdown.Item href="http://www.pagurian.com">Link Item</Dropdown.Item>
-         </Dropdown>
-     );
+    }
+
+
+ onVisibleChange(visible) {
+   this.setState({
+     visible,
+   });
  }
 
-class Demo2 extends Component {
+ saveSelected({ selectedKeys }) {
+   this.selected = selectedKeys;
+ }
+
+ confirm() {
+   console.log(this.selected);
+   this.setState({
+     visible: false,
+   });
+ }
     render () {
+
+        const menu = (
+      <Menu
+        style={{ width: 140 }}
+        multiple
+        onSelect={this.saveSelected}
+        onDeselect={this.saveSelected}
+      >
+        <MenuItem key="1">one</MenuItem>
+        <MenuItem key="2">two</MenuItem>
+        <Divider />
+        <MenuItem disabled>
+          <button
+            style={{
+              cursor: 'pointer',
+              color: '#000',
+              pointerEvents: 'visible',
+            }}
+            onClick={this.confirm}
+          >确定
+          </button>
+        </MenuItem>
+      </Menu>
+    );
         return (
-            <div className="demoPadding">
-                {COLORS.map(renderButtonGroup)}
-            </div>
+            <Dropdown
+                trigger={['click']}
+                onVisibleChange={this.onVisibleChange}
+                visible={this.state.visible}
+                closeOnSelect={false}
+                overlay={menu}
+                animation="slide-up"
+              >
+                <button>open</button>
+              </Dropdown>
         )
     }
 }
-/**
- *
- * @title 不同的子菜单
- * @description 通过item的属性控制子菜单状态
- *
- */
-
-class Demo3 extends Component {
-
-    render () {
-        return (
-            <Dropdown title="默认下拉" activeKey="B">
-            <Dropdown.Item eventKey="A">下拉一</Dropdown.Item>
-            <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
-            <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
-            <Dropdown.Item eventKey="D">下拉4</Dropdown.Item>
-            <Dropdown.Item divider>分割线</Dropdown.Item>
-            <Dropdown.Item eventKey="A" disabled>不可点击</Dropdown.Item>
-            <Dropdown.Item eventKey="B">活跃的</Dropdown.Item>
-            <Dropdown.Item href="https://www.tinper.org">锚点</Dropdown.Item>
-            </Dropdown>
-        )
-    }
-}
-/**
- *
- * @title 模拟选择器的下拉菜单
- * @description 通过`select`属性控制按钮大小
- *
- */
-
-class Demo4 extends Component {
-    render () {
-        return (
-            <Dropdown title="选择器" select>
-            <Dropdown.Item disabled eventKey="A">下拉一</Dropdown.Item>
-            <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
-            <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
-            <Dropdown.Item divider eventKey="D">下拉3</Dropdown.Item>
-            <Dropdown.Item eventKey="E">下拉4</Dropdown.Item>
-            </Dropdown>
-        )
-    }
-}
-/**
- *
- * @title 通过hover触发的下拉菜单
- * @description 通过设置trigger属性设置下拉菜单触发的事件，现在只支持点击和鼠标滑过
- *
- */
-
-class Demo5 extends Component {
-
-    render () {
-        return (
-            <Dropdown title="hover事件" trigger="hover">
-            <Dropdown.Item disabled eventKey="A">下拉一</Dropdown.Item>
-            <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
-            <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
-            <Dropdown.Item divider eventKey="D">下拉3</Dropdown.Item>
-            <Dropdown.Item eventKey="E">下拉4</Dropdown.Item>
-            </Dropdown>
-        )
-    }
-}
-var DemoArray = [{"example":<Demo1 />,"title":" 默认下拉菜单","code":"/**\r\n *\r\n * @title 默认下拉菜单\r\n * @description\r\n *\r\n */\r\n\r\nclass Demo1 extends Component {\r\n    render () {\r\n        return (\r\n            <div className=\"demoPadding\">\r\n            <Dropdown title=\"下拉菜单\">\r\n            <Dropdown.Item disabled eventKey=\"A\">下拉一</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"B\">下拉2</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"C\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item divider eventKey=\"D\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"E\">下拉4</Dropdown.Item>\r\n            </Dropdown>\r\n            <Dropdown title=\"上拉菜单\" dropup>\r\n            <Dropdown.Item disabled eventKey=\"A\">下拉一</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"B\">下拉2</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"C\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item divider eventKey=\"D\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"E\">下拉4</Dropdown.Item>\r\n            </Dropdown>\r\n            <Dropdown title=\"不可点击的下拉菜单\" disabled colors=\"danger\">\r\n            <Dropdown.Item disabled>下拉一</Dropdown.Item>\r\n            <Dropdown.Item>下拉2</Dropdown.Item>\r\n            <Dropdown.Item>下拉3</Dropdown.Item>\r\n            <Dropdown.Item divider>下拉3</Dropdown.Item>\r\n            <Dropdown.Item>下拉4</Dropdown.Item>\r\n            </Dropdown>\r\n            <Button colors='primary'></Button>\r\n    \r\n            </div>\r\n        )\r\n    }\r\n}\r\n","desc":""},{"example":<Demo2 />,"title":" 不同颜色的下拉","code":"/**\r\n *\r\n * @title 不同颜色的下拉\r\n * @description 通过`colors`属性控制按钮颜色\r\n *\r\n */\r\n const COLORS = ['primary', 'accent','success', 'warning', 'danger', 'info'];\r\n\r\n function renderButtonGroup(color,index){\r\n     return (\r\n         <Dropdown colors={color}  title={color} key={index}>\r\n             <Dropdown.Item eventKey=\"A\" >Default Item</Dropdown.Item>\r\n             <Dropdown.Item eventKey=\"B\" active>Active Item</Dropdown.Item>\r\n             <Dropdown.Item eventKey=\"C\" disabled>Disabled Item</Dropdown.Item>\r\n             <Dropdown.Item divider></Dropdown.Item>\r\n             <Dropdown.Item href=\"http://www.pagurian.com\">Link Item</Dropdown.Item>\r\n         </Dropdown>\r\n     );\r\n }\r\n\r\nclass Demo2 extends Component {\r\n    render () {\r\n        return (\r\n            <div className=\"demoPadding\">\r\n                {COLORS.map(renderButtonGroup)}\r\n            </div>\r\n        )\r\n    }\r\n}\r\n","desc":" 通过`colors`属性控制按钮颜色"},{"example":<Demo3 />,"title":" 不同的子菜单","code":"/**\r\n *\r\n * @title 不同的子菜单\r\n * @description 通过item的属性控制子菜单状态\r\n *\r\n */\r\n\r\nclass Demo3 extends Component {\r\n\r\n    render () {\r\n        return (\r\n            <Dropdown title=\"默认下拉\" activeKey=\"B\">\r\n            <Dropdown.Item eventKey=\"A\">下拉一</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"B\">下拉2</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"C\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"D\">下拉4</Dropdown.Item>\r\n            <Dropdown.Item divider>分割线</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"A\" disabled>不可点击</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"B\">活跃的</Dropdown.Item>\r\n            <Dropdown.Item href=\"https://www.tinper.org\">锚点</Dropdown.Item>\r\n            </Dropdown>\r\n        )\r\n    }\r\n}\r\n","desc":" 通过item的属性控制子菜单状态"},{"example":<Demo4 />,"title":" 模拟选择器的下拉菜单","code":"/**\r\n *\r\n * @title 模拟选择器的下拉菜单\r\n * @description 通过`select`属性控制按钮大小\r\n *\r\n */\r\n\r\nclass Demo4 extends Component {\r\n    render () {\r\n        return (\r\n            <Dropdown title=\"选择器\" select>\r\n            <Dropdown.Item disabled eventKey=\"A\">下拉一</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"B\">下拉2</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"C\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item divider eventKey=\"D\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"E\">下拉4</Dropdown.Item>\r\n            </Dropdown>\r\n        )\r\n    }\r\n}\r\n","desc":" 通过`select`属性控制按钮大小"},{"example":<Demo5 />,"title":" 通过hover触发的下拉菜单","code":"/**\r\n *\r\n * @title 通过hover触发的下拉菜单\r\n * @description 通过设置trigger属性设置下拉菜单触发的事件，现在只支持点击和鼠标滑过\r\n *\r\n */\r\n\r\nclass Demo5 extends Component {\r\n\r\n    render () {\r\n        return (\r\n            <Dropdown title=\"hover事件\" trigger=\"hover\">\r\n            <Dropdown.Item disabled eventKey=\"A\">下拉一</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"B\">下拉2</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"C\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item divider eventKey=\"D\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"E\">下拉4</Dropdown.Item>\r\n            </Dropdown>\r\n        )\r\n    }\r\n}\r\n","desc":" 通过设置trigger属性设置下拉菜单触发的事件，现在只支"}]
+var DemoArray = [{"example":<Demo1 />,"title":" 默认下拉菜单","code":"/**\r\n *\r\n * @title 默认下拉菜单\r\n * @description\r\n *\r\n */\r\n\r\nclass Demo1 extends Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            visible: false\r\n        };\r\n        this.onVisibleChange = this.onVisibleChange.bind(this);\r\n        this.saveSelected = this.saveSelected.bind(this);\r\n        this.confirm = this.confirm.bind(this);\r\n\r\n    }\r\n\r\n\r\n onVisibleChange(visible) {\r\n   this.setState({\r\n     visible,\r\n   });\r\n }\r\n\r\n saveSelected({ selectedKeys }) {\r\n   this.selected = selectedKeys;\r\n }\r\n\r\n confirm() {\r\n   console.log(this.selected);\r\n   this.setState({\r\n     visible: false,\r\n   });\r\n }\r\n    render () {\r\n\r\n        const menu = (\r\n      <Menu\r\n        style={{ width: 140 }}\r\n        multiple\r\n        onSelect={this.saveSelected}\r\n        onDeselect={this.saveSelected}\r\n      >\r\n        <MenuItem key=\"1\">one</MenuItem>\r\n        <MenuItem key=\"2\">two</MenuItem>\r\n        <Divider />\r\n        <MenuItem disabled>\r\n          <button\r\n            style={{\r\n              cursor: 'pointer',\r\n              color: '#000',\r\n              pointerEvents: 'visible',\r\n            }}\r\n            onClick={this.confirm}\r\n          >确定\r\n          </button>\r\n        </MenuItem>\r\n      </Menu>\r\n    );\r\n        return (\r\n            <Dropdown\r\n                trigger={['click']}\r\n                onVisibleChange={this.onVisibleChange}\r\n                visible={this.state.visible}\r\n                closeOnSelect={false}\r\n                overlay={menu}\r\n                animation=\"slide-up\"\r\n              >\r\n                <button>open</button>\r\n              </Dropdown>\r\n        )\r\n    }\r\n}\r\n","desc":""}]
 
 
 class Demo extends Component {
