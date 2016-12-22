@@ -39,7 +39,7 @@
     "bee-transition": "0.0.1",
     "classnames": "^2.2.5",
     "keycode": "^2.1.7",
-    "tinper-bee-core": "latest"
+    "tinper-bee-core": "0.0.12"
   },
   "devDependencies": {
     "bee-layout": "latest",

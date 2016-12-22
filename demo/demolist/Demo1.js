@@ -64,7 +64,7 @@ class Demo1 extends Component {
                 trigger={['click']}
                 onVisibleChange={this.onVisibleChange}
                 visible={this.state.visible}
-                closeOnSelect={false}
+                closeOnSelect={true}
                 overlay={menu}
                 animation="slide-up"
               >

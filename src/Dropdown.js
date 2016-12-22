@@ -37,14 +37,11 @@ const defaultProps = {
 };
 
 const jadgeState = function (props) {
+    console.log()
     if ('visible' in props) {
-      return {
-        visible: props.visible,
-      };
+      return  props.visible;
     }
-    return {
-      visible: props.defaultVisible,
-    };
+    return props.defaultVisible;
 }
 
 class Dropdown extends React.Component {
@@ -95,7 +92,6 @@ class Dropdown extends React.Component {
 
   getMenuElement() {
     const { overlay, clsPrefix } = this.props;
-    console.log(overlay);
 
     return React.cloneElement(overlay, {
       clsPrefix: `${clsPrefix}-menu`,
@@ -132,7 +128,7 @@ class Dropdown extends React.Component {
       trigger,
       ...props,
     } = this.props;
-    console.log(this.state.visible)
+
     return (<Trigger
       {...props}
       clsPrefix={clsPrefix}

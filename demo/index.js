@@ -78,7 +78,7 @@ class Demo1 extends Component {
                 trigger={['click']}
                 onVisibleChange={this.onVisibleChange}
                 visible={this.state.visible}
-                closeOnSelect={false}
+                closeOnSelect={true}
                 overlay={menu}
                 animation="slide-up"
               >
@@ -87,7 +87,50 @@ class Demo1 extends Component {
         )
     }
 }
-var DemoArray = [{"example":<Demo1 />,"title":" 默认下拉菜单","code":"/**\r\n *\r\n * @title 默认下拉菜单\r\n * @description\r\n *\r\n */\r\n\r\nclass Demo1 extends Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            visible: false\r\n        };\r\n        this.onVisibleChange = this.onVisibleChange.bind(this);\r\n        this.saveSelected = this.saveSelected.bind(this);\r\n        this.confirm = this.confirm.bind(this);\r\n\r\n    }\r\n\r\n\r\n onVisibleChange(visible) {\r\n   this.setState({\r\n     visible,\r\n   });\r\n }\r\n\r\n saveSelected({ selectedKeys }) {\r\n   this.selected = selectedKeys;\r\n }\r\n\r\n confirm() {\r\n   console.log(this.selected);\r\n   this.setState({\r\n     visible: false,\r\n   });\r\n }\r\n    render () {\r\n\r\n        const menu = (\r\n      <Menu\r\n        style={{ width: 140 }}\r\n        multiple\r\n        onSelect={this.saveSelected}\r\n        onDeselect={this.saveSelected}\r\n      >\r\n        <MenuItem key=\"1\">one</MenuItem>\r\n        <MenuItem key=\"2\">two</MenuItem>\r\n        <Divider />\r\n        <MenuItem disabled>\r\n          <button\r\n            style={{\r\n              cursor: 'pointer',\r\n              color: '#000',\r\n              pointerEvents: 'visible',\r\n            }}\r\n            onClick={this.confirm}\r\n          >确定\r\n          </button>\r\n        </MenuItem>\r\n      </Menu>\r\n    );\r\n        return (\r\n            <Dropdown\r\n                trigger={['click']}\r\n                onVisibleChange={this.onVisibleChange}\r\n                visible={this.state.visible}\r\n                closeOnSelect={false}\r\n                overlay={menu}\r\n                animation=\"slide-up\"\r\n              >\r\n                <button>open</button>\r\n              </Dropdown>\r\n        )\r\n    }\r\n}\r\n","desc":""}]
+/**
+ *
+ * @title 默认下拉菜单
+ * @description
+ *
+ */
+
+ function onSelect({ key }) {
+   console.log(`${key} selected`);
+ }
+
+ function onVisibleChange(visible) {
+   console.log(visible);
+ }
+
+ const menu = (
+   <Menu onSelect={onSelect}>
+     <MenuItem disabled>disabled</MenuItem>
+     <MenuItem key="1">one</MenuItem>
+     <Divider />
+     <MenuItem key="2">two</MenuItem>
+   </Menu>
+ );
+
+class Demo2 extends Component {
+    render () {
+        return (
+            <div style={{ margin: 20 }}>
+               <div style={{ height: 100 }}/>
+               <div>
+                 <Dropdown
+                   trigger={['click']}
+                   overlay={menu}
+                   animation="slide-up"
+                   onVisibleChange={onVisibleChange}
+                 >
+                   <button style={{ width: 100 }}>open</button>
+                 </Dropdown>
+               </div>
+             </div>
+        )
+    }
+}
+var DemoArray = [{"example":<Demo1 />,"title":" 默认下拉菜单","code":"/**\r\n *\r\n * @title 默认下拉菜单\r\n * @description\r\n *\r\n */\r\n\r\nclass Demo1 extends Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {\r\n            visible: false\r\n        };\r\n        this.onVisibleChange = this.onVisibleChange.bind(this);\r\n        this.saveSelected = this.saveSelected.bind(this);\r\n        this.confirm = this.confirm.bind(this);\r\n\r\n    }\r\n\r\n\r\n onVisibleChange(visible) {\r\n   this.setState({\r\n     visible,\r\n   });\r\n }\r\n\r\n saveSelected({ selectedKeys }) {\r\n   this.selected = selectedKeys;\r\n }\r\n\r\n confirm() {\r\n   console.log(this.selected);\r\n   this.setState({\r\n     visible: false,\r\n   });\r\n }\r\n    render () {\r\n\r\n        const menu = (\r\n      <Menu\r\n        style={{ width: 140 }}\r\n        multiple\r\n        onSelect={this.saveSelected}\r\n        onDeselect={this.saveSelected}\r\n      >\r\n        <MenuItem key=\"1\">one</MenuItem>\r\n        <MenuItem key=\"2\">two</MenuItem>\r\n        <Divider />\r\n        <MenuItem disabled>\r\n          <button\r\n            style={{\r\n              cursor: 'pointer',\r\n              color: '#000',\r\n              pointerEvents: 'visible',\r\n            }}\r\n            onClick={this.confirm}\r\n          >确定\r\n          </button>\r\n        </MenuItem>\r\n      </Menu>\r\n    );\r\n        return (\r\n            <Dropdown\r\n                trigger={['click']}\r\n                onVisibleChange={this.onVisibleChange}\r\n                visible={this.state.visible}\r\n                closeOnSelect={true}\r\n                overlay={menu}\r\n                animation=\"slide-up\"\r\n              >\r\n                <button>open</button>\r\n              </Dropdown>\r\n        )\r\n    }\r\n}\r\n","desc":""},{"example":<Demo2 />,"title":" 默认下拉菜单","code":"/**\r\n *\r\n * @title 默认下拉菜单\r\n * @description\r\n *\r\n */\r\n\r\n function onSelect({ key }) {\r\n   console.log(`${key} selected`);\r\n }\r\n\r\n function onVisibleChange(visible) {\r\n   console.log(visible);\r\n }\r\n\r\n const menu = (\r\n   <Menu onSelect={onSelect}>\r\n     <MenuItem disabled>disabled</MenuItem>\r\n     <MenuItem key=\"1\">one</MenuItem>\r\n     <Divider />\r\n     <MenuItem key=\"2\">two</MenuItem>\r\n   </Menu>\r\n );\r\n\r\nclass Demo2 extends Component {\r\n    render () {\r\n        return (\r\n            <div style={{ margin: 20 }}>\r\n               <div style={{ height: 100 }}/>\r\n               <div>\r\n                 <Dropdown\r\n                   trigger={['click']}\r\n                   overlay={menu}\r\n                   animation=\"slide-up\"\r\n                   onVisibleChange={onVisibleChange}\r\n                 >\r\n                   <button style={{ width: 100 }}>open</button>\r\n                 </Dropdown>\r\n               </div>\r\n             </div>\r\n        )\r\n    }\r\n}\r\n","desc":""}]
 
 
 class Demo extends Component {
