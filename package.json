@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "bee-layout": "latest",
-    "bee-menus": "0.0.4",
+    "bee-menus": "latest",
     "bee-panel": "latest",
     "chai": "^3.5.0",
     "console-polyfill": "~0.2.1",

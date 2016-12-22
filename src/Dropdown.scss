@@ -126,87 +126,89 @@
     animation-play-state: paused;
   }
 
-  &-slide-up-enter+&-slide-up-enter-active+&-placement-bottomLeft,
-  &-slide-up-appear+&-slide-up-appear-active+&-placement-bottomLeft,
-  &-slide-up-enter+&-slide-up-enter-active+&-placement-bottomCenter,
-  &-slide-up-appear+&-slide-up-appear-active+&-placement-bottomCenter,
-  &-slide-up-enter+&-slide-up-enter-active+&-placement-bottomRight,
-  &-slide-up-appear+&-slide-up-appear-active+&-placement-bottomRight {
-    animation-name: rcDropdownSlideUpIn;
-    animation-play-state: running;
-  }
 
-  &-slide-up-enter+&-slide-up-enter-active+&-placement-topLeft,
-  &-slide-up-appear+&-slide-up-appear-active+&-placement-topLeft,
-  &-slide-up-enter+&-slide-up-enter-active+&-placement-topCenter,
-  &-slide-up-appear+&-slide-up-appear-active+&-placement-topCenter,
-  &-slide-up-enter+&-slide-up-enter-active+&-placement-topRight,
-  &-slide-up-appear+&-slide-up-appear-active+&-placement-topRight {
-    animation-name: rcDropdownSlideDownIn;
-    animation-play-state: running;
-  }
+}
 
-  &-slide-up-leave+&-slide-up-leave-active+&-placement-bottomLeft,
-  &-slide-up-leave+&-slide-up-leave-active+&-placement-bottomCenter,
-  &-slide-up-leave+&-slide-up-leave-active+&-placement-bottomRight {
-    animation-name: rcDropdownSlideUpOut;
-    animation-play-state: running;
-  }
+.u-dropdown-slide-up-enter.u-dropdown-slide-up-enter-active.u-dropdown-placement-bottomLeft,
+.u-dropdown-slide-up-appear.u-dropdown-slide-up-appear-active.u-dropdown-placement-bottomLeft,
+.u-dropdown-slide-up-enter.u-dropdown-slide-up-enter-active.u-dropdown-placement-bottomCenter,
+.u-dropdown-slide-up-appear.u-dropdown-slide-up-appear-active.u-dropdown-placement-bottomCenter,
+.u-dropdown-slide-up-enter.u-dropdown-slide-up-enter-active.u-dropdown-placement-bottomRight,
+.u-dropdown-slide-up-appear.u-dropdown-slide-up-appear-active.u-dropdown-placement-bottomRight {
+  animation-name: uDropdownSlideUpIn;
+  animation-play-state: running;
+}
 
-  &-slide-up-leave+&-slide-up-leave-active+&-placement-topLeft,
-  &-slide-up-leave+&-slide-up-leave-active+&-placement-topCenter,
-  &-slide-up-leave+&-slide-up-leave-active+&-placement-topRight {
-    animation-name: rcDropdownSlideDownOut;
-    animation-play-state: running;
-  }
+.u-dropdown-slide-up-enter.u-dropdown-slide-up-enter-active.u-dropdown-placement-topLeft,
+.u-dropdown-slide-up-appear.u-dropdown-slide-up-appear-active.u-dropdown-placement-topLeft,
+.u-dropdown-slide-up-enter.u-dropdown-slide-up-enter-active.u-dropdown-placement-topCenter,
+.u-dropdown-slide-up-appear.u-dropdown-slide-up-appear-active.u-dropdown-placement-topCenter,
+.u-dropdown-slide-up-enter.u-dropdown-slide-up-enter-active.u-dropdown-placement-topRight,
+.u-dropdown-slide-up-appear.u-dropdown-slide-up-appear-active.u-dropdown-placement-topRight {
+  animation-name: uDropdownSlideDownIn;
+  animation-play-state: running;
+}
 
-  @keyframes rcDropdownSlideUpIn {
-    0% {
-      opacity: 0;
-      transform-origin: 0% 0%;
-      transform: scaleY(0);
-    }
-    100% {
-      opacity: 1;
-      transform-origin: 0% 0%;
-      transform: scaleY(1);
-    }
-  }
-  @keyframes rcDropdownSlideUpOut {
-    0% {
-      opacity: 1;
-      transform-origin: 0% 0%;
-      transform: scaleY(1);
-    }
-    100% {
-      opacity: 0;
-      transform-origin: 0% 0%;
-      transform: scaleY(0);
-    }
-  }
+.u-dropdown-slide-up-leave.u-dropdown-slide-up-leave-active.u-dropdown-placement-bottomLeft,
+.u-dropdown-slide-up-leave.u-dropdown-slide-up-leave-active.u-dropdown-placement-bottomCenter,
+.u-dropdown-slide-up-leave.u-dropdown-slide-up-leave-active.u-dropdown-placement-bottomRight {
+  animation-name: uDropdownSlideUpOut;
+  animation-play-state: running;
+}
 
-  @keyframes rcDropdownSlideDownIn {
-    0% {
-      opacity: 0;
-      transform-origin: 0% 100%;
-      transform: scaleY(0);
-    }
-    100% {
-      opacity: 1;
-      transform-origin: 0% 100%;
-      transform: scaleY(1);
-    }
+.u-dropdown-slide-up-leave.u-dropdown-slide-up-leave-active.u-dropdown-placement-topLeft,
+.u-dropdown-slide-up-leave.u-dropdown-slide-up-leave-active.u-dropdown-placement-topCenter,
+.u-dropdown-slide-up-leave.u-dropdown-slide-up-leave-active.u-dropdown-placement-topRight {
+  animation-name: uDropdownSlideDownOut;
+  animation-play-state: running;
+}
+
+@keyframes uDropdownSlideUpIn {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
   }
-  @keyframes rcDropdownSlideDownOut {
-    0% {
-      opacity: 1;
-      transform-origin: 0% 100%;
-      transform: scaleY(1);
-    }
-    100% {
-      opacity: 0;
-      transform-origin: 0% 100%;
-      transform: scaleY(0);
-    }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+}
+@keyframes uDropdownSlideUpOut {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 0%;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 0%;
+    transform: scaleY(0);
+  }
+}
+
+@keyframes uDropdownSlideDownIn {
+  0% {
+    opacity: 0;
+    transform-origin: 0% 100%;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform-origin: 0% 100%;
+    transform: scaleY(1);
+  }
+}
+@keyframes uDropdownSlideDownOut {
+  0% {
+    opacity: 1;
+    transform-origin: 0% 100%;
+    transform: scaleY(1);
+  }
+  100% {
+    opacity: 0;
+    transform-origin: 0% 100%;
+    transform: scaleY(0);
   }
 }

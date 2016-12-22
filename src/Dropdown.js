@@ -37,7 +37,6 @@ const defaultProps = {
 };
 
 const jadgeState = function (props) {
-    console.log()
     if ('visible' in props) {
       return  props.visible;
     }
