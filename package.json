@@ -33,7 +33,7 @@
     "pub": "bee-tools run pub"
   },
   "dependencies": {
-    "bee-button": "^0.1.6",
+
     "bee-overlay": "0.0.19",
     "bee-safe-anchor": "latest",
     "bee-transition": "0.0.1",
@@ -52,6 +52,7 @@
     "sinon": "^1.17.6",
     "webpage": "^0.3.0",
     "bee-layout": "latest",
-    "bee-panel": "latest"
+    "bee-panel": "latest",
+    "bee-button": "latest"
   }
 }
