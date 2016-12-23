@@ -34,7 +34,7 @@ class Demo2 extends Component {
                    animation="slide-up"
                    onVisibleChange={onVisibleChange}
                  >
-                   <button style={{ width: 100 }}>open</button>
+                   <Button style={{ width: 100 }}>open</Button>
                  </Dropdown>
                </div>
              </div>
