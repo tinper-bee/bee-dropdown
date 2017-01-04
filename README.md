@@ -56,7 +56,7 @@ import "./node_modules/bee-dropdown/build/Dropdown.css"
 #### Dropdown
 
 |参数|说明|类型|默认值|
-|:--|:---:|:--:|---:|
+|:--|:---|:----|:---|
 |title|Dropdown触发按钮显示文字|-|-|
 |activeKey|一直显示高亮的子菜单（与子菜单eventKey对应）|-|-|
 |disabled|不可点击的触发按钮|-|-|

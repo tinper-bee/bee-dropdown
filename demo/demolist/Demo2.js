@@ -5,8 +5,10 @@
  *
  */
 
+
  function onSelect({ key }) {
    console.log(`${key} selected`);
+
  }
 
  function onVisibleChange(visible) {
@@ -26,7 +28,6 @@ class Demo2 extends Component {
     render () {
         return (
             <div style={{ margin: 20 }}>
-               <div style={{ height: 100 }}/>
                <div>
                  <Dropdown
                    trigger={['click']}
@@ -34,7 +35,7 @@ class Demo2 extends Component {
                    animation="slide-up"
                    onVisibleChange={onVisibleChange}
                  >
-                   <button style={{ width: 100 }}>open</button>
+                   <Button style={{ width: 100 }}>open</Button>
                  </Dropdown>
                </div>
              </div>

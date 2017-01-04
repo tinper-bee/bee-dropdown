@@ -68,7 +68,7 @@ class Demo1 extends Component {
                 overlay={menu}
                 animation="slide-up"
               >
-                <button>open</button>
+                <Button>open</Button>
               </Dropdown>
         )
     }

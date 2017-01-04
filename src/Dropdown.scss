@@ -8,7 +8,6 @@
   top: -9999px;
   z-index: 1070;
   display: block;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   font-weight: normal;
   line-height: 1.5;
@@ -63,7 +62,7 @@
       &-selected {
         position: relative;
         &:after {
-          content: '\e613';
+          content: '\e658';
           font-family: 'anticon';
           font-weight: bold;
           position: absolute;
@@ -76,7 +75,7 @@
       &-disabled {
         color: #ccc;
         cursor: not-allowed;
-        pointer-events: none;
+        //pointer-events: none;
 
         &:hover {
           color: #ccc;
@@ -106,7 +105,7 @@
   }
 
   @mixin effect() {
-    animation-duration: 0.3s;
+    animation-duration: 0.1s;
     animation-fill-mode: both;
     transform-origin: 0 0;
     display: block !important;
