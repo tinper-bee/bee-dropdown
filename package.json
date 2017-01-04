@@ -33,17 +33,16 @@
     "pub": "bee-tools run pub"
   },
   "dependencies": {
-    "bee-button": "^0.1.6",
-    "bee-overlay": "^0.1.0",
+    "bee-overlay": "latest",
     "bee-safe-anchor": "latest",
-    "bee-transition": "0.0.1",
+    "bee-transition": "latest",
     "classnames": "^2.2.5",
     "keycode": "^2.1.7",
-    "tinper-bee-core": "0.0.24"
+    "tinper-bee-core": "latest"
   },
   "devDependencies": {
-    "bee-button": "^0.2.2",
-    "bee-layout": "^0.2.2",
+    "bee-button": "latest",
+    "bee-layout": "latest",
     "bee-menus": "latest",
     "bee-panel": "^0.2.1",
     "chai": "^3.5.0",

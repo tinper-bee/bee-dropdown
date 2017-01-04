@@ -47,15 +47,11 @@ class Demo1 extends Component {
         <MenuItem key="2">two</MenuItem>
         <Divider />
         <MenuItem disabled>
-          <button
-            style={{
-              cursor: 'pointer',
-              color: '#000',
-              pointerEvents: 'visible',
-            }}
+          <Button
             onClick={this.confirm}
+            colors="primary"
           >确定
-          </button>
+          </Button>
         </MenuItem>
       </Menu>
     );
@@ -64,7 +60,7 @@ class Demo1 extends Component {
                 trigger={['click']}
                 onVisibleChange={this.onVisibleChange}
                 visible={this.state.visible}
-                closeOnSelect={true}
+                closeOnSelect={false}
                 overlay={menu}
                 animation="slide-up"
               >
