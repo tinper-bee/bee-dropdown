@@ -16,7 +16,7 @@
  }
 
  const menu = (
-   <Menu onSelect={onSelect}>
+   <Menu onSelect={onSelect} clsPrefix='u-menu'>
      <MenuItem disabled>disabled</MenuItem>
      <MenuItem key="1">one</MenuItem>
      <Divider />
@@ -27,7 +27,7 @@
 class Demo2 extends Component {
     render () {
         return (
-            <div style={{ margin: 20 }}>
+            <div>
                <div>
                  <Dropdown
                    trigger={['click']}

@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "bee-button": "latest",
+    "bee-icon": "0.0.5",
     "bee-layout": "latest",
     "bee-menus": "latest",
     "bee-panel": "^0.2.1",
