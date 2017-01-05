@@ -2,10 +2,14 @@
 @import "../node_modules/bee-layout/src/Layout.scss";
 @import "../node_modules/bee-panel/src/Panel.scss";
 @import "../node_modules/bee-button/src/Button.scss";
+
+@import "../node_modules/bee-menus/src/Menus.scss";
 @import "../src/Dropdown.scss";
+
+
 
 .demoPadding{
     button{
-        padding: 10px 30px;
+        margin: 10px;
     }
 }

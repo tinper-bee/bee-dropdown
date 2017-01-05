@@ -1,211 +1,157 @@
-import React, { PropTypes, Component } from 'react';
-import classNames from 'classnames';
+import React, { PropTypes } from 'react';
+import ReactDOM from 'react-dom';
+import Trigger from 'bee-overlay/build/trigger';
+import placements from './placement';
 
-import RootCloseWrapper from 'bee-overlay/build/RootCloseWrapper';
-import DropdownToggle from './DropdownToggle';
-import DropdownMenu from './DropdownMenu';
-import DropdownMenuItem from './DropdownMenuItem';
-import Fade from 'bee-transition/build/Fade';
 
-const DIV = 'div';
 
 const propTypes = {
-  disabled: PropTypes.bool,
-  trigger: PropTypes.string,
-  // block: React.PropTypes.bool,
-  dropup: PropTypes.bool,
-  transition: PropTypes.bool,
-  role: PropTypes.string,
-  onClose: PropTypes.func,
-  onOpen: PropTypes.func,
-  onToggle: PropTypes.func,
-  onSelect: PropTypes.func,
-  /*
-   * If 'select' is true , title will be updated after the 'onSelect' trigger .
-   */
-  select: PropTypes.bool,
-  activeKey: PropTypes.any,
-  menuStyle: PropTypes.object
+  minOverlayWidthMatchTrigger: PropTypes.bool,
+  onVisibleChange: PropTypes.func,
+  clsPrefix: PropTypes.string,
+  children: PropTypes.any,
+  transitionName: PropTypes.string,
+  overlayClassName: PropTypes.string,
+  animation: PropTypes.any,
+  align: PropTypes.object,
+  overlayStyle: PropTypes.object,
+  placement: PropTypes.string,
+  trigger: PropTypes.array,
+  showAction: PropTypes.array,
+  hideAction: PropTypes.array,
+  getPopupContainer: PropTypes.func,
 };
 
 const defaultProps = {
-  componentClass: DIV,
-  disabled: false,
-  trigger: 'click',
-  clsPrefix: 'u-dropdown',
-  transition: true
-  // block: false
+    minOverlayWidthMatchTrigger: true,
+    clsPrefix: 'u-dropdown',
+    trigger: ['hover'],
+    showAction: [],
+    hideAction: [],
+    overlayClassName: '',
+    overlayStyle: {},
+    defaultVisible: false,
+    onVisibleChange() {
+    },
+    placement: 'bottomLeft',
 };
 
+const jadgeState = function (props) {
+    if ('visible' in props) {
+      return  props.visible;
+    }
+    return props.defaultVisible;
+}
+
 class Dropdown extends React.Component {
-    constructor (props) {
+    constructor(props){
         super(props);
-        this.toggle = this.toggle.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-        this.handleMouseOver = this.handleMouseOver.bind(this);
-        this.handleMouseLeave = this.handleMouseLeave.bind(this);
-        this.handleSelect = this.handleSelect.bind(this);
-        this.update = this.update.bind(this);
         this.state = {
-          title: null,
-          activeKey: this.props.activeKey,
-          open: false
-        }
-    }
-
-    toggle(isOpen) {
-        let open = isOpen || !this.state.open;
-        let handleToggle = open ? this.props.onOpen : this.props.onClose;
-
-
-        this.setState({
-            open: open
-        }, function () {
-            handleToggle && handleToggle();
-        });
-
-        this.props.onToggle && this.props.onToggle();
-    }
-    handleClick() {
-        if (this.props.disabled || !(this.props.trigger == "click")) {
-            return;
-        }
-
-        this.toggle();
-    }
-    handleMouseOver() {
-
-      if (this.props.disabled || !(this.props.trigger == "hover")) {
-          return;
-      }
-      this.toggle(true);
-    }
-    handleMouseLeave(event) {
-
-      if (this.props.disabled || !(this.props.trigger == "hover")) {
-          return;
-      }
-      this.toggle(false);
-    }
-    handleSelect(eventKey, props, event) {
-
-        this.props.select && this.setState({
-            title: props.children,
-            activeKey: props.eventKey
-        });
-
-        this.props.onSelect && this.props.onSelect(eventKey, props, event);
-    }
-    update(props) {
-
-        const {children, select, activeKey} = props || this.props;
-        const state = {
-            activeKey
+            visible:jadgeState(this.props)
         };
-
-        let title;
-        if (select) {
-            React.Children.map(children, (item, index) => {
-                if (activeKey === item.props.eventKey && typeof item.props.eventKey !== "undefined") {
-                    title = item.props.children;
-                } else if (item.props.active) {
-                    title = item.props.children;
-                }
-            });
-            title && (state.title = title);
-        }
-
-        this.setState(state);
+        this.onClick = this.onClick.bind(this);
+        this.onVisibleChange = this.onVisibleChange.bind(this);
+        this.getMenuElement = this.getMenuElement.bind(this);
+        this.getPopupDomNode = this.getPopupDomNode.bind(this);
+        this.afterVisibleChange = this.afterVisibleChange.bind(this);
 
     }
-    componentWillMount() {
-        this.update();
+
+  componentWillReceiveProps({ visible }) {
+    if (visible !== undefined) {
+      this.setState({
+        visible,
+      });
     }
-    componentWillReceiveProps(nextProps) {
-        this.update(nextProps);
+  }
+
+  onClick(e) {
+    const props = this.props;
+    const overlayProps = props.overlay.props;
+    // do no call onVisibleChange, if you need click to hide, use onClick and control visible
+    if (!('visible' in props)) {
+      this.setState({
+        visible: false,
+      });
     }
-    render() {
-
-        let {
-            items,
-            title,
-            children,
-            className,
-            activeKey,
-            dropup,
-            transition,
-            clsPrefix,
-            menuStyle,
-            componentClass: Component,
-            ...props
-        } = this.props;
-
-
-        let Toggle = (
-            <DropdownToggle
-                {...props}
-                dropup = { dropup }
-                onClick = {this.handleClick}
-                onMouseEnter = {this.handleMouseOver}
-                >
-                { this.state.title || title }
-            </DropdownToggle>
-        );
-
-        let Menu = (
-            <DropdownMenu
-                onClose={this.toggle}
-                onSelect={this.handleSelect}
-                activeKey={this.state.activeKey}
-                open={this.state.open}
-                colors = {this.props.colors}
-                dropup={dropup}
-                style={menuStyle}
-                ref='menu'
-                onMouseLeave = {this.handleMouseLeave}
-                >
-                {children}
-            </DropdownMenu>
-        );
-
-        if(transition){
-            Menu = (<Fade
-              in={this.state.open}
-              transitionAppear
-            >
-              { Menu }
-            </Fade>);
-        }
-
-
-
-        if (this.state.open) {
-            Menu = (
-                <RootCloseWrapper onRootClose={this.toggle}>
-                    {Menu}
-                </RootCloseWrapper>
-            );
-        }
-        const classes = classNames({
-            [`${clsPrefix}`]: true
-        }, className);
-        Component = Component ? Component : DIV;
-        return (
-            <Component
-                {...props}
-                className = {classes}
-                role = "dropdown"
-                >
-                {Toggle}
-                {Menu}
-            </Component>
-        );
+    if (overlayProps.onClick) {
+      overlayProps.onClick(e);
     }
+  }
+
+  onVisibleChange(visible) {
+    const props = this.props;
+    if (!('visible' in props)) {
+      this.setState({
+        visible,
+      });
+    }
+    props.onVisibleChange(visible);
+  }
+
+  getMenuElement() {
+    const { overlay, clsPrefix } = this.props;
+
+    return React.cloneElement(overlay, {
+      clsPrefix: `${clsPrefix}-menu`,
+      onClick: this.onClick,
+    });
+  }
+
+  getPopupDomNode() {
+    return this.refs.trigger.getPopupDomNode();
+  }
+
+  afterVisibleChange(visible) {
+    if (visible && this.props.minOverlayWidthMatchTrigger) {
+      const overlayNode = this.getPopupDomNode();
+      const rootNode = ReactDOM.findDOMNode(this);
+      if (rootNode.offsetWidth > overlayNode.offsetWidth) {
+        overlayNode.style.width = `${rootNode.offsetWidth}px`;
+      }
+    }
+  }
+
+  render() {
+    const {
+      clsPrefix,
+      children,
+      transitionName,
+      animation,
+      align, placement,
+      getPopupContainer,
+      showAction,
+      hideAction,
+      overlayClassName,
+      overlayStyle,
+      trigger,
+      ...props,
+    } = this.props;
+
+    return (<Trigger
+      {...props}
+      clsPrefix={clsPrefix}
+      ref="trigger"
+      popupClassName={overlayClassName}
+      popupStyle={overlayStyle}
+      builtinPlacements={placements}
+      action={trigger}
+      showAction={showAction}
+      hideAction={hideAction}
+      popupPlacement={placement}
+      popupAlign={align}
+      popupTransitionName={transitionName}
+      popupAnimation={animation}
+      popupVisible={this.state.visible}
+      afterPopupVisibleChange={this.afterVisibleChange}
+      popup={this.getMenuElement()}
+      onPopupVisibleChange={this.onVisibleChange}
+      getPopupContainer={getPopupContainer}
+    >{children}</Trigger>);
+  }
 };
 
 Dropdown.propTypes = propTypes;
 Dropdown.defaultProps = defaultProps;
-
-Dropdown.Item = DropdownMenuItem;
 
 export default Dropdown;

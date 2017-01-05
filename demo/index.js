@@ -5,7 +5,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Button from 'bee-button';
 import Dropdown from '../src';
-
+import Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';
+import Icon from 'bee-icon';
 
 const CARET = <i className="uf uf-chevronarrowdown"></i>;
 
@@ -14,79 +15,182 @@ const CARETUP = <i className="uf uf-chevronarrowup"></i>;
 
 /**
  *
- * @title 默认下拉菜单
- * @description
+ * @title 基础下拉菜单
+ * @description 下拉菜单提供click，hover和focus事件触发。
  *
  */
 
+ function onSelect({ key }) {
+   console.log(`${key} selected`);
+
+ }
+
+ function onVisibleChange(visible) {
+   console.log(visible);
+ }
+
 class Demo1 extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            visible: false
+        };
+
+    }
     render () {
+
+        const menu1 = (
+              <Menu
+                multiple
+                onSelect={onSelect}>
+                <MenuItem key="1">借款合同</MenuItem>
+                <MenuItem key="2">抵/质押合同</MenuItem>
+                <MenuItem key="3">担保合同</MenuItem>
+                <MenuItem key="4">联保合同</MenuItem>
+                <MenuItem key="5">合同审批</MenuItem>
+                <MenuItem key="6">抵/质押合同跟踪</MenuItem>
+              </Menu>
+          );
+          const menu2 = (
+                <Menu
+                  multiple
+                  onSelect={onSelect}>
+                      <MenuItem key="1"><Icon type='uf-listsearch' />借款合同</MenuItem>
+                      <MenuItem key="2"><Icon type='uf-listsearch' />抵/质押合同</MenuItem>
+                      <MenuItem key="3"><Icon type='uf-listsearch' />担保合同</MenuItem>
+                      <MenuItem key="4"><Icon type='uf-listsearch' />联保合同</MenuItem>
+                     <MenuItem key="5"><Icon type='uf-seal' />合同审批</MenuItem>
+                     <MenuItem key="6"><Icon type='uf-bullseye' />抵/质押合同跟踪</MenuItem>
+                </Menu>
+            );
         return (
-            <Dropdown title="默认下拉" activeKey="B">
-            <Dropdown.Item eventKey="A">下拉一</Dropdown.Item>
-            <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
-            <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
-            <Dropdown.Item eventKey="D">下拉4</Dropdown.Item>
-            <Dropdown.Item divider>分割线</Dropdown.Item>
-            <Dropdown.Item eventKey="A" disabled>不可点击</Dropdown.Item>
-            <Dropdown.Item eventKey="B">活跃的</Dropdown.Item>
-            <Dropdown.Item href="https://www.tinper.org">锚点</Dropdown.Item>
-            </Dropdown>
+            <div className="demoPadding">
+                <Dropdown
+                    trigger={['click']}
+                    overlay={menu1}
+                    animation="slide-up"
+                    onVisibleChange={onVisibleChange}>
+                    <Button colors='primary'>点击显示</Button>
+                  </Dropdown>
+                  <Dropdown
+                      trigger={['hover']}
+                      overlay={menu2}
+                      animation="slide-up"
+                      onVisibleChange={onVisibleChange}>
+                      <Button colors='primary'>鼠标滑过显示</Button>
+                    </Dropdown>
+            </div>
         )
     }
 }
 /**
  *
- * @title 不同颜色的下拉
- * @description 通过`colors`属性控制按钮颜色
+ * @title 不同样子的下拉菜单
+ * @description 通过不同的子组件搭配，组成不同形式的菜单
  *
  */
- const COLORS = ['success', 'warning', 'danger', 'info'];
 
- function renderButtonGroup(color,index){
-     return (
-         <Col sm={2}>
-             <Dropdown colors={color}  title={color} key={index}>
-                 <Dropdown.Item eventKey="A" >Default Item</Dropdown.Item>
-                 <Dropdown.Item eventKey="B" active>Active Item</Dropdown.Item>
-                 <Dropdown.Item eventKey="C" disabled>Disabled Item</Dropdown.Item>
-                 <Dropdown.Item divider></Dropdown.Item>
-                 <Dropdown.Item href="http://www.pagurian.com">Link Item</Dropdown.Item>
-             </Dropdown>
-         </Col>
-     );
+
+ function onSelect({ key }) {
+   console.log(`${key} selected`);
+
  }
 
+ function onVisibleChange(visible) {
+   console.log(visible);
+ }
+
+ const menu1 = (
+     <Menu
+       multiple
+       onSelect={onSelect}>
+       <MenuItem key="1">借款合同</MenuItem>
+       <MenuItem key="2">抵/质押合同</MenuItem>
+       <MenuItem key="3">担保合同</MenuItem>
+       <MenuItem key="4">联保合同</MenuItem>
+       <Divider />
+       <MenuItem key="5">合同审批</MenuItem>
+       <MenuItem key="6">抵/质押合同跟踪</MenuItem>
+     </Menu>
+ );
+
+ const menu2 = (
+     <Menu
+       multiple
+       onSelect={onSelect}>
+       <MenuItemGroup title="合同类别">
+       <MenuItem key="1">借款合同</MenuItem>
+       <MenuItem key="2">抵/质押合同</MenuItem>
+       <MenuItem key="3">担保合同</MenuItem>
+       <MenuItem key="4">联保合同</MenuItem>
+        </MenuItemGroup>
+        <MenuItemGroup title="合同操作">
+            <MenuItem key="5">合同审批</MenuItem>
+            <MenuItem key="6">抵/质押合同跟踪</MenuItem>
+        </MenuItemGroup>
+     </Menu>
+ );
+ const menu3 = (
+     <Menu
+       vertical
+       onSelect={onSelect}>
+       <SubMenu key="sub1" title={<span><span>Navigation One</span></span>}>
+			      <MenuItemGroup title="合同类别">
+                      <MenuItem key="1">借款合同</MenuItem>
+                      <MenuItem key="2">抵/质押合同</MenuItem>
+                      <MenuItem key="3">担保合同</MenuItem>
+                      <MenuItem key="4">联保合同</MenuItem>
+			      </MenuItemGroup>
+			      <MenuItemGroup title="合同操作">
+                      <MenuItem key="5">合同审批</MenuItem>
+                      <MenuItem key="6">抵/质押合同跟踪</MenuItem>
+			      </MenuItemGroup>
+			</SubMenu>
+			<SubMenu key="sub2" title=''>
+            <MenuItem key="7">合同审批</MenuItem>
+            <MenuItem key="8">抵/质押合同跟踪</MenuItem>
+			      <SubMenu key="sub3" title="Submenu质押合同跟踪质押合同跟踪">
+                  <MenuItem key="9">合同审批</MenuItem>
+                  <MenuItem key="10">抵/质押合同跟踪</MenuItem>
+			      </SubMenu>
+			</SubMenu>
+     </Menu>
+ );
 class Demo2 extends Component {
     render () {
         return (
-            <Row>
-                {COLORS.map(renderButtonGroup)}
-            </Row>
-        )
-    }
-}
-/**
- *
- * @title 模拟选择器的下拉菜单
- * @description 通过设置select属性控制是否为模拟选择器
- *
- */
+            <div className="demoPadding">
 
-class Demo3 extends Component {
-    render () {
-        return (
-            <Dropdown title="选择器" select>
-                <Dropdown.Item disabled eventKey="A">下拉一</Dropdown.Item>
-                <Dropdown.Item eventKey="B">下拉2</Dropdown.Item>
-                <Dropdown.Item eventKey="C">下拉3</Dropdown.Item>
-                <Dropdown.Item divider eventKey="D">下拉3</Dropdown.Item>
-                <Dropdown.Item eventKey="E">下拉4</Dropdown.Item>
-            </Dropdown>
+                 <Dropdown
+                   trigger={['click']}
+                   overlay={menu1}
+                   animation="slide-up"
+                   onVisibleChange={onVisibleChange}
+                 >
+                   <Button colors='primary'>带有分割线的下拉</Button>
+                 </Dropdown>
+
+                 <Dropdown
+                   trigger={['click']}
+                   overlay={menu2}
+                   animation="slide-up"
+                   onVisibleChange={onVisibleChange}
+                 >
+                   <Button colors='primary'>带有小标题的下拉</Button>
+                 </Dropdown>
+                 <Dropdown
+                   trigger={['click']}
+                   overlay={menu3}
+                   animation="slide-up"
+                   onVisibleChange={onVisibleChange}
+                 >
+                   <Button colors='primary'>多级下拉</Button>
+                 </Dropdown>
+             </div>
         )
     }
 }
-var DemoArray = [{"example":<Demo1 />,"title":" 默认下拉菜单","code":"/**\r\n *\r\n * @title 默认下拉菜单\r\n * @description\r\n *\r\n */\r\n\r\nclass Demo1 extends Component {\r\n    render () {\r\n        return (\r\n            <Dropdown title=\"默认下拉\" activeKey=\"B\">\r\n            <Dropdown.Item eventKey=\"A\">下拉一</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"B\">下拉2</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"C\">下拉3</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"D\">下拉4</Dropdown.Item>\r\n            <Dropdown.Item divider>分割线</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"A\" disabled>不可点击</Dropdown.Item>\r\n            <Dropdown.Item eventKey=\"B\">活跃的</Dropdown.Item>\r\n            <Dropdown.Item href=\"https://www.tinper.org\">锚点</Dropdown.Item>\r\n            </Dropdown>\r\n        )\r\n    }\r\n}\r\n","desc":""},{"example":<Demo2 />,"title":" 不同颜色的下拉","code":"/**\r\n *\r\n * @title 不同颜色的下拉\r\n * @description 通过`colors`属性控制按钮颜色\r\n *\r\n */\r\n const COLORS = ['success', 'warning', 'danger', 'info'];\r\n\r\n function renderButtonGroup(color,index){\r\n     return (\r\n         <Col sm={2}>\r\n             <Dropdown colors={color}  title={color} key={index}>\r\n                 <Dropdown.Item eventKey=\"A\" >Default Item</Dropdown.Item>\r\n                 <Dropdown.Item eventKey=\"B\" active>Active Item</Dropdown.Item>\r\n                 <Dropdown.Item eventKey=\"C\" disabled>Disabled Item</Dropdown.Item>\r\n                 <Dropdown.Item divider></Dropdown.Item>\r\n                 <Dropdown.Item href=\"http://www.pagurian.com\">Link Item</Dropdown.Item>\r\n             </Dropdown>\r\n         </Col>\r\n     );\r\n }\r\n\r\nclass Demo2 extends Component {\r\n    render () {\r\n        return (\r\n            <Row>\r\n                {COLORS.map(renderButtonGroup)}\r\n            </Row>\r\n        )\r\n    }\r\n}\r\n","desc":" 通过`colors`属性控制按钮颜色"},{"example":<Demo3 />,"title":" 模拟选择器的下拉菜单","code":"/**\r\n *\r\n * @title 模拟选择器的下拉菜单\r\n * @description 通过设置select属性控制是否为模拟选择器\r\n *\r\n */\r\n\r\nclass Demo3 extends Component {\r\n    render () {\r\n        return (\r\n            <Dropdown title=\"选择器\" select>\r\n                <Dropdown.Item disabled eventKey=\"A\">下拉一</Dropdown.Item>\r\n                <Dropdown.Item eventKey=\"B\">下拉2</Dropdown.Item>\r\n                <Dropdown.Item eventKey=\"C\">下拉3</Dropdown.Item>\r\n                <Dropdown.Item divider eventKey=\"D\">下拉3</Dropdown.Item>\r\n                <Dropdown.Item eventKey=\"E\">下拉4</Dropdown.Item>\r\n            </Dropdown>\r\n        )\r\n    }\r\n}\r\n","desc":" 通过设置select属性控制是否为模拟选择器"}]
+var DemoArray = [{"example":<Demo1 />,"title":" 基础下拉菜单","code":"/**\n *\n * @title 基础下拉菜单\n * @description 下拉菜单提供click，hover和focus事件触发。\n *\n */\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\nclass Demo1 extends Component {\n    constructor(props) {\n        super(props);\n        this.state = {\n            visible: false\n        };\n\n    }\n    render () {\n\n        const menu1 = (\n              <Menu\n                multiple\n                onSelect={onSelect}>\n                <MenuItem key=\"1\">借款合同</MenuItem>\n                <MenuItem key=\"2\">抵/质押合同</MenuItem>\n                <MenuItem key=\"3\">担保合同</MenuItem>\n                <MenuItem key=\"4\">联保合同</MenuItem>\n                <MenuItem key=\"5\">合同审批</MenuItem>\n                <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n              </Menu>\n          );\n          const menu2 = (\n                <Menu\n                  multiple\n                  onSelect={onSelect}>\n                      <MenuItem key=\"1\"><Icon type='uf-listsearch' />借款合同</MenuItem>\n                      <MenuItem key=\"2\"><Icon type='uf-listsearch' />抵/质押合同</MenuItem>\n                      <MenuItem key=\"3\"><Icon type='uf-listsearch' />担保合同</MenuItem>\n                      <MenuItem key=\"4\"><Icon type='uf-listsearch' />联保合同</MenuItem>\n                     <MenuItem key=\"5\"><Icon type='uf-seal' />合同审批</MenuItem>\n                     <MenuItem key=\"6\"><Icon type='uf-bullseye' />抵/质押合同跟踪</MenuItem>\n                </Menu>\n            );\n        return (\n            <div className=\"demoPadding\">\n                <Dropdown\n                    trigger={['click']}\n                    overlay={menu1}\n                    animation=\"slide-up\"\n                    onVisibleChange={onVisibleChange}>\n                    <Button colors='primary'>点击显示</Button>\n                  </Dropdown>\n                  <Dropdown\n                      trigger={['hover']}\n                      overlay={menu2}\n                      animation=\"slide-up\"\n                      onVisibleChange={onVisibleChange}>\n                      <Button colors='primary'>鼠标滑过显示</Button>\n                    </Dropdown>\n            </div>\n        )\n    }\n}\n","desc":" 下拉菜单提供click，hover和focus事件触发。"},{"example":<Demo2 />,"title":" 不同样子的下拉菜单","code":"/**\n *\n * @title 不同样子的下拉菜单\n * @description 通过不同的子组件搭配，组成不同形式的菜单\n *\n */\n\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\n const menu1 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <MenuItem key=\"1\">借款合同</MenuItem>\n       <MenuItem key=\"2\">抵/质押合同</MenuItem>\n       <MenuItem key=\"3\">担保合同</MenuItem>\n       <MenuItem key=\"4\">联保合同</MenuItem>\n       <Divider />\n       <MenuItem key=\"5\">合同审批</MenuItem>\n       <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n     </Menu>\n );\n\n const menu2 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <MenuItemGroup title=\"合同类别\">\n       <MenuItem key=\"1\">借款合同</MenuItem>\n       <MenuItem key=\"2\">抵/质押合同</MenuItem>\n       <MenuItem key=\"3\">担保合同</MenuItem>\n       <MenuItem key=\"4\">联保合同</MenuItem>\n        </MenuItemGroup>\n        <MenuItemGroup title=\"合同操作\">\n            <MenuItem key=\"5\">合同审批</MenuItem>\n            <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n        </MenuItemGroup>\n     </Menu>\n );\n const menu3 = (\n     <Menu\n       vertical\n       onSelect={onSelect}>\n       <SubMenu key=\"sub1\" title={<span><span>Navigation One</span></span>}>\n\t\t\t      <MenuItemGroup title=\"合同类别\">\n                      <MenuItem key=\"1\">借款合同</MenuItem>\n                      <MenuItem key=\"2\">抵/质押合同</MenuItem>\n                      <MenuItem key=\"3\">担保合同</MenuItem>\n                      <MenuItem key=\"4\">联保合同</MenuItem>\n\t\t\t      </MenuItemGroup>\n\t\t\t      <MenuItemGroup title=\"合同操作\">\n                      <MenuItem key=\"5\">合同审批</MenuItem>\n                      <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n\t\t\t      </MenuItemGroup>\n\t\t\t</SubMenu>\n\t\t\t<SubMenu key=\"sub2\" title=''>\n            <MenuItem key=\"7\">合同审批</MenuItem>\n            <MenuItem key=\"8\">抵/质押合同跟踪</MenuItem>\n\t\t\t      <SubMenu key=\"sub3\" title=\"Submenu质押合同跟踪质押合同跟踪\">\n                  <MenuItem key=\"9\">合同审批</MenuItem>\n                  <MenuItem key=\"10\">抵/质押合同跟踪</MenuItem>\n\t\t\t      </SubMenu>\n\t\t\t</SubMenu>\n     </Menu>\n );\nclass Demo2 extends Component {\n    render () {\n        return (\n            <div className=\"demoPadding\">\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu1}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有分割线的下拉</Button>\n                 </Dropdown>\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu2}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有小标题的下拉</Button>\n                 </Dropdown>\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu3}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>多级下拉</Button>\n                 </Dropdown>\n             </div>\n        )\n    }\n}\n","desc":" 通过不同的子组件搭配，组成不同形式的菜单"}]
 
 
 class Demo extends Component {
@@ -113,7 +217,7 @@ class Demo extends Component {
             </Button>
         );
 
-    
+
         return (
             <Col md={12} >
                 <h3>{ title }</h3>
