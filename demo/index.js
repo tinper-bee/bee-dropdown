@@ -8,9 +8,9 @@ import Dropdown from '../src';
 import Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';
 import Icon from 'bee-icon';
 
-const CARET = <i className="uf uf-chevronarrowdown"></i>;
+const CARET = <i className="uf uf-arrow-down"></i>;
 
-const CARETUP = <i className="uf uf-chevronarrowup"></i>;
+const CARETUP = <i className="uf uf-arrow-up"></i>;
 
 
 /**
@@ -30,13 +30,7 @@ const CARETUP = <i className="uf uf-chevronarrowup"></i>;
  }
 
 class Demo1 extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible: false
-        };
 
-    }
     render () {
 
         const menu1 = (
@@ -134,26 +128,19 @@ class Demo1 extends Component {
      <Menu
        vertical
        onSelect={onSelect}>
-       <SubMenu key="sub1" title={<span><span>Navigation One</span></span>}>
-			      <MenuItemGroup title="合同类别">
-                      <MenuItem key="1">借款合同</MenuItem>
-                      <MenuItem key="2">抵/质押合同</MenuItem>
-                      <MenuItem key="3">担保合同</MenuItem>
-                      <MenuItem key="4">联保合同</MenuItem>
-			      </MenuItemGroup>
-			      <MenuItemGroup title="合同操作">
-                      <MenuItem key="5">合同审批</MenuItem>
-                      <MenuItem key="6">抵/质押合同跟踪</MenuItem>
-			      </MenuItemGroup>
+       <SubMenu key="sub1" title="合同类别">
+            <MenuItem key="1">借款合同</MenuItem>
+            <MenuItem key="2">抵/质押合同</MenuItem>
+            <MenuItem key="3">担保合同</MenuItem>
+            <MenuItem key="4">联保合同</MenuItem>
+		</SubMenu>
+		<SubMenu key="sub2" title="合同操作">
+            <MenuItem key="5">抵/质押合同跟踪</MenuItem>
+		    <SubMenu key="sub3" title="合同审批">
+                <MenuItem key="6">待审批合同</MenuItem>
+                <MenuItem key="7">已审批合同</MenuItem>
 			</SubMenu>
-			<SubMenu key="sub2" title=''>
-            <MenuItem key="7">合同审批</MenuItem>
-            <MenuItem key="8">抵/质押合同跟踪</MenuItem>
-			      <SubMenu key="sub3" title="Submenu质押合同跟踪质押合同跟踪">
-                  <MenuItem key="9">合同审批</MenuItem>
-                  <MenuItem key="10">抵/质押合同跟踪</MenuItem>
-			      </SubMenu>
-			</SubMenu>
+		</SubMenu>
      </Menu>
  );
 class Demo2 extends Component {
@@ -184,13 +171,13 @@ class Demo2 extends Component {
                    animation="slide-up"
                    onVisibleChange={onVisibleChange}
                  >
-                   <Button colors='primary'>多级下拉</Button>
+                   <Button colors='primary' style={{ width: 150 }}>多级下拉</Button>
                  </Dropdown>
              </div>
         )
     }
 }
-var DemoArray = [{"example":<Demo1 />,"title":" 基础下拉菜单","code":"/**\n *\n * @title 基础下拉菜单\n * @description 下拉菜单提供click，hover和focus事件触发。\n *\n */\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\nclass Demo1 extends Component {\n    constructor(props) {\n        super(props);\n        this.state = {\n            visible: false\n        };\n\n    }\n    render () {\n\n        const menu1 = (\n              <Menu\n                multiple\n                onSelect={onSelect}>\n                <MenuItem key=\"1\">借款合同</MenuItem>\n                <MenuItem key=\"2\">抵/质押合同</MenuItem>\n                <MenuItem key=\"3\">担保合同</MenuItem>\n                <MenuItem key=\"4\">联保合同</MenuItem>\n                <MenuItem key=\"5\">合同审批</MenuItem>\n                <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n              </Menu>\n          );\n          const menu2 = (\n                <Menu\n                  multiple\n                  onSelect={onSelect}>\n                      <MenuItem key=\"1\"><Icon type='uf-listsearch' />借款合同</MenuItem>\n                      <MenuItem key=\"2\"><Icon type='uf-listsearch' />抵/质押合同</MenuItem>\n                      <MenuItem key=\"3\"><Icon type='uf-listsearch' />担保合同</MenuItem>\n                      <MenuItem key=\"4\"><Icon type='uf-listsearch' />联保合同</MenuItem>\n                     <MenuItem key=\"5\"><Icon type='uf-seal' />合同审批</MenuItem>\n                     <MenuItem key=\"6\"><Icon type='uf-bullseye' />抵/质押合同跟踪</MenuItem>\n                </Menu>\n            );\n        return (\n            <div className=\"demoPadding\">\n                <Dropdown\n                    trigger={['click']}\n                    overlay={menu1}\n                    animation=\"slide-up\"\n                    onVisibleChange={onVisibleChange}>\n                    <Button colors='primary'>点击显示</Button>\n                  </Dropdown>\n                  <Dropdown\n                      trigger={['hover']}\n                      overlay={menu2}\n                      animation=\"slide-up\"\n                      onVisibleChange={onVisibleChange}>\n                      <Button colors='primary'>鼠标滑过显示</Button>\n                    </Dropdown>\n            </div>\n        )\n    }\n}\n","desc":" 下拉菜单提供click，hover和focus事件触发。"},{"example":<Demo2 />,"title":" 不同样子的下拉菜单","code":"/**\n *\n * @title 不同样子的下拉菜单\n * @description 通过不同的子组件搭配，组成不同形式的菜单\n *\n */\n\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\n const menu1 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <MenuItem key=\"1\">借款合同</MenuItem>\n       <MenuItem key=\"2\">抵/质押合同</MenuItem>\n       <MenuItem key=\"3\">担保合同</MenuItem>\n       <MenuItem key=\"4\">联保合同</MenuItem>\n       <Divider />\n       <MenuItem key=\"5\">合同审批</MenuItem>\n       <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n     </Menu>\n );\n\n const menu2 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <MenuItemGroup title=\"合同类别\">\n       <MenuItem key=\"1\">借款合同</MenuItem>\n       <MenuItem key=\"2\">抵/质押合同</MenuItem>\n       <MenuItem key=\"3\">担保合同</MenuItem>\n       <MenuItem key=\"4\">联保合同</MenuItem>\n        </MenuItemGroup>\n        <MenuItemGroup title=\"合同操作\">\n            <MenuItem key=\"5\">合同审批</MenuItem>\n            <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n        </MenuItemGroup>\n     </Menu>\n );\n const menu3 = (\n     <Menu\n       vertical\n       onSelect={onSelect}>\n       <SubMenu key=\"sub1\" title={<span><span>Navigation One</span></span>}>\n\t\t\t      <MenuItemGroup title=\"合同类别\">\n                      <MenuItem key=\"1\">借款合同</MenuItem>\n                      <MenuItem key=\"2\">抵/质押合同</MenuItem>\n                      <MenuItem key=\"3\">担保合同</MenuItem>\n                      <MenuItem key=\"4\">联保合同</MenuItem>\n\t\t\t      </MenuItemGroup>\n\t\t\t      <MenuItemGroup title=\"合同操作\">\n                      <MenuItem key=\"5\">合同审批</MenuItem>\n                      <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n\t\t\t      </MenuItemGroup>\n\t\t\t</SubMenu>\n\t\t\t<SubMenu key=\"sub2\" title=''>\n            <MenuItem key=\"7\">合同审批</MenuItem>\n            <MenuItem key=\"8\">抵/质押合同跟踪</MenuItem>\n\t\t\t      <SubMenu key=\"sub3\" title=\"Submenu质押合同跟踪质押合同跟踪\">\n                  <MenuItem key=\"9\">合同审批</MenuItem>\n                  <MenuItem key=\"10\">抵/质押合同跟踪</MenuItem>\n\t\t\t      </SubMenu>\n\t\t\t</SubMenu>\n     </Menu>\n );\nclass Demo2 extends Component {\n    render () {\n        return (\n            <div className=\"demoPadding\">\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu1}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有分割线的下拉</Button>\n                 </Dropdown>\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu2}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有小标题的下拉</Button>\n                 </Dropdown>\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu3}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>多级下拉</Button>\n                 </Dropdown>\n             </div>\n        )\n    }\n}\n","desc":" 通过不同的子组件搭配，组成不同形式的菜单"}]
+var DemoArray = [{"example":<Demo1 />,"title":" 基础下拉菜单","code":"/**\r\n *\r\n * @title 基础下拉菜单\r\n * @description 下拉菜单提供click，hover和focus事件触发。\r\n *\r\n */\r\n\r\n function onSelect({ key }) {\r\n   console.log(`${key} selected`);\r\n\r\n }\r\n\r\n function onVisibleChange(visible) {\r\n   console.log(visible);\r\n }\r\n\r\nclass Demo1 extends Component {\r\n\r\n    render () {\r\n\r\n        const menu1 = (\r\n              <Menu\r\n                multiple\r\n                onSelect={onSelect}>\r\n                <MenuItem key=\"1\">借款合同</MenuItem>\r\n                <MenuItem key=\"2\">抵/质押合同</MenuItem>\r\n                <MenuItem key=\"3\">担保合同</MenuItem>\r\n                <MenuItem key=\"4\">联保合同</MenuItem>\r\n                <MenuItem key=\"5\">合同审批</MenuItem>\r\n                <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\r\n              </Menu>\r\n          );\r\n          const menu2 = (\r\n                <Menu\r\n                  multiple\r\n                  onSelect={onSelect}>\r\n                      <MenuItem key=\"1\"><Icon type='uf-listsearch' />借款合同</MenuItem>\r\n                      <MenuItem key=\"2\"><Icon type='uf-listsearch' />抵/质押合同</MenuItem>\r\n                      <MenuItem key=\"3\"><Icon type='uf-listsearch' />担保合同</MenuItem>\r\n                      <MenuItem key=\"4\"><Icon type='uf-listsearch' />联保合同</MenuItem>\r\n                     <MenuItem key=\"5\"><Icon type='uf-seal' />合同审批</MenuItem>\r\n                     <MenuItem key=\"6\"><Icon type='uf-bullseye' />抵/质押合同跟踪</MenuItem>\r\n                </Menu>\r\n            );\r\n        return (\r\n            <div className=\"demoPadding\">\r\n                <Dropdown\r\n                    trigger={['click']}\r\n                    overlay={menu1}\r\n                    animation=\"slide-up\"\r\n                    onVisibleChange={onVisibleChange}>\r\n                    <Button colors='primary'>点击显示</Button>\r\n                  </Dropdown>\r\n                  <Dropdown\r\n                      trigger={['hover']}\r\n                      overlay={menu2}\r\n                      animation=\"slide-up\"\r\n                      onVisibleChange={onVisibleChange}>\r\n                      <Button colors='primary'>鼠标滑过显示</Button>\r\n                    </Dropdown>\r\n            </div>\r\n        )\r\n    }\r\n}\r\n","desc":" 下拉菜单提供click，hover和focus事件触发。"},{"example":<Demo2 />,"title":" 不同样子的下拉菜单","code":"/**\r\n *\r\n * @title 不同样子的下拉菜单\r\n * @description 通过不同的子组件搭配，组成不同形式的菜单\r\n *\r\n */\r\n\r\n\r\n function onSelect({ key }) {\r\n   console.log(`${key} selected`);\r\n\r\n }\r\n\r\n function onVisibleChange(visible) {\r\n   console.log(visible);\r\n }\r\n\r\n const menu1 = (\r\n     <Menu\r\n       multiple\r\n       onSelect={onSelect}>\r\n       <MenuItem key=\"1\">借款合同</MenuItem>\r\n       <MenuItem key=\"2\">抵/质押合同</MenuItem>\r\n       <MenuItem key=\"3\">担保合同</MenuItem>\r\n       <MenuItem key=\"4\">联保合同</MenuItem>\r\n       <Divider />\r\n       <MenuItem key=\"5\">合同审批</MenuItem>\r\n       <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\r\n     </Menu>\r\n );\r\n\r\n const menu2 = (\r\n     <Menu\r\n       multiple\r\n       onSelect={onSelect}>\r\n       <MenuItemGroup title=\"合同类别\">\r\n       <MenuItem key=\"1\">借款合同</MenuItem>\r\n       <MenuItem key=\"2\">抵/质押合同</MenuItem>\r\n       <MenuItem key=\"3\">担保合同</MenuItem>\r\n       <MenuItem key=\"4\">联保合同</MenuItem>\r\n        </MenuItemGroup>\r\n        <MenuItemGroup title=\"合同操作\">\r\n            <MenuItem key=\"5\">合同审批</MenuItem>\r\n            <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\r\n        </MenuItemGroup>\r\n     </Menu>\r\n );\r\n const menu3 = (\r\n     <Menu\r\n       vertical\r\n       onSelect={onSelect}>\r\n       <SubMenu key=\"sub1\" title=\"合同类别\">\r\n            <MenuItem key=\"1\">借款合同</MenuItem>\r\n            <MenuItem key=\"2\">抵/质押合同</MenuItem>\r\n            <MenuItem key=\"3\">担保合同</MenuItem>\r\n            <MenuItem key=\"4\">联保合同</MenuItem>\r\n\t\t</SubMenu>\r\n\t\t<SubMenu key=\"sub2\" title=\"合同操作\">\r\n            <MenuItem key=\"5\">抵/质押合同跟踪</MenuItem>\r\n\t\t    <SubMenu key=\"sub3\" title=\"合同审批\">\r\n                <MenuItem key=\"6\">待审批合同</MenuItem>\r\n                <MenuItem key=\"7\">已审批合同</MenuItem>\r\n\t\t\t</SubMenu>\r\n\t\t</SubMenu>\r\n     </Menu>\r\n );\r\nclass Demo2 extends Component {\r\n    render () {\r\n        return (\r\n            <div className=\"demoPadding\">\r\n\r\n                 <Dropdown\r\n                   trigger={['click']}\r\n                   overlay={menu1}\r\n                   animation=\"slide-up\"\r\n                   onVisibleChange={onVisibleChange}\r\n                 >\r\n                   <Button colors='primary'>带有分割线的下拉</Button>\r\n                 </Dropdown>\r\n\r\n                 <Dropdown\r\n                   trigger={['click']}\r\n                   overlay={menu2}\r\n                   animation=\"slide-up\"\r\n                   onVisibleChange={onVisibleChange}\r\n                 >\r\n                   <Button colors='primary'>带有小标题的下拉</Button>\r\n                 </Dropdown>\r\n                 <Dropdown\r\n                   trigger={['click']}\r\n                   overlay={menu3}\r\n                   animation=\"slide-up\"\r\n                   onVisibleChange={onVisibleChange}\r\n                 >\r\n                   <Button colors='primary' style={{ width: 150 }}>多级下拉</Button>\r\n                 </Dropdown>\r\n             </div>\r\n        )\r\n    }\r\n}\r\n","desc":" 通过不同的子组件搭配，组成不同形式的菜单"}]
 
 
 class Demo extends Component {

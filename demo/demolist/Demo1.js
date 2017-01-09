@@ -15,13 +15,7 @@
  }
 
 class Demo1 extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            visible: false
-        };
 
-    }
     render () {
 
         const menu1 = (

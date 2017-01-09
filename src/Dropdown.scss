@@ -4,20 +4,13 @@
 @import "../node_modules/bee-animate/src/Animate.scss";
 
 
-$dropdown-item-hover-bg-color:  unquote("rgb(#{$palette-grey-100})");
-$dropdown-item-divier-bg-color: $gray-lighter;
-$dropdown-border-color: $border-color-base;
-$dropdown-border-radius:3px;
-$dropdown-shadow: 0 1px 5px $dropdown-border-color;
-$dropdown-margin: 5px 0 0 0;
-
 .u-dropdown{
   position: absolute;
   left: -9999px;
   top: -9999px;
   z-index: $zindex-dropdown;
   display: block;
-  font-size: 12px;
+  font-size: $dropdown-menu-font-size;
   font-weight: normal;
   line-height: 1.5;
 
@@ -49,9 +42,9 @@ $dropdown-margin: 5px 0 0 0;
         position: relative;
         display: block;
         white-space: nowrap;
-        padding: 0px 16px 0 28px;
-        line-height: 42px;
-        height: 42px;
+        padding:$dropdown-menu-item-padding;
+        line-height: $dropdown-menu-item-light-height;
+        height: $dropdown-menu-item-height;
         overflow: hidden;
         text-overflow: ellipsis;
         }
@@ -90,17 +83,17 @@ $dropdown-margin: 5px 0 0 0;
       background: rgba(255, 255, 255, 0.01);
     }
     &-item-group-title {
-        color: #999;
-        font-size: 12px;
-        line-height: 1.5;
-        padding: 8px 16px;
+        color: $dropdown-menu-title-color;
+        font-size: $dropdown-menu-title-font-size;
+        line-height: $dropdown-menu-title-line-height;
+        padding: $dropdown-menu-title-padding;
     }
     & > &-item {
       position: relative;
       display: block;
-      padding: 0px 16px 0 28px;
-      line-height: 42px;
-      height: 42px;
+      padding:$dropdown-menu-item-padding;
+      line-height: $dropdown-menu-item-light-height;
+      height: $dropdown-menu-item-height;
       overflow: hidden;
       text-overflow: ellipsis;
       clear: both;
@@ -155,9 +148,9 @@ $dropdown-margin: 5px 0 0 0;
         &-list{
             padding: 0;
             & > .u-dropdown-menu-item{
-                padding: 0px 16px 0 28px;
-                line-height: 42px;
-                height: 42px;
+                padding:$dropdown-menu-item-padding;
+                line-height: $dropdown-menu-item-light-height;
+                height: $dropdown-menu-item-height;
                 overflow: hidden;
                 text-overflow: ellipsis;
             }

@@ -49,26 +49,19 @@
      <Menu
        vertical
        onSelect={onSelect}>
-       <SubMenu key="sub1" title={<span><span>Navigation One</span></span>}>
-			      <MenuItemGroup title="合同类别">
-                      <MenuItem key="1">借款合同</MenuItem>
-                      <MenuItem key="2">抵/质押合同</MenuItem>
-                      <MenuItem key="3">担保合同</MenuItem>
-                      <MenuItem key="4">联保合同</MenuItem>
-			      </MenuItemGroup>
-			      <MenuItemGroup title="合同操作">
-                      <MenuItem key="5">合同审批</MenuItem>
-                      <MenuItem key="6">抵/质押合同跟踪</MenuItem>
-			      </MenuItemGroup>
+       <SubMenu key="sub1" title="合同类别">
+            <MenuItem key="1">借款合同</MenuItem>
+            <MenuItem key="2">抵/质押合同</MenuItem>
+            <MenuItem key="3">担保合同</MenuItem>
+            <MenuItem key="4">联保合同</MenuItem>
+		</SubMenu>
+		<SubMenu key="sub2" title="合同操作">
+            <MenuItem key="5">抵/质押合同跟踪</MenuItem>
+		    <SubMenu key="sub3" title="合同审批">
+                <MenuItem key="6">待审批合同</MenuItem>
+                <MenuItem key="7">已审批合同</MenuItem>
 			</SubMenu>
-			<SubMenu key="sub2" title=''>
-            <MenuItem key="7">合同审批</MenuItem>
-            <MenuItem key="8">抵/质押合同跟踪</MenuItem>
-			      <SubMenu key="sub3" title="Submenu质押合同跟踪质押合同跟踪">
-                  <MenuItem key="9">合同审批</MenuItem>
-                  <MenuItem key="10">抵/质押合同跟踪</MenuItem>
-			      </SubMenu>
-			</SubMenu>
+		</SubMenu>
      </Menu>
  );
 class Demo2 extends Component {
@@ -99,7 +92,7 @@ class Demo2 extends Component {
                    animation="slide-up"
                    onVisibleChange={onVisibleChange}
                  >
-                   <Button colors='primary'>多级下拉</Button>
+                   <Button colors='primary' style={{ width: 150 }}>多级下拉</Button>
                  </Dropdown>
              </div>
         )
