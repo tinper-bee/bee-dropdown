@@ -5,6 +5,12 @@
  *
  */
 
+import React, { Component } from 'react';
+import Button from 'bee-button';
+import Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';
+import Icon from 'bee-icon';
+import Dropdown from '../../src';
+
 
  function onSelect({ key }) {
    console.log(`${key} selected`);
@@ -64,7 +70,7 @@
 		</SubMenu>
      </Menu>
  );
-class Demo2 extends Component {
+export default class Demo2 extends Component {
     render () {
         return (
             <div className="demoPadding">

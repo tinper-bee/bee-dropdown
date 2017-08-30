@@ -5,6 +5,12 @@
  *
  */
 
+import React, { Component } from 'react';
+import Button from 'bee-button';
+import Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';
+import Icon from 'bee-icon';
+import Dropdown from '../../src';
+
  function onSelect({ key }) {
    console.log(`${key} selected`);
 
@@ -14,7 +20,7 @@
    console.log(visible);
  }
 
-class Demo1 extends Component {
+export default class Demo1 extends Component {
 
     render () {
 
