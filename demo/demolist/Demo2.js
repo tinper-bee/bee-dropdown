@@ -7,9 +7,10 @@
 
 import React, { Component } from 'react';
 import Button from 'bee-button';
-import Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';
+import Menu, { Item as MenuItem,Divider, SubMenu, ItemGroup } from 'bee-menus';
 import Icon from 'bee-icon';
 import Dropdown from '../../src';
+
 
 
  function onSelect({ key }) {
@@ -39,16 +40,16 @@ import Dropdown from '../../src';
      <Menu
        multiple
        onSelect={onSelect}>
-       <MenuItemGroup title="合同类别">
-       <MenuItem key="1">借款合同</MenuItem>
-       <MenuItem key="2">抵/质押合同</MenuItem>
-       <MenuItem key="3">担保合同</MenuItem>
-       <MenuItem key="4">联保合同</MenuItem>
-        </MenuItemGroup>
-        <MenuItemGroup title="合同操作">
+       <ItemGroup title="合同类别">
+           <MenuItem key="1">借款合同</MenuItem>
+           <MenuItem key="2">抵/质押合同</MenuItem>
+           <MenuItem key="3">担保合同</MenuItem>
+           <MenuItem key="4">联保合同</MenuItem>
+        </ItemGroup>
+        <ItemGroup title="合同操作">
             <MenuItem key="5">合同审批</MenuItem>
             <MenuItem key="6">抵/质押合同跟踪</MenuItem>
-        </MenuItemGroup>
+        </ItemGroup>
      </Menu>
  );
  const menu3 = (
