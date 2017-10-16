@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Trigger from 'bee-overlay/build/trigger';
 import placements from './placement';
-
+import PropTypes from 'prop-types';
 
 
 const propTypes = {
