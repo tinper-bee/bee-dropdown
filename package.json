@@ -20,7 +20,10 @@
   "license": "MIT",
   "main": "./build/index.js",
   "config": {
-    "port": 8000
+    "port": 8000,
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   },
   "scripts": {
     "dev": "bee-tools run start",
@@ -33,7 +36,7 @@
     "pub": "bee-tools run pub"
   },
   "dependencies": {
-    "bee-overlay": "latest",
+    "bee-overlay": "1.0.4",
     "classnames": "^2.2.5",
     "tinper-bee-core": "latest"
   },
@@ -50,6 +53,7 @@
     "bee-panel": "latest",
     "chai": "^3.5.0",
     "console-polyfill": "~0.2.1",
+    "cz-conventional-changelog": "^2.1.0",
     "enzyme": "^2.4.1",
     "es5-shim": "~4.1.10",
     "react": "^15.3.2",
