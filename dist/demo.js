@@ -88,7 +88,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(116);var Demo2 = __webpack_require__(117);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础下拉菜单", "code": "/**\n *\n * @title 基础下拉菜单\n * @description 下拉菜单提供click，hover和focus事件触发。\n *\n */\n\nimport React, { Component } from 'react';\nimport Button from 'bee-button';\nimport Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';\nimport Icon from 'bee-icon';\nimport Dropdown from 'bee-dropdown';\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\n\n\n    render () {\n\n        const menu1 = (\n              <Menu\n                multiple\n                onSelect={onSelect}>\n                <MenuItem key=\"1\">借款合同</MenuItem>\n                <MenuItem key=\"2\">抵/质押合同</MenuItem>\n                <MenuItem key=\"3\">担保合同</MenuItem>\n                <MenuItem key=\"4\">联保合同</MenuItem>\n                <MenuItem key=\"5\">合同审批</MenuItem>\n                <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n              </Menu>\n          );\n          const menu2 = (\n                <Menu\n                  multiple\n                  onSelect={onSelect}>\n                      <MenuItem key=\"1\"><Icon type='uf-listsearch' />借款合同</MenuItem>\n                      <MenuItem key=\"2\"><Icon type='uf-listsearch' />抵/质押合同</MenuItem>\n                      <MenuItem key=\"3\"><Icon type='uf-listsearch' />担保合同</MenuItem>\n                      <MenuItem key=\"4\"><Icon type='uf-listsearch' />联保合同</MenuItem>\n                     <MenuItem key=\"5\"><Icon type='uf-seal' />合同审批</MenuItem>\n                     <MenuItem key=\"6\"><Icon type='uf-bullseye' />抵/质押合同跟踪</MenuItem>\n                </Menu>\n            );\n        return (\n            <div className=\"demoPadding\">\n                <Dropdown\n                    trigger={['click']}\n                    overlay={menu1}\n                    animation=\"slide-up\"\n                    onVisibleChange={onVisibleChange}>\n                    <Button colors='primary'>点击显示</Button>\n                  </Dropdown>\n                  <Dropdown\n                      trigger={['hover']}\n                      overlay={menu2}\n                      animation=\"slide-up\"\n                      onVisibleChange={onVisibleChange}>\n                      <Button colors='primary'>鼠标滑过显示</Button>\n                    </Dropdown>\n            </div>\n        )\n    }\n}\n", "desc": " 下拉菜单提供click，hover和focus事件触发。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 不同样子的下拉菜单", "code": "/**\n *\n * @title 不同样子的下拉菜单\n * @description 通过不同的子组件搭配，组成不同形式的菜单\n *\n */\n\nimport React, { Component } from 'react';\nimport Button from 'bee-button';\nimport Menu, { Item as MenuItem,Divider, SubMenu, ItemGroup } from 'bee-menus';\nimport Icon from 'bee-icon';\nimport Dropdown from 'bee-dropdown';\n\n\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\n const menu1 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <MenuItem key=\"1\">借款合同</MenuItem>\n       <MenuItem key=\"2\">抵/质押合同</MenuItem>\n       <MenuItem key=\"3\">担保合同</MenuItem>\n       <MenuItem key=\"4\">联保合同</MenuItem>\n       <Divider />\n       <MenuItem key=\"5\">合同审批</MenuItem>\n       <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n     </Menu>\n );\n\n const menu2 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <ItemGroup title=\"合同类别\">\n           <MenuItem key=\"1\">借款合同</MenuItem>\n           <MenuItem key=\"2\">抵/质押合同</MenuItem>\n           <MenuItem key=\"3\">担保合同</MenuItem>\n           <MenuItem key=\"4\">联保合同</MenuItem>\n        </ItemGroup>\n        <ItemGroup title=\"合同操作\">\n            <MenuItem key=\"5\">合同审批</MenuItem>\n            <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n        </ItemGroup>\n     </Menu>\n );\n const menu3 = (\n     <Menu\n       vertical\n       onSelect={onSelect}>\n       <SubMenu key=\"sub1\" title=\"合同类别\">\n            <MenuItem key=\"1\">借款合同</MenuItem>\n            <MenuItem key=\"2\">抵/质押合同</MenuItem>\n            <MenuItem key=\"3\">担保合同</MenuItem>\n            <MenuItem key=\"4\">联保合同</MenuItem>\n\t\t</SubMenu>\n\t\t<SubMenu key=\"sub2\" title=\"合同操作\">\n            <MenuItem key=\"5\">抵/质押合同跟踪</MenuItem>\n\t\t    <SubMenu key=\"sub3\" title=\"合同审批\">\n                <MenuItem key=\"6\">待审批合同</MenuItem>\n                <MenuItem key=\"7\">已审批合同</MenuItem>\n\t\t\t</SubMenu>\n\t\t</SubMenu>\n     </Menu>\n );\n\n    render () {\n        return (\n            <div className=\"demoPadding\">\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu1}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有分割线的下拉</Button>\n                 </Dropdown>\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu2}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有小标题的下拉</Button>\n                 </Dropdown>\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu3}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary' style={{ width: 150 }}>多级下拉</Button>\n                 </Dropdown>\n             </div>\n        )\n    }\n}\n", "desc": " 通过不同的子组件搭配，组成不同形式的菜单" }];
+	var Demo1 = __webpack_require__(116);var Demo2 = __webpack_require__(117);var Demo3 = __webpack_require__(118);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础下拉菜单", "code": "/**\n *\n * @title 基础下拉菜单\n * @description 下拉菜单提供click，hover和focus事件触发。\n *\n */\n\nimport React, { Component } from 'react';\nimport Button from 'bee-button';\nimport Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';\nimport Icon from 'bee-icon';\nimport Dropdown from 'bee-dropdown';\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\n\n\n    render () {\n\n        const menu1 = (\n              <Menu\n                onSelect={onSelect}>\n                <MenuItem key=\"1\">借款合同</MenuItem>\n                <MenuItem key=\"2\">抵/质押合同</MenuItem>\n                <MenuItem key=\"3\">担保合同</MenuItem>\n                <MenuItem key=\"4\">联保合同</MenuItem>\n                <MenuItem key=\"5\">合同审批</MenuItem>\n                <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n              </Menu>\n          );\n          const menu2 = (\n                <Menu\n                  onSelect={onSelect}>\n                      <MenuItem key=\"1\"><Icon type='uf-listsearch' />借款合同</MenuItem>\n                      <MenuItem key=\"2\"><Icon type='uf-listsearch' />抵/质押合同</MenuItem>\n                      <MenuItem key=\"3\"><Icon type='uf-listsearch' />担保合同</MenuItem>\n                      <MenuItem key=\"4\"><Icon type='uf-listsearch' />联保合同</MenuItem>\n                     <MenuItem key=\"5\"><Icon type='uf-seal' />合同审批</MenuItem>\n                     <MenuItem key=\"6\"><Icon type='uf-bullseye' />抵/质押合同跟踪</MenuItem>\n                </Menu>\n            );\n        return (\n            <div className=\"demoPadding\">\n                <Dropdown\n                    trigger={['click']}\n                    overlay={menu1}\n                    animation=\"slide-up\"\n                    onVisibleChange={onVisibleChange}>\n                    <Button colors='primary'>点击显示</Button>\n                  </Dropdown>\n                  <Dropdown\n                      trigger={['hover']}\n                      overlay={menu2}\n                      animation=\"slide-up\"\n                      onVisibleChange={onVisibleChange}>\n                      <Button colors='primary'>鼠标滑过显示</Button>\n                    </Dropdown>\n            </div>\n        )\n    }\n}\n", "desc": " 下拉菜单提供click，hover和focus事件触发。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 不同样子的下拉菜单", "code": "/**\n *\n * @title 不同样子的下拉菜单\n * @description 通过不同的子组件搭配，组成不同形式的菜单\n *\n */\n\nimport React, { Component } from 'react';\nimport Button from 'bee-button';\nimport Menu, { Item as MenuItem,Divider, SubMenu, ItemGroup } from 'bee-menus';\nimport Icon from 'bee-icon';\nimport Dropdown from 'bee-dropdown';\n\n\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\n const menu1 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <MenuItem key=\"1\">借款合同</MenuItem>\n       <MenuItem key=\"2\">抵/质押合同</MenuItem>\n       <MenuItem key=\"3\">担保合同</MenuItem>\n       <MenuItem key=\"4\">联保合同</MenuItem>\n       <Divider />\n       <MenuItem key=\"5\">合同审批</MenuItem>\n       <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n     </Menu>\n );\n\n const menu2 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <ItemGroup title=\"合同类别\">\n           <MenuItem key=\"1\">借款合同</MenuItem>\n           <MenuItem key=\"2\">抵/质押合同</MenuItem>\n           <MenuItem key=\"3\">担保合同</MenuItem>\n           <MenuItem key=\"4\">联保合同</MenuItem>\n        </ItemGroup>\n        <ItemGroup title=\"合同操作\">\n            <MenuItem key=\"5\">合同审批</MenuItem>\n            <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\n        </ItemGroup>\n     </Menu>\n );\n const menu3 = (\n     <Menu\n       vertical\n       onSelect={onSelect}>\n       <SubMenu key=\"sub1\" title=\"合同类别\">\n            <MenuItem key=\"1\">借款合同</MenuItem>\n            <MenuItem key=\"2\">抵/质押合同</MenuItem>\n            <MenuItem key=\"3\">担保合同</MenuItem>\n            <MenuItem key=\"4\">联保合同</MenuItem>\n\t\t</SubMenu>\n\t\t<SubMenu key=\"sub2\" title=\"合同操作\">\n            <MenuItem key=\"5\">抵/质押合同跟踪</MenuItem>\n\t\t    <SubMenu key=\"sub3\" title=\"合同审批\">\n                <MenuItem key=\"6\">待审批合同</MenuItem>\n                <MenuItem key=\"7\">已审批合同</MenuItem>\n\t\t\t</SubMenu>\n\t\t</SubMenu>\n     </Menu>\n );\n\n    render () {\n        return (\n            <div className=\"demoPadding\">\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu1}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有分割线的下拉</Button>\n                 </Dropdown>\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu2}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有小标题的下拉</Button>\n                 </Dropdown>\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu3}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary' style={{ width: 150 }}>多级下拉</Button>\n                 </Dropdown>\n             </div>\n        )\n    }\n}\n", "desc": " 通过不同的子组件搭配，组成不同形式的菜单" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 控制显示隐藏的下拉菜单", "code": "/**\r\n *\r\n * @title 控制显示隐藏的下拉菜单\r\n * @description 通过设置Dropdown组件`visible`props，可以外部控制睇下啦菜单的显示隐藏。\r\n *\r\n */\r\n\r\nimport React, { Component } from 'react';\r\nimport Button from 'bee-button';\r\nimport Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';\r\nimport Dropdown from 'bee-dropdown';\r\n\r\n\r\nfunction onVisibleChange(visible) {\r\n    console.log(visible);\r\n}\r\n\r\n\r\n    state = {\r\n        visible: false\r\n    }\r\n    handleSelect = () => {\r\n        this.setState({\r\n            visible: false\r\n        })\r\n    }\r\n\r\n    handleShow = () => {\r\n        this.setState({\r\n            visible: true\r\n        })\r\n    }\r\n\r\n    render () {\r\n\r\n        const menu1 = (\r\n            <Menu\r\n                onSelect={this.handleSelect}>\r\n                <MenuItem key=\"1\">借款合同</MenuItem>\r\n                <MenuItem key=\"2\">抵/质押合同</MenuItem>\r\n                <MenuItem key=\"3\">担保合同</MenuItem>\r\n                <MenuItem key=\"4\">联保合同</MenuItem>\r\n                <MenuItem key=\"5\">合同审批</MenuItem>\r\n                <MenuItem key=\"6\">抵/质押合同跟踪</MenuItem>\r\n            </Menu>\r\n        );\r\n\r\n        return (\r\n            <div className=\"demoPadding\">\r\n                <Dropdown\r\n                    trigger={['click']}\r\n                    overlay={menu1}\r\n                    animation=\"slide-up\"\r\n                    visible={ this.state.visible }\r\n                    onVisibleChange={onVisibleChange}\r\n                >\r\n                    <Button\r\n                        onClick={this.handleShow}\r\n                        colors='primary'>\r\n                        受控制的下拉\r\n                    </Button>\r\n                </Dropdown>\r\n\r\n            </div>\r\n        )\r\n    }\r\n}\r\n", "desc": " 通过设置Dropdown组件`visible`props，可以外部控制睇下啦菜单的显示隐藏。" }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -12318,7 +12318,6 @@
 	        var menu1 = _react2['default'].createElement(
 	            _beeMenus2['default'],
 	            {
-	                multiple: true,
 	                onSelect: onSelect },
 	            _react2['default'].createElement(
 	                _beeMenus.Item,
@@ -12354,7 +12353,6 @@
 	        var menu2 = _react2['default'].createElement(
 	            _beeMenus2['default'],
 	            {
-	                multiple: true,
 	                onSelect: onSelect },
 	            _react2['default'].createElement(
 	                _beeMenus.Item,
@@ -12684,6 +12682,143 @@
 	}(_react.Component);
 	
 	exports['default'] = Demo2;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 118 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
+	
+	var _beeMenus = __webpack_require__(99);
+	
+	var _beeMenus2 = _interopRequireDefault(_beeMenus);
+	
+	var _src = __webpack_require__(84);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 控制显示隐藏的下拉菜单
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 通过设置Dropdown组件`visible`props，可以外部控制睇下啦菜单的显示隐藏。
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	function onVisibleChange(visible) {
+	    console.log(visible);
+	}
+	
+	var Demo3 = function (_Component) {
+	    _inherits(Demo3, _Component);
+	
+	    function Demo3() {
+	        var _temp, _this, _ret;
+	
+	        _classCallCheck(this, Demo3);
+	
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+	
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
+	            visible: false
+	        }, _this.handleSelect = function () {
+	            _this.setState({
+	                visible: false
+	            });
+	        }, _this.handleShow = function () {
+	            _this.setState({
+	                visible: true
+	            });
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
+	    }
+	
+	    Demo3.prototype.render = function render() {
+	
+	        var menu1 = _react2['default'].createElement(
+	            _beeMenus2['default'],
+	            {
+	                onSelect: this.handleSelect },
+	            _react2['default'].createElement(
+	                _beeMenus.Item,
+	                { key: '1' },
+	                '\u501F\u6B3E\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                _beeMenus.Item,
+	                { key: '2' },
+	                '\u62B5/\u8D28\u62BC\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                _beeMenus.Item,
+	                { key: '3' },
+	                '\u62C5\u4FDD\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                _beeMenus.Item,
+	                { key: '4' },
+	                '\u8054\u4FDD\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                _beeMenus.Item,
+	                { key: '5' },
+	                '\u5408\u540C\u5BA1\u6279'
+	            ),
+	            _react2['default'].createElement(
+	                _beeMenus.Item,
+	                { key: '6' },
+	                '\u62B5/\u8D28\u62BC\u5408\u540C\u8DDF\u8E2A'
+	            )
+	        );
+	
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'demoPadding' },
+	            _react2['default'].createElement(
+	                _src2['default'],
+	                {
+	                    trigger: ['click'],
+	                    overlay: menu1,
+	                    animation: 'slide-up',
+	                    visible: this.state.visible,
+	                    onVisibleChange: onVisibleChange
+	                },
+	                _react2['default'].createElement(
+	                    _beeButton2['default'],
+	                    {
+	                        onClick: this.handleShow,
+	                        colors: 'primary' },
+	                    '\u53D7\u63A7\u5236\u7684\u4E0B\u62C9'
+	                )
+	            )
+	        );
+	    };
+	
+	    return Demo3;
+	}(_react.Component);
+	
+	exports['default'] = Demo3;
 	module.exports = exports['default'];
 
 /***/ })

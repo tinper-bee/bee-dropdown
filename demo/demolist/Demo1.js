@@ -26,7 +26,6 @@ export default class Demo1 extends Component {
 
         const menu1 = (
               <Menu
-                multiple
                 onSelect={onSelect}>
                 <MenuItem key="1">借款合同</MenuItem>
                 <MenuItem key="2">抵/质押合同</MenuItem>
@@ -38,7 +37,6 @@ export default class Demo1 extends Component {
           );
           const menu2 = (
                 <Menu
-                  multiple
                   onSelect={onSelect}>
                       <MenuItem key="1"><Icon type='uf-listsearch' />借款合同</MenuItem>
                       <MenuItem key="2"><Icon type='uf-listsearch' />抵/质押合同</MenuItem>
