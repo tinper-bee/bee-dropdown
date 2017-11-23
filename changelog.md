@@ -1,5 +1,10 @@
-<a name="1.0.0"></a>
-# 1.0.0 (2017-11-02)
+<a name="1.0.1"></a>
+## 1.0.1 (2017-11-23)
+
+
+### Bug Fixes
+
+* **bee-dropdown:** fix:修复父组件重新渲染，下拉菜单没有销毁的bug ([e47c135](https://github.com/tinper-bee/bee-dropdown/commit/e47c135))
 
 
 ### build
