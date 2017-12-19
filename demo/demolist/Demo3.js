@@ -15,7 +15,7 @@ function onVisibleChange(visible) {
     console.log(visible);
 }
 
-export default class Demo3 extends Component {
+class Demo3 extends Component {
     state = {
         visible: false
     }
@@ -65,3 +65,5 @@ export default class Demo3 extends Component {
         )
     }
 }
+
+export default Demo3;

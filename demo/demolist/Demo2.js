@@ -71,7 +71,7 @@ import Dropdown from '../../src';
 		</SubMenu>
      </Menu>
  );
-export default class Demo2 extends Component {
+class Demo2 extends Component {
     render () {
         return (
             <div className="demoPadding">
@@ -105,3 +105,5 @@ export default class Demo2 extends Component {
         )
     }
 }
+
+export default Demo2;
