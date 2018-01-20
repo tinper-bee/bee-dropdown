@@ -7,8 +7,10 @@
 
 import React, { Component } from 'react';
 import Button from 'bee-button';
-import Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';
+import Menu from 'bee-menus';
 import Dropdown from '../../src';
+
+const { Item } = Menu;
 
 
 function onVisibleChange(visible) {
@@ -36,12 +38,12 @@ class Demo3 extends Component {
         const menu1 = (
             <Menu
                 onSelect={this.handleSelect}>
-                <MenuItem key="1">借款合同</MenuItem>
-                <MenuItem key="2">抵/质押合同</MenuItem>
-                <MenuItem key="3">担保合同</MenuItem>
-                <MenuItem key="4">联保合同</MenuItem>
-                <MenuItem key="5">合同审批</MenuItem>
-                <MenuItem key="6">抵/质押合同跟踪</MenuItem>
+                <Item key="1">借款合同</Item>
+                <Item key="2">抵/质押合同</Item>
+                <Item key="3">担保合同</Item>
+                <Item key="4">联保合同</Item>
+                <Item key="5">合同审批</Item>
+                <Item key="6">抵/质押合同跟踪</Item>
             </Menu>
         );
 
