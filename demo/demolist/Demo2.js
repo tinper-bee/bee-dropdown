@@ -7,9 +7,10 @@
 
 import React, { Component } from 'react';
 import Button from 'bee-button';
-import Menu, { Item as MenuItem,Divider, SubMenu, ItemGroup } from 'bee-menus';
-import Icon from 'bee-icon';
+import Menu from 'bee-menus';
 import Dropdown from '../../src';
+
+const { Item,Divider, SubMenu, ItemGroup } = Menu;
 
 
 
@@ -26,13 +27,13 @@ import Dropdown from '../../src';
      <Menu
        multiple
        onSelect={onSelect}>
-       <MenuItem key="1">借款合同</MenuItem>
-       <MenuItem key="2">抵/质押合同</MenuItem>
-       <MenuItem key="3">担保合同</MenuItem>
-       <MenuItem key="4">联保合同</MenuItem>
+       <Item key="1">借款合同</Item>
+       <Item key="2">抵/质押合同</Item>
+       <Item key="3">担保合同</Item>
+       <Item key="4">联保合同</Item>
        <Divider />
-       <MenuItem key="5">合同审批</MenuItem>
-       <MenuItem key="6">抵/质押合同跟踪</MenuItem>
+       <Item key="5">合同审批</Item>
+       <Item key="6">抵/质押合同跟踪</Item>
      </Menu>
  );
 
@@ -41,14 +42,14 @@ import Dropdown from '../../src';
        multiple
        onSelect={onSelect}>
        <ItemGroup title="合同类别">
-           <MenuItem key="1">借款合同</MenuItem>
-           <MenuItem key="2">抵/质押合同</MenuItem>
-           <MenuItem key="3">担保合同</MenuItem>
-           <MenuItem key="4">联保合同</MenuItem>
+           <Item key="1">借款合同</Item>
+           <Item key="2">抵/质押合同</Item>
+           <Item key="3">担保合同</Item>
+           <Item key="4">联保合同</Item>
         </ItemGroup>
         <ItemGroup title="合同操作">
-            <MenuItem key="5">合同审批</MenuItem>
-            <MenuItem key="6">抵/质押合同跟踪</MenuItem>
+            <Item key="5">合同审批</Item>
+            <Item key="6">抵/质押合同跟踪</Item>
         </ItemGroup>
      </Menu>
  );
@@ -57,21 +58,21 @@ import Dropdown from '../../src';
        vertical
        onSelect={onSelect}>
        <SubMenu key="sub1" title="合同类别">
-            <MenuItem key="1">借款合同</MenuItem>
-            <MenuItem key="2">抵/质押合同</MenuItem>
-            <MenuItem key="3">担保合同</MenuItem>
-            <MenuItem key="4">联保合同</MenuItem>
+            <Item key="1">借款合同</Item>
+            <Item key="2">抵/质押合同</Item>
+            <Item key="3">担保合同</Item>
+            <Item key="4">联保合同</Item>
 		</SubMenu>
 		<SubMenu key="sub2" title="合同操作">
-            <MenuItem key="5">抵/质押合同跟踪</MenuItem>
+            <Item key="5">抵/质押合同跟踪</Item>
 		    <SubMenu key="sub3" title="合同审批">
-                <MenuItem key="6">待审批合同</MenuItem>
-                <MenuItem key="7">已审批合同</MenuItem>
+                <Item key="6">待审批合同</Item>
+                <Item key="7">已审批合同</Item>
 			</SubMenu>
 		</SubMenu>
      </Menu>
  );
-export default class Demo2 extends Component {
+class Demo2 extends Component {
     render () {
         return (
             <div className="demoPadding">
@@ -105,3 +106,5 @@ export default class Demo2 extends Component {
         )
     }
 }
+
+export default Demo2;

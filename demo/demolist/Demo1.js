@@ -7,9 +7,11 @@
 
 import React, { Component } from 'react';
 import Button from 'bee-button';
-import Menu, { Item as MenuItem, Divider, SubMenu, MenuItemGroup } from 'bee-menus';
+import Menu from 'bee-menus';
 import Icon from 'bee-icon';
 import Dropdown from '../../src';
+
+const { Item } = Menu;
 
  function onSelect({ key }) {
    console.log(`${key} selected`);
@@ -20,32 +22,30 @@ import Dropdown from '../../src';
    console.log(visible);
  }
 
-export default class Demo1 extends Component {
+ class Demo1 extends Component {
 
     render () {
 
         const menu1 = (
               <Menu
-                multiple
                 onSelect={onSelect}>
-                <MenuItem key="1">借款合同</MenuItem>
-                <MenuItem key="2">抵/质押合同</MenuItem>
-                <MenuItem key="3">担保合同</MenuItem>
-                <MenuItem key="4">联保合同</MenuItem>
-                <MenuItem key="5">合同审批</MenuItem>
-                <MenuItem key="6">抵/质押合同跟踪</MenuItem>
+                <Item key="1">借款合同</Item>
+                <Item key="2">抵/质押合同</Item>
+                <Item key="3">担保合同</Item>
+                <Item key="4">联保合同</Item>
+                <Item key="5">合同审批</Item>
+                <Item key="6">抵/质押合同跟踪</Item>
               </Menu>
           );
           const menu2 = (
                 <Menu
-                  multiple
                   onSelect={onSelect}>
-                      <MenuItem key="1"><Icon type='uf-listsearch' />借款合同</MenuItem>
-                      <MenuItem key="2"><Icon type='uf-listsearch' />抵/质押合同</MenuItem>
-                      <MenuItem key="3"><Icon type='uf-listsearch' />担保合同</MenuItem>
-                      <MenuItem key="4"><Icon type='uf-listsearch' />联保合同</MenuItem>
-                     <MenuItem key="5"><Icon type='uf-seal' />合同审批</MenuItem>
-                     <MenuItem key="6"><Icon type='uf-bullseye' />抵/质押合同跟踪</MenuItem>
+                      <Item key="1"><Icon type='uf-listsearch' />借款合同</Item>
+                      <Item key="2"><Icon type='uf-listsearch' />抵/质押合同</Item>
+                      <Item key="3"><Icon type='uf-listsearch' />担保合同</Item>
+                      <Item key="4"><Icon type='uf-listsearch' />联保合同</Item>
+                     <Item key="5"><Icon type='uf-seal' />合同审批</Item>
+                     <Item key="6"><Icon type='uf-bullseye' />抵/质押合同跟踪</Item>
                 </Menu>
             );
         return (
@@ -68,3 +68,5 @@ export default class Demo1 extends Component {
         )
     }
 }
+
+export default Demo1;

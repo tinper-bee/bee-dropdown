@@ -22,6 +22,10 @@ var _placement = require('./placement');
 
 var _placement2 = _interopRequireDefault(_placement);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
@@ -35,20 +39,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
 
 var propTypes = {
-  minOverlayWidthMatchTrigger: _react.PropTypes.bool,
-  onVisibleChange: _react.PropTypes.func,
-  clsPrefix: _react.PropTypes.string,
-  children: _react.PropTypes.any,
-  transitionName: _react.PropTypes.string,
-  overlayClassName: _react.PropTypes.string,
-  animation: _react.PropTypes.any,
-  align: _react.PropTypes.object,
-  overlayStyle: _react.PropTypes.object,
-  placement: _react.PropTypes.string,
-  trigger: _react.PropTypes.array,
-  showAction: _react.PropTypes.array,
-  hideAction: _react.PropTypes.array,
-  getPopupContainer: _react.PropTypes.func
+  minOverlayWidthMatchTrigger: _propTypes2["default"].bool,
+  onVisibleChange: _propTypes2["default"].func,
+  clsPrefix: _propTypes2["default"].string,
+  children: _propTypes2["default"].any,
+  transitionName: _propTypes2["default"].string,
+  overlayClassName: _propTypes2["default"].string,
+  animation: _propTypes2["default"].any,
+  align: _propTypes2["default"].object,
+  overlayStyle: _propTypes2["default"].object,
+  placement: _propTypes2["default"].string,
+  trigger: _propTypes2["default"].array,
+  showAction: _propTypes2["default"].array,
+  hideAction: _propTypes2["default"].array,
+  getPopupContainer: _propTypes2["default"].func
 };
 
 var defaultProps = {
