@@ -39,13 +39,14 @@ function onVisibleChange(visible) {
     render () {
         const menu1 = (
             <Menu onSelect={this.onSelect} >{
-                dataList.map(da=><Item onClick={this.itemOnClick} key={da.key} data={da} >{da.value}</Item> )}
+                dataList.map(da=><Item key={da.key} data={da} >{da.value}</Item> )}
             </Menu>)
 
         return (
             <div className="demoPadding">
                 <Dropdown
                     trigger={['click']} 
+                    overlay={menu1}
                     animation="slide-up"
                     onVisibleChange={onVisibleChange}>
                     <Button colors='primary'>点击显示</Button>
