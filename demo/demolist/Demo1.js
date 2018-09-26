@@ -44,8 +44,8 @@ const { Item } = Menu;
                       <Item key="2"><Icon type='uf-listsearch' />抵/质押合同</Item>
                       <Item key="3"><Icon type='uf-listsearch' />担保合同</Item>
                       <Item key="4"><Icon type='uf-listsearch' />联保合同</Item>
-                     <Item key="5"><Icon type='uf-seal' />合同审批</Item>
-                     <Item key="6"><Icon type='uf-bullseye' />抵/质押合同跟踪</Item>
+                      <Item key="5"><Icon type='uf-seal' />合同审批</Item>
+                      <Item key="6"><Icon type='uf-bullseye' />抵/质押合同跟踪</Item>
                 </Menu>
             );
         return (
@@ -56,14 +56,14 @@ const { Item } = Menu;
                     animation="slide-up"
                     onVisibleChange={onVisibleChange}>
                     <Button colors='primary'>点击显示</Button>
-                  </Dropdown>
-                  <Dropdown
-                      trigger={['hover']}
-                      overlay={menu2}
-                      animation="slide-up"
-                      onVisibleChange={onVisibleChange}>
-                      <Button colors='primary'>鼠标滑过显示</Button>
-                    </Dropdown>
+                </Dropdown>
+                <Dropdown
+                    trigger={['hover']}
+                    overlay={menu2}
+                    animation="slide-up"
+                    onVisibleChange={onVisibleChange}>
+                    <Button colors='primary'>鼠标滑过显示</Button>
+                </Dropdown>
             </div>
         )
     }

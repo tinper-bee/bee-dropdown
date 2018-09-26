@@ -56,7 +56,7 @@ class Dropdown extends React.Component {
         this.afterVisibleChange = this.afterVisibleChange.bind(this);
 
     }
-
+    
   componentWillReceiveProps({ visible }) {
     if (visible !== undefined) {
       this.setState({
@@ -128,7 +128,7 @@ class Dropdown extends React.Component {
       trigger,
       ...props,
     } = this.props;
-
+    
     return (<Trigger
       {...props}
       clsPrefix={clsPrefix}
@@ -148,7 +148,7 @@ class Dropdown extends React.Component {
       popup={this.getMenuElement()}
       onPopupVisibleChange={this.onVisibleChange}
       getPopupContainer={getPopupContainer}
-    >{children}</Trigger>);
+    >{(children.props.children.props !== undefined) ? children.props.children : children}</Trigger>);
   }
 };
 

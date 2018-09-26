@@ -193,7 +193,7 @@ var Dropdown = function (_React$Component) {
         onPopupVisibleChange: this.onVisibleChange,
         getPopupContainer: getPopupContainer
       }),
-      children
+      children.props.children.props !== undefined ? children.props.children : children
     );
   };
 
