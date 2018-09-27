@@ -148,7 +148,7 @@ class Dropdown extends React.Component {
       popup={this.getMenuElement()}
       onPopupVisibleChange={this.onVisibleChange}
       getPopupContainer={getPopupContainer}
-    >{(children.props.children.props !== undefined) ? children.props.children : children}</Trigger>);
+    >{children}</Trigger>);
   }
 };
 

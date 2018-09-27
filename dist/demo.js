@@ -10871,7 +10871,7 @@
 	        onPopupVisibleChange: this.onVisibleChange,
 	        getPopupContainer: getPopupContainer
 	      }),
-	      children.props.children.props !== undefined ? children.props.children : children
+	      children
 	    );
 	  };
 	
