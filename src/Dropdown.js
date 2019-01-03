@@ -126,6 +126,7 @@ class Dropdown extends React.Component {
       overlayClassName,
       overlayStyle,
       trigger,
+      getDocument,
       ...props,
     } = this.props;
     
@@ -148,6 +149,7 @@ class Dropdown extends React.Component {
       popup={this.getMenuElement()}
       onPopupVisibleChange={this.onVisibleChange}
       getPopupContainer={getPopupContainer}
+      getDocument={getDocument}
     >{children}</Trigger>);
   }
 };

@@ -1,6 +1,6 @@
 {
  "name": "bee-dropdown",
- "version": "1.0.3",
+ "version": "1.0.4",
  "description": "dropdown ui component for react",
  "keywords": [
   "react",
@@ -37,7 +37,7 @@
   "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
  },
  "dependencies": {
-  "bee-overlay": "^1.0.8",
+  "bee-overlay": "^1.0.21",
   "classnames": "^2.2.5",
   "tinper-bee-core": "latest"
  },

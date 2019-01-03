@@ -6535,7 +6535,8 @@ input.u-button[type="submit"] {
 .u-menu-inline,
 .u-menu-vertical,
 .u-menu-vertical-left {
-  border-right: 1px solid #e8e8e8; }
+  border-right: 1px solid #e8e8e8;
+  padding: 12px 0; }
 
 .u-menu-vertical-right {
   border-left: 1px solid #e8e8e8; }
@@ -6778,8 +6779,8 @@ input.u-button[type="submit"] {
 .u-menu-inline .u-menu-submenu-title {
   padding: 0 16px;
   font-size: 14px;
-  line-height: 40px;
-  height: 40px;
+  line-height: 42px;
+  height: 42px;
   margin-top: 4px;
   margin-bottom: 4px;
   overflow: hidden;
@@ -6795,7 +6796,7 @@ input.u-button[type="submit"] {
 .u-menu-vertical-left .u-menu-item:not(:last-child),
 .u-menu-vertical-right .u-menu-item:not(:last-child),
 .u-menu-inline .u-menu-item:not(:last-child) {
-  margin-bottom: 8px; }
+  margin-bottom: 0; }
 
 .u-menu-vertical > .u-menu-item,
 .u-menu-vertical-left > .u-menu-item,
@@ -6805,8 +6806,9 @@ input.u-button[type="submit"] {
 .u-menu-vertical-left > .u-menu-submenu > .u-menu-submenu-title,
 .u-menu-vertical-right > .u-menu-submenu > .u-menu-submenu-title,
 .u-menu-inline > .u-menu-submenu > .u-menu-submenu-title {
-  line-height: 40px;
-  height: 40px; }
+  line-height: 42px;
+  height: 42px;
+  margin: 0; }
 
 .u-menu-inline {
   width: 100%; }
@@ -6846,7 +6848,7 @@ input.u-button[type="submit"] {
 .u-menu-inline-collapsed > .u-menu-item-group > .u-menu-item-group-list > .u-menu-submenu > .u-menu-submenu-title .anticon,
 .u-menu-inline-collapsed > .u-menu-submenu > .u-menu-submenu-title .anticon {
   font-size: 16px;
-  line-height: 40px;
+  line-height: 42px;
   margin: 0; }
 
 .u-menu-inline-collapsed > .u-menu-item .anticon + span,
@@ -6895,8 +6897,8 @@ input.u-button[type="submit"] {
 
 .u-menu-sub.u-menu-inline > .u-menu-item,
 .u-menu-sub.u-menu-inline > .u-menu-submenu > .u-menu-submenu-title {
-  line-height: 40px;
-  height: 40px;
+  line-height: 42px;
+  height: 42px;
   list-style-type: disc;
   list-style-position: inside; }
 
@@ -7061,7 +7063,8 @@ input.u-button[type="submit"] {
 
 .u-menu.u-menu-dark .u-menu-item-selected,
 .u-menu-submenu-popup.u-menu-dark .u-menu-item-selected {
-  background-color: #108ee9; }
+  color: #fff;
+  background-color: transparent; }
 
 .u-menu-dark .u-menu-item-disabled,
 .u-menu-dark .u-menu-submenu-disabled,

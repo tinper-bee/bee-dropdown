@@ -19,4 +19,6 @@
 |onVisibleChange|下拉菜单显示与否的钩子函数|function|() => {}|
 |showAction|显示时的钩子函数数组|array|[]|
 |hideAction|隐藏时的钩子函数数组|array|[]|
-|getPopupContainer|获取要添加的容器|function|默认是body|
+|getPopupContainer|获取要添加的容器|document.body|
+|getDocument|点击隐藏的document，适用于出现iframe的情况|function|document|
+

@@ -83,6 +83,7 @@ import "./node_modules/bee-dropdown/build/Dropdown.css"
 |showAction|显示时的钩子函数数组|array|[]|
 |hideAction|隐藏时的钩子函数数组|array|[]|
 |getPopupContainer|获取要添加的容器|function|默认是body|
+|getDocument|点击隐藏的容器，适用于出现iframe的情况|function|document|
 
 
 

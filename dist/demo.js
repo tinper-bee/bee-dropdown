@@ -8422,12 +8422,14 @@
 	  Menu.prototype.updateMiniStore = function updateMiniStore() {
 	    if ('selectedKeys' in this.props) {
 	      this.store.setState({
-	        selectedKeys: this.props.selectedKeys || []
+	        selectedKeys: this.props.selectedKeys || [],
+	        keyboard: this.props.keyboard || false
 	      });
 	    }
 	    if ('openKeys' in this.props) {
 	      this.store.setState({
-	        openKeys: this.props.openKeys || []
+	        openKeys: this.props.openKeys || [],
+	        keyboard: this.props.keyboard || false
 	      });
 	    }
 	  };
@@ -8491,7 +8493,8 @@
 	  builtinPlacements: _propTypes2["default"].object,
 	  itemIcon: _propTypes2["default"].oneOfType([_propTypes2["default"].func, _propTypes2["default"].node]),
 	  expandIcon: _propTypes2["default"].oneOfType([_propTypes2["default"].func, _propTypes2["default"].node]),
-	  overflowedIndicator: _propTypes2["default"].node
+	  overflowedIndicator: _propTypes2["default"].node,
+	  keyboard: _propTypes2["default"].bool
 	};
 	Menu.defaultProps = {
 	  selectable: true,
@@ -8513,7 +8516,8 @@
 	    'span',
 	    null,
 	    '\xB7\xB7\xB7'
-	  )
+	  ),
+	  keyboard: false
 	};
 	
 	var _initialiseProps = function _initialiseProps() {
@@ -9439,6 +9443,7 @@
 	
 	    // Otherwise, the propagated click event will trigger another onClick
 	    delete props.onClick;
+	    delete props.keyboard;
 	
 	    return (
 	      // ESLint is not smart enough to know that the type of `children` was checked.
@@ -9530,8 +9535,12 @@
 	    }
 	    var activeItem = null;
 	    if (keyCode === _tinperBeeCore.KeyCode.UP || keyCode === _tinperBeeCore.KeyCode.DOWN) {
-	      activeItem = _this3.step(keyCode === _tinperBeeCore.KeyCode.UP ? -1 : 1);
+	      if (_this3.props.store.getState().keyboard) {
+	        //是否启用键盘操作
+	        activeItem = _this3.step(keyCode === _tinperBeeCore.KeyCode.UP ? -2 : 2);
+	      }
 	    }
+	
 	    if (activeItem) {
 	      e.preventDefault();
 	      updateActiveKey(_this3.props.store, getEventKey(_this3.props), activeItem.props.eventKey);
@@ -10146,7 +10155,8 @@
 	          }
 	        }
 	
-	        var ret = [].concat(_toConsumableArray(acc), [overflowed, item]);
+	        // const ret = [...acc, overflowed, item];//更改
+	        var ret = [].concat(_toConsumableArray(acc), [item]);
 	
 	        if (index === children.length - 1) {
 	          // need a placeholder for calculating overflowed indicator width
@@ -11562,40 +11572,41 @@
 	        isOpen = _props3.isOpen,
 	        store = _props3.store;
 	
-	
-	    if (keyCode === _tinperBeeCore.KeyCode.ENTER) {
-	      // this.onTitleClick(e);
-	      menu.onKeyDown(e);
-	      updateDefaultActiveFirst(store, _this3.props.eventKey, true);
-	      return true;
-	    }
-	
-	    if (keyCode === _tinperBeeCore.KeyCode.RIGHT) {
-	      if (isOpen) {
-	        menu.onKeyDown(e);
-	      } else {
-	        _this3.triggerOpenChange(true);
-	        // need to update current menu's defaultActiveFirst value
+	    if (_this3.props.store.getState().keyboard) {
+	      //是否启用键盘操作
+	      if (keyCode === _tinperBeeCore.KeyCode.ENTER) {
+	        // this.onTitleClick(e);
+	        menu && menu.onKeyDown && menu.onKeyDown(e);
 	        updateDefaultActiveFirst(store, _this3.props.eventKey, true);
+	        return true;
 	      }
-	      return true;
-	    }
-	    if (keyCode === _tinperBeeCore.KeyCode.LEFT) {
-	      var handled = void 0;
-	      if (isOpen) {
-	        handled = menu.onKeyDown(e);
-	      } else {
-	        return undefined;
-	      }
-	      if (!handled) {
-	        _this3.triggerOpenChange(false);
-	        handled = true;
-	      }
-	      return handled;
-	    }
 	
-	    if (isOpen && (keyCode === _tinperBeeCore.KeyCode.UP || keyCode === _tinperBeeCore.KeyCode.DOWN)) {
-	      return menu.onKeyDown(e);
+	      if (keyCode === _tinperBeeCore.KeyCode.RIGHT) {
+	        if (isOpen) {
+	          menu.onKeyDown(e);
+	        } else {
+	          _this3.triggerOpenChange(true);
+	          // need to update current menu's defaultActiveFirst value
+	          updateDefaultActiveFirst(store, _this3.props.eventKey, true);
+	        }
+	        return true;
+	      }
+	      if (keyCode === _tinperBeeCore.KeyCode.LEFT) {
+	        var handled = void 0;
+	        if (isOpen) {
+	          handled = menu.onKeyDown(e);
+	        } else {
+	          return undefined;
+	        }
+	        if (!handled) {
+	          _this3.triggerOpenChange(false);
+	          handled = true;
+	        }
+	        return handled;
+	      }
+	      if (isOpen && (keyCode === _tinperBeeCore.KeyCode.UP || keyCode === _tinperBeeCore.KeyCode.DOWN)) {
+	        return menu.onKeyDown(e);
+	      }
 	    }
 	  };
 	
@@ -17656,7 +17667,8 @@
 	        overlayClassName = _props2.overlayClassName,
 	        overlayStyle = _props2.overlayStyle,
 	        trigger = _props2.trigger,
-	        props = _objectWithoutProperties(_props2, ['clsPrefix', 'children', 'transitionName', 'animation', 'align', 'placement', 'getPopupContainer', 'showAction', 'hideAction', 'overlayClassName', 'overlayStyle', 'trigger']);
+	        getDocument = _props2.getDocument,
+	        props = _objectWithoutProperties(_props2, ['clsPrefix', 'children', 'transitionName', 'animation', 'align', 'placement', 'getPopupContainer', 'showAction', 'hideAction', 'overlayClassName', 'overlayStyle', 'trigger', 'getDocument']);
 	
 	    return _react2['default'].createElement(
 	      _trigger2['default'],
@@ -17677,7 +17689,8 @@
 	        afterPopupVisibleChange: this.afterVisibleChange,
 	        popup: this.getMenuElement(),
 	        onPopupVisibleChange: this.onVisibleChange,
-	        getPopupContainer: getPopupContainer
+	        getPopupContainer: getPopupContainer,
+	        getDocument: getDocument
 	      }),
 	      children
 	    );
@@ -17787,7 +17800,8 @@
 	  popupAlign: _propTypes2["default"].object,
 	  popupVisible: _propTypes2["default"].bool,
 	  maskTransitionName: _propTypes2["default"].string,
-	  maskAnimation: _propTypes2["default"].string
+	  maskAnimation: _propTypes2["default"].string,
+	  getDocument: _propTypes2["default"].func //获得点击消失的document对象，适用于getPopupContainer渲染到非当前document情况，例如iframe
 	};
 	
 	var defaultProps = {
@@ -17809,7 +17823,10 @@
 	  maskClosable: true,
 	  action: [],
 	  showAction: [],
-	  hideAction: []
+	  hideAction: [],
+	  getDocument: function getDocument() {
+	    return document;
+	  }
 	};
 	
 	var Trigger = function (_Component) {
@@ -17819,6 +17836,12 @@
 	    _classCallCheck(this, Trigger);
 	
 	    var _this = _possibleConstructorReturn(this, _Component.call(this, props));
+	
+	    _this.getDocument = function () {
+	      var doc = document;
+	      if (_this.props.getDocument) doc = _this.props.getDocument();
+	      return doc;
+	    };
 	
 	    _this.state = {
 	      popupVisible: !!_this.props.popupVisible || _this.props.defaultPopupVisible
@@ -17928,9 +17951,9 @@
 	    if (this.isClickToHide()) {
 	      if (state.popupVisible) {
 	        if (!this.clickOutsideHandler) {
-	          this.clickOutsideHandler = (0, _tinperBeeCore.addEventListener)(document, 'mousedown', this.onDocumentClick);
-	          this.touchOutsideHandler = (0, _tinperBeeCore.addEventListener)(document, 'touchstart', this.onDocumentClick);
-	          this.mouseWheelOutsideHandler = (0, _tinperBeeCore.addEventListener)(document, 'mousewheel', this.onDocumentClick);
+	          this.clickOutsideHandler = (0, _tinperBeeCore.addEventListener)(this.getDocument(), 'mousedown', this.onDocumentClick);
+	          this.touchOutsideHandler = (0, _tinperBeeCore.addEventListener)(this.getDocument(), 'touchstart', this.onDocumentClick);
+	          this.mouseWheelOutsideHandler = (0, _tinperBeeCore.addEventListener)(this.getDocument(), 'mousewheel', this.onDocumentClick);
 	        }
 	        return;
 	      }

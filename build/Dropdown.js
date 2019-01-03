@@ -170,7 +170,8 @@ var Dropdown = function (_React$Component) {
         overlayClassName = _props2.overlayClassName,
         overlayStyle = _props2.overlayStyle,
         trigger = _props2.trigger,
-        props = _objectWithoutProperties(_props2, ['clsPrefix', 'children', 'transitionName', 'animation', 'align', 'placement', 'getPopupContainer', 'showAction', 'hideAction', 'overlayClassName', 'overlayStyle', 'trigger']);
+        getDocument = _props2.getDocument,
+        props = _objectWithoutProperties(_props2, ['clsPrefix', 'children', 'transitionName', 'animation', 'align', 'placement', 'getPopupContainer', 'showAction', 'hideAction', 'overlayClassName', 'overlayStyle', 'trigger', 'getDocument']);
 
     return _react2["default"].createElement(
       _trigger2["default"],
@@ -191,7 +192,8 @@ var Dropdown = function (_React$Component) {
         afterPopupVisibleChange: this.afterVisibleChange,
         popup: this.getMenuElement(),
         onPopupVisibleChange: this.onVisibleChange,
-        getPopupContainer: getPopupContainer
+        getPopupContainer: getPopupContainer,
+        getDocument: getDocument
       }),
       children
     );
