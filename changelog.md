@@ -1,5 +1,15 @@
-<a name="1.0.2"></a>
-## 1.0.2 (2018-09-26)
+<a name="1.0.4"></a>
+## [1.0.4](https://github.com/tinper-bee/bee-dropdown/compare/v1.0.3...v1.0.4) (2019-01-03)
+
+
+### Features
+
+* **bee-dropdown:** 新增getDocument属性，设置点击隐藏的document对象 ([cb8081a](https://github.com/tinper-bee/bee-dropdown/commit/cb8081a))
+
+
+
+<a name="1.0.3"></a>
+## [1.0.3](https://github.com/tinper-bee/bee-dropdown/compare/2412f07...v1.0.3) (2018-09-27)
 
 
 ### Bug Fixes
