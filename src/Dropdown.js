@@ -51,7 +51,8 @@ class Dropdown extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            visible:jadgeState(this.props)
+            visible:jadgeState(this.props),
+            dropdownWidth:''
         };
         this.onClick = this.onClick.bind(this);
         this.onVisibleChange = this.onVisibleChange.bind(this);
@@ -112,6 +113,8 @@ class Dropdown extends React.Component {
       const rootNode = ReactDOM.findDOMNode(this);
       if (rootNode.offsetWidth > overlayNode.offsetWidth) {
         overlayNode.style.width = `${rootNode.offsetWidth}px`;
+      }else{//更改下拉内容时候不宽度不自动撑开bug
+        overlayNode.style.width = null;
       }
     }
   }
