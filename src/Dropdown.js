@@ -1,3 +1,7 @@
+/**
+* This source code is quoted from rc-dropdown.
+* homepage: https://github.com/react-component/dropdown
+*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Trigger from 'bee-overlay/build/trigger';
