@@ -1,3 +1,13 @@
+<a name="1.0.6"></a>
+## [1.0.6](https://github.com/tinper-bee/bee-dropdown/compare/v1.0.5...v1.0.6) (2019-02-14)
+
+
+### Bug Fixes
+
+* **bee-dropdown:** 更改下拉内容时宽度不自动撑开bug ([b5fef0c](https://github.com/tinper-bee/bee-dropdown/commit/b5fef0c))
+
+
+
 <a name="1.0.5"></a>
 ## [1.0.5](https://github.com/tinper-bee/bee-dropdown/compare/v1.0.4...v1.0.5) (2019-01-10)
 
