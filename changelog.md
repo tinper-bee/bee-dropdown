@@ -1,3 +1,13 @@
+<a name="1.0.7"></a>
+## [1.0.7](https://github.com/tinper-bee/bee-dropdown/compare/v1.0.6...v1.0.7) (2019-02-16)
+
+
+### Bug Fixes
+
+* **bee-dropdown:** 宽度bug修改 ([f0bf8aa](https://github.com/tinper-bee/bee-dropdown/commit/f0bf8aa))
+
+
+
 <a name="1.0.6"></a>
 ## [1.0.6](https://github.com/tinper-bee/bee-dropdown/compare/v1.0.5...v1.0.6) (2019-02-14)
 
