@@ -112,9 +112,7 @@ class Dropdown extends React.Component {
       const overlayNode = this.getPopupDomNode();
       const rootNode = ReactDOM.findDOMNode(this);
       if (rootNode.offsetWidth > overlayNode.offsetWidth) {
-        overlayNode.style.width = `${rootNode.offsetWidth}px`;
-      }else{//更改下拉内容时候不宽度不自动撑开bug
-        overlayNode.style.width = null;
+        overlayNode.style['min-width'] = `${rootNode.offsetWidth}px`;
       }
     }
   }

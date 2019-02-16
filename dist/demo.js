@@ -76,7 +76,7 @@
 	
 	var CARETUP = _react2['default'].createElement('i', { className: 'uf uf-arrow-up' });
 	
-	var Demo1 = __webpack_require__(84);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础下拉菜单", "code": "/**\n *\n * @title 基础下拉菜单\n * @description 下拉菜单提供click，hover和focus事件触发。\n *\n */\n\nimport React, { Component } from 'react';\nimport { Dropdown, Icon, Menu, Button } from 'tinper-bee';\n\nconst { Item } = Menu;\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\n class Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            array:[\n                {\n                    name:'短的',key:'s'\n                }\n            ]\n        }\n    }\n    click=()=>{\n        this.setState({\n            array:[\n                {\n                    name:'短的',key:'s'\n                },\n                {\n                    name:'长长长长长长长长长长长长的',key:'l'\n                },\n            ]\n        })\n    }\n    render () {\n\n        const menu1 = (\n              <Menu\n                onSelect={onSelect}>\n                {\n                    this.state.array.map(item=>(\n                        <Item key={item.key}>{item.name}</Item>\n                    ))\n                }\n              </Menu>\n          );\n        return (\n            <div className=\"demoPadding\">\n                <Dropdown\n                    trigger={['click']}\n                    overlay={menu1}\n                    animation=\"slide-up\"\n                    onVisibleChange={onVisibleChange}>\n                    <Button colors='primary'>点击显示</Button>\n                </Dropdown>\n                <button onClick={this.click}>\n                    新增一条\n                </button>\n            </div>\n        )\n    }\n}\n\n", "desc": " 下拉菜单提供click，hover和focus事件触发。" }];
+	var Demo1 = __webpack_require__(84);var Demo2 = __webpack_require__(209);var Demo3 = __webpack_require__(210);var Demo4 = __webpack_require__(211);var Demo5 = __webpack_require__(212);var DemoArray = [{ "example": _react2['default'].createElement(Demo1, null), "title": " 基础下拉菜单", "code": "/**\n *\n * @title 基础下拉菜单\n * @description 下拉菜单提供click，hover和focus事件触发。\n *\n */\n\nimport React, { Component } from 'react';\nimport { Dropdown, Icon, Menu, Button } from 'tinper-bee';\n\nconst { Item } = Menu;\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\n\n class Demo1 extends Component {\n    constructor(props){\n        super(props);\n        this.state={\n            array:[\n                {'name':'短','key':'s'}\n            ]\n        }\n    }\n    click=()=>{\n        this.setState({\n            array:[\n                {'name':'短','key':'s'},\n                {'name':'长长长长长长长长长长长长长长长长','key':'l'},\n            ]\n        })\n    }\n    render () {\n\n        const menu1 = (\n              <Menu\n                onSelect={onSelect}>\n                {\n                    this.state.array.map(item=><Item key={item.key}>{item.name}</Item>)\n                }\n              </Menu>\n          );\n          const menu2 = (\n                <Menu\n                  onSelect={onSelect}>\n                      <Item key=\"1\"><Icon type='uf-listsearch' />借款合同</Item>\n                      <Item key=\"2\"><Icon type='uf-listsearch' />抵/质押合同</Item>\n                      <Item key=\"3\"><Icon type='uf-listsearch' />担保合同</Item>\n                      <Item key=\"4\"><Icon type='uf-listsearch' />联保合同</Item>\n                      <Item key=\"5\"><Icon type='uf-seal' />合同审批</Item>\n                      <Item key=\"6\"><Icon type='uf-bullseye' />抵/质押合同跟踪</Item>\n                </Menu>\n            );\n        return (\n            <div className=\"demoPadding\">\n                <Dropdown\n                    trigger={['click']}\n                    overlay={menu1}\n                    animation=\"slide-up\"\n                    onVisibleChange={onVisibleChange}>\n                    <Button colors='primary'>点击显示</Button>\n                </Dropdown>\n                <Button colors='primary' onClick={this.click}>鼠标滑过显示</Button>\n            </div>\n        )\n    }\n}\n\n", "desc": " 下拉菜单提供click，hover和focus事件触发。" }, { "example": _react2['default'].createElement(Demo2, null), "title": " 不同样子的下拉菜单", "code": "/**\n *\n * @title 不同样子的下拉菜单\n * @description 通过不同的子组件搭配，组成不同形式的菜单\n *\n */\n\nimport React, { Component } from 'react';\nimport { Dropdown, Menu, Button } from 'tinper-bee';\n\nconst { Item,Divider, SubMenu, ItemGroup } = Menu;\n\n\n\n function onSelect({ key }) {\n   console.log(`${key} selected`);\n\n }\n\n function onVisibleChange(visible) {\n   console.log(visible);\n }\n\n const menu1 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <Item key=\"1\">借款合同</Item>\n       <Item key=\"2\">抵/质押合同</Item>\n       <Item key=\"3\">担保合同</Item>\n       <Item key=\"4\">联保合同</Item>\n       <Divider />\n       <Item key=\"5\">合同审批</Item>\n       <Item key=\"6\">抵/质押合同跟踪</Item>\n     </Menu>\n );\n\n const menu2 = (\n     <Menu\n       multiple\n       onSelect={onSelect}>\n       <ItemGroup title=\"合同类别\">\n           <Item key=\"1\">借款合同</Item>\n           <Item key=\"2\">抵/质押合同</Item>\n           <Item key=\"3\">担保合同</Item>\n           <Item key=\"4\">联保合同</Item>\n        </ItemGroup>\n        <ItemGroup title=\"合同操作\">\n            <Item key=\"5\">合同审批</Item>\n            <Item key=\"6\">抵/质押合同跟踪</Item>\n        </ItemGroup>\n     </Menu>\n );\n const menu3 = (\n     <Menu\n       vertical\n       onSelect={onSelect}>\n       <SubMenu key=\"sub1\" title=\"合同类别\">\n            <Item key=\"1\">借款合同</Item>\n            <Item key=\"2\">抵/质押合同</Item>\n            <Item key=\"3\">担保合同</Item>\n            <Item key=\"4\">联保合同</Item>\n\t\t</SubMenu>\n\t\t<SubMenu key=\"sub2\" title=\"合同操作\">\n            <Item key=\"5\">抵/质押合同跟踪</Item>\n\t\t    <SubMenu key=\"sub3\" title=\"合同审批\">\n                <Item key=\"6\">待审批合同</Item>\n                <Item key=\"7\">已审批合同</Item>\n\t\t\t</SubMenu>\n\t\t</SubMenu>\n     </Menu>\n );\nclass Demo2 extends Component {\n    render () {\n        return (\n            <div className=\"demoPadding\">\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu1}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有分割线的下拉</Button>\n                 </Dropdown>\n\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu2}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary'>带有小标题的下拉</Button>\n                 </Dropdown>\n                 <Dropdown\n                   trigger={['click']}\n                   overlay={menu3}\n                   animation=\"slide-up\"\n                   onVisibleChange={onVisibleChange}\n                 >\n                   <Button colors='primary' style={{ width: 150 }}>多级下拉</Button>\n                 </Dropdown>\n             </div>\n        )\n    }\n}\n\n", "desc": " 通过不同的子组件搭配，组成不同形式的菜单" }, { "example": _react2['default'].createElement(Demo3, null), "title": " 控制显示隐藏的下拉菜单", "code": "/**\n *\n * @title 控制显示隐藏的下拉菜单\n * @description 通过设置Dropdown组件`visible`props，可以外部控制睇下啦菜单的显示隐藏。\n *\n */\n\nimport React, { Component } from 'react';\nimport { Dropdown, Menu, Button } from 'tinper-bee';\n\nconst { Item } = Menu;\n\n\nfunction onVisibleChange(visible) {\n    console.log(visible);\n}\n\nclass Demo3 extends Component {\n    state = {\n        visible: false\n    }\n    handleSelect = () => {\n        this.setState({\n            visible: false\n        })\n    }\n\n    handleShow = () => {\n        this.setState({\n            visible: true\n        })\n    }\n\n    render () {\n\n        const menu1 = (\n            <Menu\n                onSelect={this.handleSelect}>\n                <Item key=\"1\">借款合同</Item>\n                <Item key=\"2\">抵/质押合同</Item>\n                <Item key=\"3\">担保合同</Item>\n                <Item key=\"4\">联保合同</Item>\n                <Item key=\"5\">合同审批</Item>\n                <Item key=\"6\">抵/质押合同跟踪</Item>\n            </Menu>\n        );\n\n        return (\n            <div className=\"demoPadding\">\n                <Dropdown\n                    trigger={['click']}\n                    overlay={menu1}\n                    animation=\"slide-up\"\n                    visible={ this.state.visible }\n                    onVisibleChange={onVisibleChange}\n                >\n                    <Button\n                        onClick={this.handleShow}\n                        colors='primary'>\n                        受控制的下拉\n                    </Button>\n                </Dropdown>\n\n            </div>\n        )\n    }\n}\n\n\n", "desc": " 通过设置Dropdown组件`visible`props，可以外部控制睇下啦菜单的显示隐藏。" }, { "example": _react2['default'].createElement(Demo4, null), "title": " 基础下拉菜单", "code": "/**\n *\n * @title 基础下拉菜单\n * @description 如何获取选中对象自定义对象和数据\n *\n */\n\nimport React, { Component } from 'react';\nimport { Dropdown, Icon, Menu, Button } from 'tinper-bee';\n\nconst { Item } = Menu;\n  \n const dataList = [\n     {\"key\":\"1\",value:\"借款合同\",id:\"a\"},\n     {\"key\":\"2\",value:\"抵/质押合同\",id:\"v\"},\n     {\"key\":\"3\",value:\"担保合同\",id:\"c\"},\n     {\"key\":\"4\",value:\"联保合同\",id:\"d\"},\n ]\n\nfunction onVisibleChange(visible) {\n    console.log(visible);\n}\n\n class Demo4 extends Component {\n \n    /**\n     * 获取当前选中行的item对象。\n     * @param {*} value \n     */\n    onSelect({key,item}){ \n      console.log(`${key} selected`); //获取key\n      let currentObject = item.props.data; //获取选中对象的数据\n      console.log(currentObject); \n    }\n \n    render () {\n        const menu1 = (\n            <Menu onSelect={this.onSelect} >{\n                dataList.map(da=><Item key={da.key} data={da} >{da.value}</Item> )}\n            </Menu>)\n\n        return (\n            <div className=\"demoPadding\">\n                <Dropdown\n                    trigger={['click']} \n                    overlay={menu1}\n                    animation=\"slide-up\"\n                    onVisibleChange={onVisibleChange}>\n                    <Button colors='primary'>点击显示</Button>\n                  </Dropdown> \n            </div>\n        )\n    }\n}\n\n", "desc": " 如何获取选中对象自定义对象和数据" }, { "example": _react2['default'].createElement(Demo5, null), "title": " 使用键盘操作示例", "code": "/**\n *\n * @title 使用键盘操作示例\n * @description \n *\n */\n\nimport React, { Component } from 'react';\nimport ReactDOM from 'react-dom';\nimport { Dropdown, Icon, Menu, Button } from 'tinper-bee';\n\nconst { Item } = Menu;\n\n\n\n class Demo5 extends Component {\n\n    onSelect({ key }) {\n        console.log(`${key} selected`);\n    }\n    onVisibleChange=(visible)=> {\n        console.log(visible);\n         if(visible){\n             window.setTimeout(()=>{\n                ReactDOM.findDOMNode(this.refs.menurefs).focus();\n             })\n         }\n      }\n\n    render () {\n\n        const menu1 = (\n            <Menu ref='menurefs'\n                onSelect={this.onSelect}>\n                <Item key=\"1\">借款合同</Item>\n                <Item key=\"2\">抵/质押合同</Item>\n                <Item key=\"3\">担保合同</Item>\n                <Item key=\"4\">联保合同</Item>\n                <Item key=\"5\">合同审批</Item>\n                <Item key=\"6\">抵/质押合同跟踪</Item>\n              </Menu>\n          );\n        return (\n            <div className=\"demoPadding\">\n                <Dropdown\n                    trigger={['click']}\n                    overlay={menu1}\n                    animation=\"slide-up\"\n                    onVisibleChange={this.onVisibleChange}>\n                    <Button colors='primary'>点击显示</Button>\n                </Dropdown>\n            </div>\n        )\n    }\n}\n\n", "desc": " " }];
 	
 	var Demo = function (_Component) {
 	    _inherits(Demo, _Component);
@@ -7992,18 +7992,12 @@
 	
 	        _this.click = function () {
 	            _this.setState({
-	                array: [{
-	                    name: '短的', key: 's'
-	                }, {
-	                    name: '长长长长长长长长长长长长的', key: 'l'
-	                }]
+	                array: [{ 'name': '短', 'key': 's' }, { 'name': '长长长长长长长长长长长长长长长长', 'key': 'l' }]
 	            });
 	        };
 	
 	        _this.state = {
-	            array: [{
-	                name: '短的', key: 's'
-	            }]
+	            array: [{ 'name': '短', 'key': 's' }]
 	        };
 	        return _this;
 	    }
@@ -8022,6 +8016,47 @@
 	                );
 	            })
 	        );
+	        var menu2 = _react2['default'].createElement(
+	            _beeMenus2['default'],
+	            {
+	                onSelect: onSelect },
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '1' },
+	                _react2['default'].createElement(_beeIcon2['default'], { type: 'uf-listsearch' }),
+	                '\u501F\u6B3E\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '2' },
+	                _react2['default'].createElement(_beeIcon2['default'], { type: 'uf-listsearch' }),
+	                '\u62B5/\u8D28\u62BC\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '3' },
+	                _react2['default'].createElement(_beeIcon2['default'], { type: 'uf-listsearch' }),
+	                '\u62C5\u4FDD\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '4' },
+	                _react2['default'].createElement(_beeIcon2['default'], { type: 'uf-listsearch' }),
+	                '\u8054\u4FDD\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '5' },
+	                _react2['default'].createElement(_beeIcon2['default'], { type: 'uf-seal' }),
+	                '\u5408\u540C\u5BA1\u6279'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '6' },
+	                _react2['default'].createElement(_beeIcon2['default'], { type: 'uf-bullseye' }),
+	                '\u62B5/\u8D28\u62BC\u5408\u540C\u8DDF\u8E2A'
+	            )
+	        );
 	        return _react2['default'].createElement(
 	            'div',
 	            { className: 'demoPadding' },
@@ -8039,9 +8074,9 @@
 	                )
 	            ),
 	            _react2['default'].createElement(
-	                'button',
-	                { onClick: this.click },
-	                '\u65B0\u589E\u4E00\u6761'
+	                _beeButton2['default'],
+	                { colors: 'primary', onClick: this.click },
+	                '\u9F20\u6807\u6ED1\u8FC7\u663E\u793A'
 	            )
 	        );
 	    };
@@ -17598,9 +17633,7 @@
 	      var overlayNode = this.getPopupDomNode();
 	      var rootNode = _reactDom2['default'].findDOMNode(this);
 	      if (rootNode.offsetWidth > overlayNode.offsetWidth) {
-	        overlayNode.style.width = rootNode.offsetWidth + 'px';
-	      } else {
-	        overlayNode.style.width = null;
+	        overlayNode.style['min-width'] = rootNode.offsetWidth + 'px';
 	      }
 	    }
 	  };
@@ -18820,6 +18853,658 @@
 	};
 	
 	exports['default'] = placements;
+
+/***/ }),
+/* 209 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
+	
+	var _beeMenus = __webpack_require__(85);
+	
+	var _beeMenus2 = _interopRequireDefault(_beeMenus);
+	
+	var _src = __webpack_require__(199);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 不同样子的下拉菜单
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 通过不同的子组件搭配，组成不同形式的菜单
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var Item = _beeMenus2['default'].Item,
+	    Divider = _beeMenus2['default'].Divider,
+	    SubMenu = _beeMenus2['default'].SubMenu,
+	    ItemGroup = _beeMenus2['default'].ItemGroup;
+	
+	
+	function onSelect(_ref) {
+	  var key = _ref.key;
+	
+	  console.log(key + ' selected');
+	}
+	
+	function onVisibleChange(visible) {
+	  console.log(visible);
+	}
+	
+	var menu1 = _react2['default'].createElement(
+	  _beeMenus2['default'],
+	  {
+	    multiple: true,
+	    onSelect: onSelect },
+	  _react2['default'].createElement(
+	    Item,
+	    { key: '1' },
+	    '\u501F\u6B3E\u5408\u540C'
+	  ),
+	  _react2['default'].createElement(
+	    Item,
+	    { key: '2' },
+	    '\u62B5/\u8D28\u62BC\u5408\u540C'
+	  ),
+	  _react2['default'].createElement(
+	    Item,
+	    { key: '3' },
+	    '\u62C5\u4FDD\u5408\u540C'
+	  ),
+	  _react2['default'].createElement(
+	    Item,
+	    { key: '4' },
+	    '\u8054\u4FDD\u5408\u540C'
+	  ),
+	  _react2['default'].createElement(Divider, null),
+	  _react2['default'].createElement(
+	    Item,
+	    { key: '5' },
+	    '\u5408\u540C\u5BA1\u6279'
+	  ),
+	  _react2['default'].createElement(
+	    Item,
+	    { key: '6' },
+	    '\u62B5/\u8D28\u62BC\u5408\u540C\u8DDF\u8E2A'
+	  )
+	);
+	
+	var menu2 = _react2['default'].createElement(
+	  _beeMenus2['default'],
+	  {
+	    multiple: true,
+	    onSelect: onSelect },
+	  _react2['default'].createElement(
+	    ItemGroup,
+	    { title: '\u5408\u540C\u7C7B\u522B' },
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '1' },
+	      '\u501F\u6B3E\u5408\u540C'
+	    ),
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '2' },
+	      '\u62B5/\u8D28\u62BC\u5408\u540C'
+	    ),
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '3' },
+	      '\u62C5\u4FDD\u5408\u540C'
+	    ),
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '4' },
+	      '\u8054\u4FDD\u5408\u540C'
+	    )
+	  ),
+	  _react2['default'].createElement(
+	    ItemGroup,
+	    { title: '\u5408\u540C\u64CD\u4F5C' },
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '5' },
+	      '\u5408\u540C\u5BA1\u6279'
+	    ),
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '6' },
+	      '\u62B5/\u8D28\u62BC\u5408\u540C\u8DDF\u8E2A'
+	    )
+	  )
+	);
+	var menu3 = _react2['default'].createElement(
+	  _beeMenus2['default'],
+	  {
+	    vertical: true,
+	    onSelect: onSelect },
+	  _react2['default'].createElement(
+	    SubMenu,
+	    { key: 'sub1', title: '\u5408\u540C\u7C7B\u522B' },
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '1' },
+	      '\u501F\u6B3E\u5408\u540C'
+	    ),
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '2' },
+	      '\u62B5/\u8D28\u62BC\u5408\u540C'
+	    ),
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '3' },
+	      '\u62C5\u4FDD\u5408\u540C'
+	    ),
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '4' },
+	      '\u8054\u4FDD\u5408\u540C'
+	    )
+	  ),
+	  _react2['default'].createElement(
+	    SubMenu,
+	    { key: 'sub2', title: '\u5408\u540C\u64CD\u4F5C' },
+	    _react2['default'].createElement(
+	      Item,
+	      { key: '5' },
+	      '\u62B5/\u8D28\u62BC\u5408\u540C\u8DDF\u8E2A'
+	    ),
+	    _react2['default'].createElement(
+	      SubMenu,
+	      { key: 'sub3', title: '\u5408\u540C\u5BA1\u6279' },
+	      _react2['default'].createElement(
+	        Item,
+	        { key: '6' },
+	        '\u5F85\u5BA1\u6279\u5408\u540C'
+	      ),
+	      _react2['default'].createElement(
+	        Item,
+	        { key: '7' },
+	        '\u5DF2\u5BA1\u6279\u5408\u540C'
+	      )
+	    )
+	  )
+	);
+	
+	var Demo2 = function (_Component) {
+	  _inherits(Demo2, _Component);
+	
+	  function Demo2() {
+	    _classCallCheck(this, Demo2);
+	
+	    return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+	  }
+	
+	  Demo2.prototype.render = function render() {
+	    return _react2['default'].createElement(
+	      'div',
+	      { className: 'demoPadding' },
+	      _react2['default'].createElement(
+	        _src2['default'],
+	        {
+	          trigger: ['click'],
+	          overlay: menu1,
+	          animation: 'slide-up',
+	          onVisibleChange: onVisibleChange
+	        },
+	        _react2['default'].createElement(
+	          _beeButton2['default'],
+	          { colors: 'primary' },
+	          '\u5E26\u6709\u5206\u5272\u7EBF\u7684\u4E0B\u62C9'
+	        )
+	      ),
+	      _react2['default'].createElement(
+	        _src2['default'],
+	        {
+	          trigger: ['click'],
+	          overlay: menu2,
+	          animation: 'slide-up',
+	          onVisibleChange: onVisibleChange
+	        },
+	        _react2['default'].createElement(
+	          _beeButton2['default'],
+	          { colors: 'primary' },
+	          '\u5E26\u6709\u5C0F\u6807\u9898\u7684\u4E0B\u62C9'
+	        )
+	      ),
+	      _react2['default'].createElement(
+	        _src2['default'],
+	        {
+	          trigger: ['click'],
+	          overlay: menu3,
+	          animation: 'slide-up',
+	          onVisibleChange: onVisibleChange
+	        },
+	        _react2['default'].createElement(
+	          _beeButton2['default'],
+	          { colors: 'primary', style: { width: 150 } },
+	          '\u591A\u7EA7\u4E0B\u62C9'
+	        )
+	      )
+	    );
+	  };
+	
+	  return Demo2;
+	}(_react.Component);
+	
+	exports['default'] = Demo2;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 210 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
+	
+	var _beeMenus = __webpack_require__(85);
+	
+	var _beeMenus2 = _interopRequireDefault(_beeMenus);
+	
+	var _src = __webpack_require__(199);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 控制显示隐藏的下拉菜单
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 通过设置Dropdown组件`visible`props，可以外部控制睇下啦菜单的显示隐藏。
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var Item = _beeMenus2['default'].Item;
+	
+	
+	function onVisibleChange(visible) {
+	    console.log(visible);
+	}
+	
+	var Demo3 = function (_Component) {
+	    _inherits(Demo3, _Component);
+	
+	    function Demo3() {
+	        var _temp, _this, _ret;
+	
+	        _classCallCheck(this, Demo3);
+	
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+	
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.state = {
+	            visible: false
+	        }, _this.handleSelect = function () {
+	            _this.setState({
+	                visible: false
+	            });
+	        }, _this.handleShow = function () {
+	            _this.setState({
+	                visible: true
+	            });
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
+	    }
+	
+	    Demo3.prototype.render = function render() {
+	
+	        var menu1 = _react2['default'].createElement(
+	            _beeMenus2['default'],
+	            {
+	                onSelect: this.handleSelect },
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '1' },
+	                '\u501F\u6B3E\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '2' },
+	                '\u62B5/\u8D28\u62BC\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '3' },
+	                '\u62C5\u4FDD\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '4' },
+	                '\u8054\u4FDD\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '5' },
+	                '\u5408\u540C\u5BA1\u6279'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '6' },
+	                '\u62B5/\u8D28\u62BC\u5408\u540C\u8DDF\u8E2A'
+	            )
+	        );
+	
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'demoPadding' },
+	            _react2['default'].createElement(
+	                _src2['default'],
+	                {
+	                    trigger: ['click'],
+	                    overlay: menu1,
+	                    animation: 'slide-up',
+	                    visible: this.state.visible,
+	                    onVisibleChange: onVisibleChange
+	                },
+	                _react2['default'].createElement(
+	                    _beeButton2['default'],
+	                    {
+	                        onClick: this.handleShow,
+	                        colors: 'primary' },
+	                    '\u53D7\u63A7\u5236\u7684\u4E0B\u62C9'
+	                )
+	            )
+	        );
+	    };
+	
+	    return Demo3;
+	}(_react.Component);
+	
+	exports['default'] = Demo3;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 211 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
+	
+	var _beeMenus = __webpack_require__(85);
+	
+	var _beeMenus2 = _interopRequireDefault(_beeMenus);
+	
+	var _beeIcon = __webpack_require__(197);
+	
+	var _beeIcon2 = _interopRequireDefault(_beeIcon);
+	
+	var _src = __webpack_require__(199);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 基础下拉菜单
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 如何获取选中对象自定义对象和数据
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var Item = _beeMenus2['default'].Item;
+	
+	
+	var dataList = [{ "key": "1", value: "借款合同", id: "a" }, { "key": "2", value: "抵/质押合同", id: "v" }, { "key": "3", value: "担保合同", id: "c" }, { "key": "4", value: "联保合同", id: "d" }];
+	
+	function onVisibleChange(visible) {
+	    console.log(visible);
+	}
+	
+	var Demo4 = function (_Component) {
+	    _inherits(Demo4, _Component);
+	
+	    function Demo4() {
+	        _classCallCheck(this, Demo4);
+	
+	        return _possibleConstructorReturn(this, _Component.apply(this, arguments));
+	    }
+	
+	    /**
+	     * 获取当前选中行的item对象。
+	     * @param {*} value 
+	     */
+	    Demo4.prototype.onSelect = function onSelect(_ref) {
+	        var key = _ref.key,
+	            item = _ref.item;
+	
+	        console.log(key + ' selected'); //获取key
+	        var currentObject = item.props.data; //获取选中对象的数据
+	        console.log(currentObject);
+	    };
+	
+	    Demo4.prototype.render = function render() {
+	        var menu1 = _react2['default'].createElement(
+	            _beeMenus2['default'],
+	            { onSelect: this.onSelect },
+	            dataList.map(function (da) {
+	                return _react2['default'].createElement(
+	                    Item,
+	                    { key: da.key, data: da },
+	                    da.value
+	                );
+	            })
+	        );
+	
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'demoPadding' },
+	            _react2['default'].createElement(
+	                _src2['default'],
+	                {
+	                    trigger: ['click'],
+	                    overlay: menu1,
+	                    animation: 'slide-up',
+	                    onVisibleChange: onVisibleChange },
+	                _react2['default'].createElement(
+	                    _beeButton2['default'],
+	                    { colors: 'primary' },
+	                    '\u70B9\u51FB\u663E\u793A'
+	                )
+	            )
+	        );
+	    };
+	
+	    return Demo4;
+	}(_react.Component);
+	
+	exports['default'] = Demo4;
+	module.exports = exports['default'];
+
+/***/ }),
+/* 212 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	
+	var _react = __webpack_require__(4);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactDom = __webpack_require__(12);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
+	var _beeButton = __webpack_require__(82);
+	
+	var _beeButton2 = _interopRequireDefault(_beeButton);
+	
+	var _beeMenus = __webpack_require__(85);
+	
+	var _beeMenus2 = _interopRequireDefault(_beeMenus);
+	
+	var _beeIcon = __webpack_require__(197);
+	
+	var _beeIcon2 = _interopRequireDefault(_beeIcon);
+	
+	var _src = __webpack_require__(199);
+	
+	var _src2 = _interopRequireDefault(_src);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
+	function _defaults(obj, defaults) { var keys = Object.getOwnPropertyNames(defaults); for (var i = 0; i < keys.length; i++) { var key = keys[i]; var value = Object.getOwnPropertyDescriptor(defaults, key); if (value && value.configurable && obj[key] === undefined) { Object.defineProperty(obj, key, value); } } return obj; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @title 使用键盘操作示例
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @description 
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
+	var Item = _beeMenus2['default'].Item;
+	
+	var Demo5 = function (_Component) {
+	    _inherits(Demo5, _Component);
+	
+	    function Demo5() {
+	        var _temp, _this, _ret;
+	
+	        _classCallCheck(this, Demo5);
+	
+	        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+	            args[_key] = arguments[_key];
+	        }
+	
+	        return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.onVisibleChange = function (visible) {
+	            console.log(visible);
+	            if (visible) {
+	                window.setTimeout(function () {
+	                    _reactDom2['default'].findDOMNode(_this.refs.menurefs).focus();
+	                });
+	            }
+	        }, _temp), _possibleConstructorReturn(_this, _ret);
+	    }
+	
+	    Demo5.prototype.onSelect = function onSelect(_ref) {
+	        var key = _ref.key;
+	
+	        console.log(key + ' selected');
+	    };
+	
+	    Demo5.prototype.render = function render() {
+	
+	        var menu1 = _react2['default'].createElement(
+	            _beeMenus2['default'],
+	            { ref: 'menurefs',
+	                onSelect: this.onSelect },
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '1' },
+	                '\u501F\u6B3E\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '2' },
+	                '\u62B5/\u8D28\u62BC\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '3' },
+	                '\u62C5\u4FDD\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '4' },
+	                '\u8054\u4FDD\u5408\u540C'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '5' },
+	                '\u5408\u540C\u5BA1\u6279'
+	            ),
+	            _react2['default'].createElement(
+	                Item,
+	                { key: '6' },
+	                '\u62B5/\u8D28\u62BC\u5408\u540C\u8DDF\u8E2A'
+	            )
+	        );
+	        return _react2['default'].createElement(
+	            'div',
+	            { className: 'demoPadding' },
+	            _react2['default'].createElement(
+	                _src2['default'],
+	                {
+	                    trigger: ['click'],
+	                    overlay: menu1,
+	                    animation: 'slide-up',
+	                    onVisibleChange: this.onVisibleChange },
+	                _react2['default'].createElement(
+	                    _beeButton2['default'],
+	                    { colors: 'primary' },
+	                    '\u70B9\u51FB\u663E\u793A'
+	                )
+	            )
+	        );
+	    };
+	
+	    return Demo5;
+	}(_react.Component);
+	
+	exports['default'] = Demo5;
+	module.exports = exports['default'];
 
 /***/ })
 /******/ ]);
