@@ -1,3 +1,13 @@
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/tinper-bee/bee-dropdown/compare/v1.1.0...v1.1.1) (2019-02-28)
+
+
+### Bug Fixes
+
+* **bee-dropdown:** 引用menu时 使用 clsPrefix prefixCls问题 ([edf98f1](https://github.com/tinper-bee/bee-dropdown/commit/edf98f1))
+
+
+
 <a name="1.1.0"></a>
 # [1.1.0](https://github.com/tinper-bee/bee-dropdown/compare/v1.0.7...v1.1.0) (2019-02-16)
 
