@@ -98,6 +98,7 @@ class Dropdown extends React.Component {
     const { overlay, clsPrefix } = this.props;
 
     return React.cloneElement(overlay, {
+      prefixCls: `${clsPrefix}-menu`,
       clsPrefix: `${clsPrefix}-menu`,
       onClick: this.onClick,
     });
