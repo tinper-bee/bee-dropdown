@@ -2119,7 +2119,10 @@
 	  }
 	
 	  return (0, _createChainableTypeChecker2.default)(allPropTypes);
-	}
+	} /**
+	   * This source code is quoted from rc-util.
+	   * homepage: https://github.com/react-component/util
+	   */
 
 /***/ }),
 /* 29 */
@@ -2139,6 +2142,10 @@
 	 */
 	
 	// Mostly taken from ReactPropTypes.
+	
+	/* This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	
 	function createChainableTypeChecker(validate) {
 	  function checkType(isRequired, props, propName, componentName, location, propFullName) {
@@ -2174,7 +2181,11 @@
 	
 	exports.__esModule = true;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                               */
+	
 	
 	var _react = __webpack_require__(4);
 	
@@ -2218,8 +2229,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var warned = {};
-	
+	var warned = {}; /**
+	                  * This source code is quoted from rc-util.
+	                  * homepage: https://github.com/react-component/util
+	                  */
 	function deprecated(validator, reason) {
 	  return function validate(props, propName, componentName, location, propFullName) {
 	    var componentNameSafe = componentName || '<<anonymous>>';
@@ -2514,7 +2527,11 @@
 	
 	exports.__esModule = true;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                               */
+	
 	
 	var _react = __webpack_require__(4);
 	
@@ -2551,6 +2568,10 @@
 	
 	exports.__esModule = true;
 	exports.default = isRequiredForA11y;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function isRequiredForA11y(validator) {
 	  return function validate(props, propName, componentName, location, propFullName) {
 	    var componentNameSafe = componentName || '<<anonymous>>';
@@ -2576,6 +2597,10 @@
 	
 	exports.__esModule = true;
 	exports.default = splitComponentProps;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function _objectEntries(obj) {
 	  var entries = [];
 	  var keys = Object.keys(obj);
@@ -2618,6 +2643,10 @@
 	'use strict';
 	
 	exports.__esModule = true;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function createChainedFunction() {
 	  for (var _len = arguments.length, funcs = Array(_len), _key = 0; _key < _len; _key++) {
 	    funcs[_key] = arguments[_key];
@@ -2650,6 +2679,10 @@
 /* 38 */
 /***/ (function(module, exports) {
 
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	'use strict';
 	
 	/**
@@ -3179,6 +3212,10 @@
 	
 	exports.__esModule = true;
 	exports.default = contains;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function contains(root, n) {
 	  var node = n;
 	  while (node) {
@@ -3210,6 +3247,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	function addEventListenerWrap(target, eventType, cb) {
 	  /* eslint camelcase: 2 */
 	  var callback = _reactDom2.default.unstable_batchedUpdates ? function run(e) {
@@ -3729,7 +3770,11 @@
 	
 	exports.__esModule = true;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                               * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                               */
+	
 	
 	var _Event = __webpack_require__(46);
 	
@@ -3920,6 +3965,10 @@
 	'use strict';
 	
 	exports.__esModule = true;
+	/**
+	 * This source code is quoted from rc-util.
+	 * homepage: https://github.com/react-component/util
+	 */
 	var EVENT_NAME_MAP = {
 	  transitionend: {
 	    transition: 'transitionend',
@@ -4233,7 +4282,10 @@
 	    ret.push(c);
 	  });
 	  return ret;
-	}
+	} /**
+	   * This source code is quoted from rc-util.
+	   * homepage: https://github.com/react-component/util
+	   */
 
 /***/ }),
 /* 50 */
@@ -4269,7 +4321,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * This source code is quoted from rc-util.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * homepage: https://github.com/react-component/util
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+	
 	
 	//import isWindow from './isWindow';
 	
@@ -5523,6 +5579,16 @@
 	  var viewportHeight = _utils2['default'].viewportHeight(win);
 	  var documentWidth = documentElement.scrollWidth;
 	  var documentHeight = documentElement.scrollHeight;
+	
+	  // scrollXXX on html is sync with body which means overflow: hidden on body gets wrong scrollXXX.
+	  // We should cut this ourself.
+	  var bodyStyle = getComputedStyle(body);
+	  if (bodyStyle.overflowX === 'hidden') {
+	    documentWidth = win.innerWidth;
+	  }
+	  if (bodyStyle.overflowY === 'hidden') {
+	    documentHeight = win.innerHeight;
+	  }
 	
 	  // Reset element position after calculate the visible area
 	  if (element.style) {
@@ -7799,7 +7865,7 @@
 	    /**
 	     * @title 尺寸
 	     */
-	    size: _propTypes2["default"].oneOf(['sm', 'xg', 'lg']),
+	    size: _propTypes2["default"].oneOf(['sm', 'md', 'xg', 'lg']),
 	    /**
 	     * @title 样式
 	     */
@@ -7813,7 +7879,7 @@
 	    /**
 	    * @title 类型
 	    */
-	    colors: _propTypes2["default"].oneOf(['primary', 'accent', 'success', 'info', 'warning', 'danger', 'default']),
+	    colors: _propTypes2["default"].oneOf(['primary', 'secondary', 'accent', 'success', 'info', 'warning', 'danger', 'dark', 'light', 'default']),
 	    /**
 	     * @title 是否禁用
 	     * @veIgnore
@@ -7843,16 +7909,20 @@
 	
 	var sizeMap = {
 	    sm: 'sm',
+	    md: 'md',
 	    xg: 'xg',
 	    lg: 'lg'
 	},
 	    colorsMap = {
 	    primary: 'primary',
+	    secondary: 'secondary',
 	    accent: 'accent',
 	    success: 'success',
 	    info: 'info',
 	    warning: 'warning',
-	    danger: 'danger'
+	    danger: 'danger',
+	    dark: 'dark',
+	    light: 'light'
 	},
 	    shapeMap = {
 	    block: 'block',
@@ -8330,7 +8400,11 @@
 	exports.ItemGroup = _MenuItemGroup2["default"];
 	exports.Divider = _Divider2["default"];
 	exports.SideContainer = _SideContainer2["default"];
-	exports.MenuToggle = _MenuToggle2["default"];
+	exports.MenuToggle = _MenuToggle2["default"]; /**
+	                                           * This source code is quoted from rc-menu.
+	                                           * homepage: https://github.com/react-component/menu
+	                                           */
+	
 	exports["default"] = _Menu2["default"];
 
 /***/ }),
@@ -8375,7 +8449,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-menu.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/menu
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	
 	
 	var Menu = function (_React$Component) {
 	  _inherits(Menu, _React$Component);
@@ -8453,7 +8531,7 @@
 	      { store: this.store },
 	      _react2["default"].createElement(
 	        _SubPopupMenu2["default"],
-	        _extends({}, props, { tabIndex: '0', onFocus: this.focus, ref: function ref(c) {
+	        _extends({}, props, { onFocus: this.focus, ref: function ref(c) {
 	            return _this2.innerMenu = c;
 	          } }),
 	        this.props.children
@@ -8517,7 +8595,8 @@
 	    null,
 	    '\xB7\xB7\xB7'
 	  ),
-	  keyboard: false
+	  keyboard: false,
+	  tabIndex: '0'
 	};
 	
 	var _initialiseProps = function _initialiseProps() {
@@ -9255,7 +9334,11 @@
 	});
 	exports.SubPopupMenu = undefined;
 	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
+	                                                                                                                                                                                                                                                                  * This source code is quoted from rc-menu.
+	                                                                                                                                                                                                                                                                  * homepage: https://github.com/react-component/menu
+	                                                                                                                                                                                                                                                                  */
+	
 	
 	exports.getActiveKey = getActiveKey;
 	exports.saveRef = saveRef;
@@ -9426,7 +9509,7 @@
 	      domProps.id = props.id;
 	    }
 	    if (props.focusable) {
-	      domProps.tabIndex = '0';
+	      domProps.tabIndex = this.props.tabIndex;
 	      domProps.onKeyDown = this.onKeyDown;
 	    }
 	    var prefixCls = props.prefixCls,
@@ -9734,7 +9817,11 @@
 	});
 	exports.setStyle = exports.getWidth = exports.menuAllProps = undefined;
 	
-	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; /**
+	                                                                                                                                                                                                                                                                              * This source code is quoted from rc-menu.
+	                                                                                                                                                                                                                                                                              * homepage: https://github.com/react-component/menu
+	                                                                                                                                                                                                                                                                              */
+	
 	
 	exports.noop = noop;
 	exports.getKeyFromChildrenIndex = getKeyFromChildrenIndex;
@@ -9892,7 +9979,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-menu.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/menu
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	
 	
 	var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 	
@@ -11173,7 +11264,11 @@
 	
 	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 	
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
+	                                                                                                                                                                                                                                                                  * This source code is quoted from rc-menu.
+	                                                                                                                                                                                                                                                                  * homepage: https://github.com/react-component/menu
+	                                                                                                                                                                                                                                                                  */
+	
 	
 	var _react = __webpack_require__(4);
 	
@@ -14456,7 +14551,9 @@
 
 	'use strict';
 	
-	exports.__esModule = true;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	
 	var _Align = __webpack_require__(173);
 	
@@ -14474,11 +14571,17 @@
 
 	'use strict';
 	
-	exports.__esModule = true;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	
 	var _classCallCheck2 = __webpack_require__(120);
 	
 	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+	
+	var _createClass2 = __webpack_require__(166);
+	
+	var _createClass3 = _interopRequireDefault(_createClass2);
 	
 	var _possibleConstructorReturn2 = __webpack_require__(121);
 	
@@ -14524,6 +14627,8 @@
 	  (0, _inherits3['default'])(Align, _Component);
 	
 	  function Align() {
+	    var _ref;
+	
 	    var _temp, _this, _ret;
 	
 	    (0, _classCallCheck3['default'])(this, Align);
@@ -14532,7 +14637,7 @@
 	      args[_key] = arguments[_key];
 	    }
 	
-	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3['default'])(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.forceAlign = function () {
+	    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3['default'])(this, (_ref = Align.__proto__ || Object.getPrototypeOf(Align)).call.apply(_ref, [this].concat(args))), _this), _this.forceAlign = function () {
 	      var _this$props = _this.props,
 	          disabled = _this$props.disabled,
 	          target = _this$props.target,
@@ -14546,11 +14651,17 @@
 	        var element = getElement(target);
 	        var point = getPoint(target);
 	
+	        // IE lose focus after element realign
+	        // We should record activeElement and restore later
+	        var activeElement = document.activeElement;
+	
 	        if (element) {
 	          result = (0, _domAlign.alignElement)(source, element, align);
 	        } else if (point) {
 	          result = (0, _domAlign.alignPoint)(source, point, align);
 	        }
+	
+	        (0, _util.restoreFocus)(activeElement, source);
 	
 	        if (onAlign) {
 	          onAlign(source, result);
@@ -14559,101 +14670,108 @@
 	    }, _temp), (0, _possibleConstructorReturn3['default'])(_this, _ret);
 	  }
 	
-	  Align.prototype.componentDidMount = function componentDidMount() {
-	    var props = this.props;
-	    // if parent ref not attached .... use document.getElementById
-	    this.forceAlign();
-	    if (!props.disabled && props.monitorWindowResize) {
-	      this.startMonitorWindowResize();
+	  (0, _createClass3['default'])(Align, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var props = this.props;
+	      // if parent ref not attached .... use document.getElementById
+	      this.forceAlign();
+	      if (!props.disabled && props.monitorWindowResize) {
+	        this.startMonitorWindowResize();
+	      }
 	    }
-	  };
+	  }, {
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate(prevProps) {
+	      var reAlign = false;
+	      var props = this.props;
 	
-	  Align.prototype.componentDidUpdate = function componentDidUpdate(prevProps) {
-	    var reAlign = false;
-	    var props = this.props;
+	      if (!props.disabled) {
+	        var source = _reactDom2['default'].findDOMNode(this);
+	        var sourceRect = source ? source.getBoundingClientRect() : null;
 	
-	    if (!props.disabled) {
-	      var source = _reactDom2['default'].findDOMNode(this);
-	      var sourceRect = source ? source.getBoundingClientRect() : null;
-	
-	      if (prevProps.disabled) {
-	        reAlign = true;
-	      } else {
-	        var lastElement = getElement(prevProps.target);
-	        var currentElement = getElement(props.target);
-	        var lastPoint = getPoint(prevProps.target);
-	        var currentPoint = getPoint(props.target);
-	
-	        if ((0, _util.isWindow)(lastElement) && (0, _util.isWindow)(currentElement)) {
-	          // Skip if is window
-	          reAlign = false;
-	        } else if (lastElement !== currentElement || // Element change
-	        lastElement && !currentElement && currentPoint || // Change from element to point
-	        lastPoint && currentPoint && currentElement || // Change from point to element
-	        currentPoint && !(0, _util.isSamePoint)(lastPoint, currentPoint)) {
+	        if (prevProps.disabled) {
 	          reAlign = true;
+	        } else {
+	          var lastElement = getElement(prevProps.target);
+	          var currentElement = getElement(props.target);
+	          var lastPoint = getPoint(prevProps.target);
+	          var currentPoint = getPoint(props.target);
+	
+	          if ((0, _util.isWindow)(lastElement) && (0, _util.isWindow)(currentElement)) {
+	            // Skip if is window
+	            reAlign = false;
+	          } else if (lastElement !== currentElement || // Element change
+	          lastElement && !currentElement && currentPoint || // Change from element to point
+	          lastPoint && currentPoint && currentElement || // Change from point to element
+	          currentPoint && !(0, _util.isSamePoint)(lastPoint, currentPoint)) {
+	            reAlign = true;
+	          }
+	
+	          // If source element size changed
+	          var preRect = this.sourceRect || {};
+	          if (!reAlign && source && (!(0, _util.isSimilarValue)(preRect.width, sourceRect.width) || !(0, _util.isSimilarValue)(preRect.height, sourceRect.height))) {
+	            reAlign = true;
+	          }
 	        }
 	
-	        // If source element size changed
-	        var preRect = this.sourceRect || {};
-	        if (!reAlign && source && (preRect.width !== sourceRect.width || preRect.height !== sourceRect.height)) {
-	          reAlign = true;
-	        }
+	        this.sourceRect = sourceRect;
 	      }
 	
-	      this.sourceRect = sourceRect;
-	    }
+	      if (reAlign) {
+	        this.forceAlign();
+	      }
 	
-	    if (reAlign) {
-	      this.forceAlign();
+	      if (props.monitorWindowResize && !props.disabled) {
+	        this.startMonitorWindowResize();
+	      } else {
+	        this.stopMonitorWindowResize();
+	      }
 	    }
-	
-	    if (props.monitorWindowResize && !props.disabled) {
-	      this.startMonitorWindowResize();
-	    } else {
+	  }, {
+	    key: 'componentWillUnmount',
+	    value: function componentWillUnmount() {
 	      this.stopMonitorWindowResize();
 	    }
-	  };
-	
-	  Align.prototype.componentWillUnmount = function componentWillUnmount() {
-	    this.stopMonitorWindowResize();
-	  };
-	
-	  Align.prototype.startMonitorWindowResize = function startMonitorWindowResize() {
-	    if (!this.resizeHandler) {
-	      this.bufferMonitor = (0, _util.buffer)(this.forceAlign, this.props.monitorBufferTime);
-	      this.resizeHandler = (0, _addEventListener2['default'])(window, 'resize', this.bufferMonitor);
+	  }, {
+	    key: 'startMonitorWindowResize',
+	    value: function startMonitorWindowResize() {
+	      if (!this.resizeHandler) {
+	        this.bufferMonitor = (0, _util.buffer)(this.forceAlign, this.props.monitorBufferTime);
+	        this.resizeHandler = (0, _addEventListener2['default'])(window, 'resize', this.bufferMonitor);
+	      }
 	    }
-	  };
-	
-	  Align.prototype.stopMonitorWindowResize = function stopMonitorWindowResize() {
-	    if (this.resizeHandler) {
-	      this.bufferMonitor.clear();
-	      this.resizeHandler.remove();
-	      this.resizeHandler = null;
+	  }, {
+	    key: 'stopMonitorWindowResize',
+	    value: function stopMonitorWindowResize() {
+	      if (this.resizeHandler) {
+	        this.bufferMonitor.clear();
+	        this.resizeHandler.remove();
+	        this.resizeHandler = null;
+	      }
 	    }
-	  };
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      var _this2 = this;
 	
-	  Align.prototype.render = function render() {
-	    var _this2 = this;
+	      var _props = this.props,
+	          childrenProps = _props.childrenProps,
+	          children = _props.children;
 	
-	    var _props = this.props,
-	        childrenProps = _props.childrenProps,
-	        children = _props.children;
+	      var child = _react2['default'].Children.only(children);
+	      if (childrenProps) {
+	        var newProps = {};
+	        var propList = Object.keys(childrenProps);
+	        propList.forEach(function (prop) {
+	          newProps[prop] = _this2.props[childrenProps[prop]];
+	        });
 	
-	    var child = _react2['default'].Children.only(children);
-	    if (childrenProps) {
-	      var newProps = {};
-	      var propList = Object.keys(childrenProps);
-	      propList.forEach(function (prop) {
-	        newProps[prop] = _this2.props[childrenProps[prop]];
-	      });
-	
-	      return _react2['default'].cloneElement(child, newProps);
+	        return _react2['default'].cloneElement(child, newProps);
+	      }
+	      return child;
 	    }
-	    return child;
-	  };
-	
+	  }]);
 	  return Align;
 	}(_react.Component);
 	
@@ -14685,14 +14803,25 @@
 
 /***/ }),
 /* 174 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	exports.__esModule = true;
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 	exports.buffer = buffer;
 	exports.isSamePoint = isSamePoint;
 	exports.isWindow = isWindow;
+	exports.isSimilarValue = isSimilarValue;
+	exports.restoreFocus = restoreFocus;
+	
+	var _contains = __webpack_require__(163);
+	
+	var _contains2 = _interopRequireDefault(_contains);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	
 	function buffer(fn, ms) {
 	  var timer = void 0;
 	
@@ -14730,6 +14859,19 @@
 	
 	function isWindow(obj) {
 	  return obj && typeof obj === 'object' && obj.window === obj;
+	}
+	
+	function isSimilarValue(val1, val2) {
+	  var int1 = Math.floor(val1);
+	  var int2 = Math.floor(val2);
+	  return Math.abs(int1 - int2) <= 1;
+	}
+	
+	function restoreFocus(activeElement, container) {
+	  // Focus back if is in the container
+	  if (activeElement !== document.activeElement && (0, _contains2['default'])(container, activeElement)) {
+	    activeElement.focus();
+	  }
 	}
 
 /***/ }),
@@ -15980,6 +16122,10 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+	/**
+	* This source code is quoted from rc-menu.
+	* homepage: https://github.com/react-component/menu
+	*/
 	var autoAdjustOverflow = {
 	  adjustX: 1,
 	  adjustY: 1
@@ -16023,7 +16169,6 @@
 	u++),t&&t!==g[u]&&(h[e=E(t)]||(h[e]=!0,-1===(e=F(g,t,u))?d.c&&(a.push(p({type:"childList",target:c.node,removedNodes:[t],nextSibling:q[r+1],previousSibling:q[r-1]})),z--):l.push({j:e,l:r})),r++));l&&f(l,b,g,q,z)}var k;n(b,c);return k}function C(a,b){var c=!0;return function f(a){var k={node:a};!b.a||3!==a.nodeType&&8!==a.nodeType?(b.b&&c&&1===a.nodeType&&(k.b=G(a.attributes,function(c,f){if(!b.f||b.f[f.name])c[f.name]=D(a,f);return c})),c&&(b.c||b.a||b.b&&b.g)&&(k.c=N(a.childNodes,f)),c=b.g):k.a=
 	a.nodeValue;return k}(a)}function E(a){try{return a.id||(a.mo_id=a.mo_id||H++)}catch(b){try{return a.nodeValue}catch(c){return H++}}}function N(a,b){for(var c=[],d=0;d<a.length;d++)c[d]=b(a[d],d,a);return c}function G(a,b){for(var c={},d=0;d<a.length;d++)c=b(c,a[d],d,a);return c}function F(a,b,c,d){for(;c<a.length;c++)if((d?a[c][d]:a[c])===b)return c;return-1}v._period=30;v.prototype={observe:function(a,b){for(var c={b:!!(b.attributes||b.attributeFilter||b.attributeOldValue),c:!!b.childList,g:!!b.subtree,
 	a:!(!b.characterData&&!b.characterDataOldValue)},d=this.i,f=0;f<d.length;f++)d[f].s===a&&d.splice(f,1);b.attributeFilter&&(c.f=G(b.attributeFilter,function(a,b){a[b]=!0;return a}));d.push({s:a,o:J(a,c)});this.h||I(this)},takeRecords:function(){for(var a=[],b=this.i,c=0;c<b.length;c++)b[c].o(a);return a},disconnect:function(){this.i=[];clearTimeout(this.h);this.h=null}};var B=document.createElement("i");B.style.top=0;var D=(B="null"!=B.attributes.style.value)?L:M,H=1;return v}(void 0);
-	//# sourceMappingURL=mutationobserver.map
 
 
 /***/ }),
@@ -16075,7 +16220,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-menu.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/menu
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	
 	
 	/* eslint react/no-is-mounted:0 */
 	
@@ -16920,7 +17069,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-menu.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/menu
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	
 	
 	var MenuItemGroup = function (_React$Component) {
 	  _inherits(MenuItemGroup, _React$Component);
@@ -17027,7 +17180,11 @@
 	
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); }
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : _defaults(subClass, superClass); } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * This source code is quoted from rc-menu.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               * homepage: https://github.com/react-component/menu
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               */
+	
 	
 	var Divider = function (_React$Component) {
 	  _inherits(Divider, _React$Component);

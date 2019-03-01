@@ -1,7 +1,5 @@
 /* FormGroup */
 /*  Navlayout  */
-/* FormGroup */
-/*  Navlayout  */
 .u-dropdown {
   position: absolute;
   left: -9999px;
@@ -22,9 +20,9 @@
     text-align: left;
     background-color: #fff;
     border-radius: 3px;
-    box-shadow: 0 1px 5px rgb(224,224,224);
+    box-shadow: 0 1px 5px rgb(165, 173, 186);
     background-clip: padding-box;
-    border: 1px solid rgb(224,224,224); }
+    border: 1px solid rgb(165, 173, 186); }
     .u-dropdown-menu > li {
       margin: 0;
       padding: 0; }
@@ -86,7 +84,7 @@
       font-weight: normal;
       white-space: nowrap; }
       .u-dropdown-menu > .u-dropdown-menu-item:hover, .u-dropdown-menu > .u-dropdown-menu-item-active, .u-dropdown-menu > .u-dropdown-menu-item-selected {
-        background-color: rgb(245,245,245); }
+        background-color: rgb(235, 236, 240); }
       .u-dropdown-menu > .u-dropdown-menu-item-selected {
         position: relative; }
       .u-dropdown-menu > .u-dropdown-menu-item-disabled {
