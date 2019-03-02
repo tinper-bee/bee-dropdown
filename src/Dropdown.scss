@@ -29,7 +29,7 @@
     border-radius: $dropdown-border-radius;
     box-shadow: $dropdown-shadow;
     background-clip: padding-box;
-    border: 1px solid $dropdown-border-color;
+    // border: 1px solid $dropdown-border-color;
 
     > li {
       margin: 0;
@@ -106,6 +106,7 @@
 
       &:hover, &-active, &-selected {
         background-color: $hover-bg-color-base;
+        cursor: pointer;
       }
 
       &-selected {

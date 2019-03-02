@@ -5889,7 +5889,7 @@ a, .mdl-accordion, .mdl-button, .mdl-card, .mdl-checkbox, .mdl-dropdown-menu,
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
   background-color: #fff;
   border: 1px solid transparent;
-  border-radius: 3px; }
+  border-radius: 4px; }
   .u-panel .u-panel-heading {
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
@@ -6055,19 +6055,19 @@ input.u-button[type="submit"] {
     border-color: #adadad; }
 
 .u-button-border {
-  color: rgb(0,0,0);
+  color: rgb(245, 60, 50);
   border: 1px solid rgb(165, 173, 186);
   background: rgb(255,255,255); }
   .u-button-border:hover {
-    color: rgb(0,0,0);
+    color: rgb(245, 60, 50);
     background-color: rgb(238,238,238);
     border-color: rgb(165, 173, 186); }
   .u-button-border:active {
-    color: rgb(0,0,0);
+    color: rgb(245, 60, 50);
     background-color: rgb(189,189,189);
     border-color: rgb(165, 173, 186); }
   .u-button-border:focus:not(:active) {
-    color: rgb(0,0,0);
+    color: rgb(245, 60, 50);
     background-color: rgb(238,238,238);
     border-color: rgb(165, 173, 186); }
 
@@ -6281,10 +6281,6 @@ input.u-button[type="submit"] {
 .u-button-xg {
   padding: 10.5px 18px;
   font-size: 16px; }
-
-.u-button-md {
-  padding: 4px 13px;
-  font-size: 14px; }
 
 .u-button-sm {
   padding: 3px 5px;
@@ -7496,8 +7492,7 @@ input.u-button[type="submit"] {
     background-color: #fff;
     border-radius: 3px;
     box-shadow: 0 1px 5px rgb(165, 173, 186);
-    background-clip: padding-box;
-    border: 1px solid rgb(165, 173, 186); }
+    background-clip: padding-box; }
     .u-dropdown-menu > li {
       margin: 0;
       padding: 0; }
@@ -7559,7 +7554,8 @@ input.u-button[type="submit"] {
       font-weight: normal;
       white-space: nowrap; }
       .u-dropdown-menu > .u-dropdown-menu-item:hover, .u-dropdown-menu > .u-dropdown-menu-item-active, .u-dropdown-menu > .u-dropdown-menu-item-selected {
-        background-color: rgb(235, 236, 240); }
+        background-color: rgb(235, 236, 240);
+        cursor: pointer; }
       .u-dropdown-menu > .u-dropdown-menu-item-selected {
         position: relative; }
       .u-dropdown-menu > .u-dropdown-menu-item-disabled {
