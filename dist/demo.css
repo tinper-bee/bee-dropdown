@@ -90,7 +90,7 @@
         background-color: rgb(235, 236, 240);
         cursor: pointer; }
       .u-dropdown-menu > .u-dropdown-menu-item-selected {
-        background-color: rgb(255, 247, 231);
+        background-color: rgb(247,247,247);
         position: relative; }
       .u-dropdown-menu > .u-dropdown-menu-item-disabled {
         color: rgb(189,189,189);
