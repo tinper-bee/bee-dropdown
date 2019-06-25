@@ -85,6 +85,9 @@ import "./node_modules/bee-dropdown/build/Dropdown.css"
 |getPopupContainer|获取要添加的容器|function|默认是body|
 |getDocument|点击隐藏的容器，适用于出现iframe的情况|function|document|
 |disabled|是否禁用|bool|false|
+|delay|延迟显示隐藏时间，单位毫秒|number|-|
+|delayShow|延迟显示时间，单位毫秒|number|-|
+|delayHide|延迟隐藏时间，单位毫秒|number|-|
 
 
 #### 开发调试
