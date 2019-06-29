@@ -88,6 +88,7 @@ import "./node_modules/bee-dropdown/build/Dropdown.css"
 |delay|延迟显示隐藏时间，单位毫秒|number|-|
 |delayShow|延迟显示时间，单位毫秒|number|-|
 |delayHide|延迟隐藏时间，单位毫秒|number|-|
+|minOverlayWidthMatchTrigger|是否设置下拉的最小宽度|bool|true|
 
 
 #### 开发调试
