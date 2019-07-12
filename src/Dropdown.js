@@ -157,8 +157,8 @@ class Dropdown extends React.Component {
       onPopupVisibleChange={this.onVisibleChange}
       getPopupContainer={getPopupContainer}
       getDocument={getDocument}
-      mouseEnterDelay={delayShow || delay}
-      mouseLeaveDelay={delayHide || delay}
+      mouseEnterDelay={(delayShow && delayShow/1000) || (delay && delay/1000)}
+      mouseLeaveDelay={(delayHide && delayHide/1000) || (delay && delay/1000)}
     >{children}</Trigger>);
   }
 };

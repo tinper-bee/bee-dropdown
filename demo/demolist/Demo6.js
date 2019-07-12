@@ -1,7 +1,7 @@
 /**
  *
  * @title 设置延迟显示/隐藏
- * @description 提供三个参数控制延迟时间：delay、delayShow、delayHide。单位：秒。如 `delay={0.8}` 表示延迟时间为 0.8 秒。
+ * @description 提供三个参数控制延迟时间：delay、delayShow、delayHide。单位：毫秒。如 `delay={800}` 表示延迟时间为 0.8 秒。
  *
  */
 
@@ -39,7 +39,7 @@ const { Item } = Menu;
             <div className="demoPadding">
                 <Dropdown 
                     trigger={['hover']}
-                    delayShow={0.8}
+                    delayShow={800}
                     overlay={menu}
                     animation="slide-up"
                     onVisibleChange={onVisibleChange}>
